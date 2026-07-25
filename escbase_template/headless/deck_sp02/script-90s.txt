@@ -1,0 +1,10 @@
+Sổ tay thi công còn ngoài cổng, tường đã xây xong ba ngày.
+Ngày thứ nhất, đội thợ làm theo trí nhớ, ai cũng thấy ổn. Ngày thứ hai, mỗi người làm một kiểu, chưa ai nhận ra. Ngày thứ ba, hai bức tường không khớp, phải đập bỏ một bức.
+Lỗi không nằm ở tay nghề người thợ. Họ vẫn nhanh, vẫn khoẻ, vẫn làm đúng cái họ đang nghĩ trong đầu. Lỗi nằm ở chỗ cuốn sổ chung chưa bao giờ được mang vào trong công trường.
+Cuốn sổ đó dày, mỗi trang một cái nhãn: dựng móng, chống thấm, tìm vết nứt, nghiệm thu. Mang được nó vào trong, người thợ gặp việc nào là tự lật đúng trang việc đó, không cần ai nhắc.
+Cuốn sổ đó tên là Superpowers, mỗi trang là một skill. Bạn cài nó vào Codex một lần, giống như treo bộ đồ nghề lên tường công trường. Cài xong, bạn không phải thuộc tên trang nào cả.
+Ví dụ thật của chính dự án video này. Gõ: thêm chức năng xuất phụ đề cho tám bài, đó là việc xây mới, nên trang brainstorming tự mở trước khi viết dòng mã nào. Gõ: video có nhạc nhưng mất tiếng đọc, đó là lỗi lạ, nên trang systematic debugging tự vào trước.
+Giờ cài thật. Có hai đường, bạn chỉ đi một đường thôi, tuỳ bản Codex đang dùng. Đường thứ nhất, bản Codex App: mở mục Plugins ở thanh bên, tìm Superpowers trong nhóm Coding, rồi bấm dấu cộng.
+Đường thứ hai, bản dòng lệnh: gõ gạch chéo plugins, tìm Superpowers, chọn Install Plugin. Cả hai đường đều kết thúc giống nhau, làm theo hướng dẫn hiện trên màn hình rồi mở lại phiên làm việc. Từ lúc đó bạn không phải gõ thêm gì nữa, cứ giao việc như thường.
+Bẫy đầu tiên ai cũng sập: cài xong liền nhắn việc này nhỏ, bỏ qua các bước cho nhanh. Chính việc nhỏ, nói mơ hồ, mới hay bị làm sai mà không ai để ý. Cứ để nó hỏi hết, bạn trả lời xong rồi hãy gật đầu.
+Cài xong chỉ là mang cuốn sổ qua cổng, đặt vào công trường. Lật đúng trang trước khi xây, bức tường mới đứng đúng chỗ. Sổ ngoài cổng thì tường vẫn mọc, chỉ là mọc sai.

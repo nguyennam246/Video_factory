@@ -1,0 +1,131 @@
+{
+  "theme": {
+    "preset": "custom",
+    "variables": {
+      "--primary": "#38bdf8",
+      "--primary-light": "#bae6fd",
+      "--primary-dark": "#075985",
+      "--accent": "#fbbf24",
+      "--accent-light": "#fde68a",
+      "--info": "#7dd3fc",
+      "--success": "#34d399",
+      "--bg-dark": "#04070d"
+    },
+    "customVariables": {
+      "--primary": "#38bdf8",
+      "--primary-light": "#bae6fd",
+      "--primary-dark": "#075985",
+      "--accent": "#fbbf24",
+      "--accent-light": "#fde68a",
+      "--info": "#7dd3fc",
+      "--success": "#34d399",
+      "--bg-dark": "#04070d"
+    }
+  },
+  "bgm": {
+    "mode": "preset",
+    "preset": "lofi",
+    "volume": 0.3,
+    "custom": {
+      "name": "meta.mp3",
+      "path": "preview-assets/bgm/meta.mp3",
+      "url": "preview-assets/bgm/meta.mp3"
+    }
+  },
+  "subtitles": {
+    "enabled": true,
+    "color": "#ffffff",
+    "activeColor": "#38bdf8",
+    "fontSize": 18,
+    "bottom": 172,
+    "maxLines": 1
+  },
+  "visuals": {
+    "colorMode": "dark",
+    "backgroundColor": "#04070d",
+    "gridEnabled": false,
+    "gridLight": "#38bdf8",
+    "iconGlow": "#fbbf24",
+    "iconBacklight": "#38bdf8",
+    "iconLight": "#34d399",
+    "mainLight": "#38bdf8",
+    "mainLightPosition": "top-center",
+    "mainLightIntensity": "medium",
+    "softLight": "#fbbf24",
+    "softLightPosition": "bottom-right",
+    "softLightIntensity": "medium",
+    "backgroundFx": "particles",
+    "slideLights": {
+      "0": {
+        "mainLight": "#38bdf8",
+        "mainLightPosition": "top-center",
+        "mainLightIntensity": "medium",
+        "softLight": "#fbbf24",
+        "softLightPosition": "bottom-right",
+        "softLightIntensity": "medium"
+      }
+    },
+    "customValues": {
+      "backgroundColor": "#04070d",
+      "gridLight": "#38bdf8",
+      "iconGlow": "#fbbf24",
+      "iconBacklight": "#38bdf8",
+      "iconLight": "#34d399",
+      "mainLight": "#38bdf8",
+      "mainLightPosition": "top-center",
+      "mainLightIntensity": "medium",
+      "softLight": "#fbbf24",
+      "softLightPosition": "bottom-right",
+      "softLightIntensity": "medium",
+      "slideLights": {
+        "0": {
+          "mainLight": "#38bdf8",
+          "mainLightPosition": "top-center",
+          "mainLightIntensity": "medium",
+          "softLight": "#fbbf24",
+          "softLightPosition": "bottom-right",
+          "softLightIntensity": "medium"
+        }
+      }
+    }
+  },
+  "slides": {
+    "deletedIds": [],
+    "scriptLines": [
+      "Ba lần thay đồ mà nước vẫn chảy yếu, vì sao?",
+      "Thợ thay vòi mới, nước yếu như cũ. Thay tiếp máy bơm, rồi thay cả van nước, vẫn y như cũ. Mỗi lần tốn thêm một khoản, mà chưa ai đo xem nước mất áp ở chỗ nào.",
+      "Lỗi không nằm ở cái vòi, cũng không ở máy bơm hay cái van vừa thay. Người thợ vẫn làm đúng nghề, đúng thứ tự, không bỏ bước nào. Lỗi nằm ở một đoạn ống khuất trong tường, chỗ chưa ai mở ra xem.",
+      "Thay đồ ngay tại chỗ thấy nước rỉ ra là sửa mò. Lần theo dòng nước ngược từ vòi vào sâu trong tường, tới đúng chỗ ống vỡ, mới là đi chắc.",
+      "Trang sổ này tên là Gỡ Lỗi Có Hệ Thống. Luật của nó chỉ một câu: chưa tìm ra đúng chỗ ống vỡ thì chưa được đề xuất cách sửa. Nó buộc người thợ đi đủ bốn bước, không cho nhảy cóc sang sửa ngay.",
+      "Ví dụ thật của chính dự án này: một video có nhạc nền, người xem nghe không rõ giọng đọc. Đo riêng giọng đọc, mức âm khoảng âm hai mươi hai phẩy bốn đề xi ben. Trộn xong với nhạc, cả video chỉ còn khoảng âm ba mươi phẩy bảy đề xi ben.",
+      "Bước một, thu bằng chứng: đọc lỗi, đo mức âm từng chặng, thấy chặng tụt ở khâu trộn nhạc với giọng. Bước hai, so mẫu: đặt cách trộn đang lỗi cạnh cách trộn chuẩn, tìm điểm khác nhau. Điểm khác lộ ra ngay: bộ trộn mặc định tự chia nhỏ mức từng kênh.",
+      "Bước ba, nêu một giả thuyết: tắt phép tự chia nhỏ đó, tự đặt lại mức từng kênh, không đổi gì khác. Bước bốn, sửa đúng chỗ vừa nêu rồi đo lại đúng chặng đó. Bản mới đo được khoảng âm mười tám phẩy tám đề xi ben, giọng nghe rõ.",
+      "Bẫy người mới hay sập: thấy số đo đẹp lên liền khen giọng đọc nghe hay hơn. Vì sao sập: máy chỉ đo được to nhỏ, nó không nghe được hay hay dở. Cách né: đo xong thì đưa người thật nghe rồi mới phán.",
+      "Đừng thay vòi chỉ vì nước ở vòi chảy yếu. Đo cả đường ống trước, tìm cho đúng chỗ vỡ đã. Ba lần thay đồ không bằng một lần đo đúng."
+    ],
+    "transitionSounds": [
+      "dramatic",
+      "sweep",
+      "rise",
+      "chime",
+      "bass",
+      "alarm",
+      "chord",
+      "boom",
+      "rise",
+      "gong"
+    ],
+    "revealSounds": [
+      "sparkle",
+      "pop",
+      "blip",
+      "tick",
+      "bubble",
+      "bell",
+      "pop",
+      "tick",
+      "blip",
+      "chime"
+    ]
+  }
+}

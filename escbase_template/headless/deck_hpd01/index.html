@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HPD — biên lãi 48%, ưu đãi thuế vừa hết hạn</title>
+  <meta name="description" content="Đọc báo cáo tài chính cho người mới: ca HPD (Thủy điện Đăk Đoa, một nhà máy tại Gia Lai). Doanh thu 2025 là 51,56 tỷ, lãi sau thuế 24,92 tỷ, biên 48%; ưu đãi thuế TNDN 10% kết thúc hết 2025, từ 2026 nộp 20%; bảng kế hoạch 2026 chỉ ghi lãi trước thuế. Không phải khuyến nghị đầu tư." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="style.css?v=hpd-01-danh-gia" />
+</head>
+<body>
+  <div class="main-wrapper">
+    <div class="script-panel" id="scriptPanel"><div class="script-panel-title"><i class="fa-solid fa-scroll"></i> Script</div><div class="script-panel-badge" id="scriptSlideBadge">Ready</div><div class="script-panel-text" id="scriptText">Bấm vào slide để bắt đầu...</div></div>
+    <div class="audio-panel" id="audioPanel"><div class="audio-panel-title"><i class="fa-solid fa-sliders"></i> Âm Thanh</div><div class="audio-group"><label class="audio-label"><i class="fa-solid fa-music"></i> Nhạc nền</label><select id="bgmSelect" onchange="switchBGM(this.value)"><option value="ambient" selected>Ambient</option><option value="cinematic">Cinematic</option><option value="lofi">Lo-fi</option><option value="piano">Piano</option><option value="dark">Dark</option><option value="custom">Custom upload</option><option value="none">Tắt</option></select></div><div class="audio-panel-divider"></div><div class="audio-slide-header"><span class="audio-slide-badge" id="audioPanelSlide">Ready</span><div class="audio-slide-nav"><button class="audio-nav-btn" onclick="audioPanelPrev()"><i class="fa-solid fa-chevron-left"></i></button><button class="audio-nav-btn" onclick="audioPanelNext()"><i class="fa-solid fa-chevron-right"></i></button></div></div><div class="audio-group"><label class="audio-label"><i class="fa-solid fa-forward"></i> Chuyển slide</label><select id="transitionSelect" onchange="setSlideTransition(currentSlide, this.value)"><option value="gong">Gong</option><option value="rise">Rise</option><option value="bass">Bass</option><option value="chime">Chime</option><option value="sweep">Sweep</option><option value="boom">Boom</option><option value="alarm">Alarm</option><option value="chord">Chord</option><option value="ascending">Ascending</option><option value="retro">Retro</option><option value="minimal">Minimal</option><option value="dramatic">Dramatic</option></select></div><div class="audio-group"><label class="audio-label"><i class="fa-solid fa-wand-magic-sparkles"></i> Hiện element</label><select id="revealSelect" onchange="setSlideReveal(currentSlide, this.value)"><option value="ping">Ping</option><option value="pop">Pop</option><option value="chime">Chime</option><option value="click">Click</option><option value="bubble">Bubble</option><option value="sparkle">Sparkle</option><option value="blip">Blip</option><option value="tick">Tick</option><option value="bell">Bell</option></select></div><div class="audio-actions"><button onclick="testTransition()">Test slide</button><button onclick="testReveal()">Test reveal</button></div></div>
+
+    <div id="slideContainer" class="slide-container">
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+      <div class="brand-top-left"><span>dungladu.vn</span></div>
+      <div class="brand-bottom-right"><span>dungladu.vn</span></div>
+
+      <!-- ============ SLIDE 1 — HOOK 3 GIÂY (1 câu, 1 reveal) ============ -->
+      <div class="slide active" data-slide="0">
+        <div class="slide-bg slide-bg-1"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content hero-content pixelle-hero-content cursor-pixelle-hero">
+          <div class="slide-element fade-up">
+            <div class="pixelle-hero-orbit cursor-pixelle-orbit">
+              <div class="orbit-ring ring-a"></div><div class="orbit-ring ring-b"></div>
+              <div class="pixelle-core cursor-pixelle-core"><i class="fa-solid fa-bolt hk-core-icon"></i></div>
+              <span class="orbit-chip pv-chip-script">doanh thu 51,56 tỷ</span><span class="orbit-chip pv-chip-media">lãi 24,92 tỷ</span><span class="orbit-chip pv-chip-voice">thuế 10% hết 2025</span><span class="orbit-chip pv-chip-render">từ 2026: 20%</span>
+            </div>
+            <h1 class="title-main title-shimmer title-glitch"><span class="gradient-text hero-version-text">Biên lãi 48%</span></h1>
+            <p class="hero-caption">mà ưu đãi thuế vừa hết hạn</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ SLIDE 2 — ĐẶT BÀI: HPD làm gì (2 câu) ============ -->
+      <div class="slide" data-slide="1">
+        <div class="slide-bg slide-bg-2"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content hk-content">
+          <div class="slide-element fade-up">
+            <div class="hk-head hk-row"><span class="hk-kicker">HPD</span><h2 class="hk-title">Thủy điện <em>Đăk Đoa</em></h2></div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="hk-names"><code class="hk-name-key">Gia Lai</code><code class="hk-name-key">1 nhà máy</code><code class="hk-name-key">14 MW</code><code class="hk-name-key">bán điện</code></div>
+            <p class="cm-caption">doanh thu 2025: <b>51,56 tỷ</b> · lãi sau thuế <b>24,92 tỷ</b></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ SLIDE 3 — vì sao biên dày: giá vốn & khấu hao (3 câu) ============ -->
+      <div class="slide" data-slide="2">
+        <div class="slide-bg slide-bg-3"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content hk-content">
+          <div class="slide-element fade-up">
+            <div class="hk-head hk-row"><span class="hk-kicker">100 đồng doanh thu</span><h2 class="hk-title">giữ lại <em>48 đồng</em></h2></div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="hk-names cm-names-big"><code class="hk-name-key">giá vốn bán điện cả năm: 19,78 tỷ</code></div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="cm-cost">
+              <div class="cm-cost-row"><span class="cm-cost-tag">13,65 tỷ</span><div class="cm-cost-bar"><span></span></div></div>
+              <p class="cm-cost-label">khấu hao, giá trị nhà máy <b>chia dần vào chi phí</b></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ SLIDE 4 — VẤN ĐỀ 1: ưu đãi thuế hết hạn (3 câu) ============ -->
+      <div class="slide" data-slide="3">
+        <div class="slide-bg slide-bg-4"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content hk-content hk-content-tight">
+          <div class="slide-element fade-up">
+            <div class="hk-head hk-row"><span class="hk-kicker">ưu đãi 15 năm, 2011 đến 2025</span><h2 class="hk-title">thuế <em>10% lên 20%</em></h2></div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="hk-note hk-note-cost"><i class="fa-solid fa-calendar-xmark"></i> từ 2026 nộp <b>thuế suất thông thường</b></div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="hk-branch">
+              <div class="hk-answer hk-answer-no"><i class="fa-solid fa-file-invoice-dollar"></i> lãi trước thuế 2025 <b>27,73 tỷ</b></div>
+              <div class="hk-answer hk-answer-no"><i class="fa-solid fa-coins"></i> sau thuế còn <b>24,92 tỷ</b></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ SLIDE 5 — VẤN ĐỀ 2: kế hoạch 2026 bỏ trống LNST (3 câu) ============ -->
+      <div class="slide" data-slide="4">
+        <div class="slide-bg slide-bg-5"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content hk-content hk-content-tight">
+          <div class="slide-element fade-up">
+            <div class="hk-head hk-row"><span class="hk-kicker">sản lượng điện 2025</span><h2 class="hk-title">vượt kế hoạch <em>27%</em></h2></div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="hk-note"><i class="fa-solid fa-cloud-rain"></i> <b>48,49 triệu kWh</b>, nhờ mưa cuối năm</div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="sc-file">
+              <p class="sc-file-line"><span class="sg-num">1</span> KH 2026 trước thuế: <b>29,66 tỷ</b></p>
+              <p class="sc-file-line"><span class="sg-num">2</span> KH 2026 sau thuế: <b>bỏ trống</b></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ SLIDE 6 — GIÁ so GIÁ TRỊ SỔ SÁCH (3 câu) ============ -->
+      <div class="slide" data-slide="5">
+        <div class="slide-bg slide-bg-6"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content hk-content hk-content-tight">
+          <div class="slide-element fade-up">
+            <div class="hk-head hk-row"><span class="hk-kicker">ngày 24/07/2026</span><h2 class="hk-title">giá <em>16.200 đ</em></h2></div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="hk-names cm-names-big"><code class="hk-name-key">giá trị sổ sách = vốn chủ ÷ số cổ phiếu</code></div>
+            <p class="cm-caption">năm 2025 mỗi cổ phiếu lãi <b>3.000 đ</b></p>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="hk-versus">
+              <div class="hk-vs-node hk-vs-new"><i class="fa-solid fa-tag"></i><b>16.200 đ</b><span>giá phải trả</span></div>
+              <div class="hk-vs-arrow"><i class="fa-solid fa-arrow-right-long"></i></div>
+              <div class="hk-vs-node hk-vs-new"><i class="fa-solid fa-book"></i><b>16.932 đ</b><span>giá trị sổ sách</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ SLIDE 7 — MẶT KIA (2 câu) ============ -->
+      <div class="slide" data-slide="6">
+        <div class="slide-bg slide-bg-7"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content hk-content">
+          <div class="slide-element fade-up">
+            <div class="sg-cond">
+              <span class="sg-cond-tag">mặt khác</span>
+              <span class="sg-cond-item"><i class="fa-solid fa-circle-minus"></i> vay dài hạn cuối 2025 <b>về 0</b></span><span class="sg-cond-item"><i class="fa-solid fa-arrow-trend-down"></i> nợ vay / vốn chủ 0,25 → <b>0,11</b></span>
+            </div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="hk-branch">
+              <div class="hk-answer hk-answer-ok"><i class="fa-solid fa-water"></i> dòng tiền kinh doanh <b>38,87 tỷ</b></div>
+              <div class="hk-answer hk-answer-ok"><i class="fa-solid fa-circle-check"></i> kiểm toán <b>chấp nhận toàn phần</b></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ SLIDE 8 — ĐIỀU CHƯA BIẾT (2 câu) ============ -->
+      <div class="slide" data-slide="7">
+        <div class="slide-bg slide-bg-8"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content hk-content">
+          <div class="slide-element fade-up">
+            <div class="hk-head hk-row"><span class="hk-kicker">điều báo cáo không trả lời</span><h2 class="hk-title">bảo lãnh <em>cho ai, bao nhiêu?</em></h2></div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="hk-branch">
+              <div class="hk-answer hk-answer-no"><i class="fa-solid fa-file-signature"></i> hợp đồng đã ký: <b>không nêu</b></div>
+              <div class="hk-answer hk-answer-no"><i class="fa-solid fa-circle-question"></i> hạn mức, dư nợ bảo lãnh: <b>không nêu</b></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ SLIDE 9 — BA CÂU HỎI (3 câu) ============ -->
+      <div class="slide" data-slide="8">
+        <div class="slide-bg slide-bg-9"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content hk-content hk-content-tight">
+          <div class="slide-element fade-up">
+            <div class="hk-head hk-row"><span class="hk-kicker">cầm một báo cáo thì hỏi</span><h2 class="hk-title">ba <em>câu</em></h2></div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="sc-file">
+              <p class="sc-file-line"><span class="sg-num">1</span> bao nhiêu lãi đến từ ưu đãi vừa hết?</p>
+            </div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="sc-file">
+              <p class="sc-file-line"><span class="sg-num">2</span> kế hoạch năm tới bỏ trống chỉ tiêu nào?</p>
+              <p class="sc-file-line"><span class="sg-num">3</span> tài sản đang bảo đảm cho nợ của ai?</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ SLIDE 10 — CHỐT (3 câu) ============ -->
+      <div class="slide" data-slide="9">
+        <div class="slide-bg slide-bg-10"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content conclusion-content hk-content hk-content-tight">
+          <div class="slide-element fade-up">
+            <div class="hk-note"><i class="fa-solid fa-book-open-reader"></i> nhà máy chạy tốt, ít nợ vay, <b>dòng tiền thật</b></div>
+          </div>
+          <div class="slide-element fade-up">
+            <div class="hk-lockup hk-lockup-a"><i class="fa-solid fa-calendar-xmark"></i><span class="hk-lockup-line"><strong>Ưu đãi hết hạn là một chuyện.</strong></span></div>
+          </div>
+          <div class="slide-element fade-up">
+            <div class="hk-lockup hk-lockup-b"><div class="glowing-orb"></div><i class="fa-solid fa-vault"></i><strong>Giữ lại bao nhiêu sau thuế là chuyện khác.</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-controls"><button class="side-btn" id="muteBtn" onclick="toggleMute()"><i class="fa-solid fa-volume-high"></i></button><div class="side-divider"></div><button class="side-btn" id="prevBtn" onclick="prevSlide()"><i class="fa-solid fa-chevron-up"></i></button><div class="side-counter"><span id="currentSlide">1</span>/<span id="totalSlides">10</span></div><button class="side-btn" id="nextBtn" onclick="nextSlide()"><i class="fa-solid fa-chevron-down"></i></button></div>
+  </div>
+  <script src="app.js?v=hpd-01-danh-gia"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+AI vừa sửa tám file cho bạn, và bạn đọc lại thì thấy nó đi sai hướng ngay từ file thứ hai.
+Phản xạ đầu tiên của hầu hết mọi người là bảo nó sửa ngược lại. Đó là phản xạ sai. Nó sẽ đắp thêm mã mới lên trên cái sai cũ.
+Sau ba vòng như thế thì không ai gỡ ra được nữa. Cái bạn cần không phải sửa, mà là quay ngược thời gian về trước file thứ hai.
+Checkpoint là ảnh chụp. Cứ trước mỗi lần AI động vào file, trạng thái được chụp lại một tấm. Bạn không phải làm gì để nó chụp, nó chụp sẵn.
+Muốn quay lui thì gõ lệnh lùi, hoặc bấm phím thoát hai lần. Một danh sách các mốc hiện ra, bạn chọn mốc muốn về.
+Nó còn cho chọn lùi cái gì. Chỉ lùi file mà giữ nguyên cuộc trò chuyện, chỉ lùi cuộc trò chuyện mà giữ nguyên file, hoặc lùi cả hai. Cái đầu tiên hay dùng nhất, lùi file về trạng thái cũ nhưng giữ lại đoạn trò chuyện, để bạn nói cho nó biết nó đã hiểu sai chỗ nào.
+Nhưng phải nhớ ba giới hạn. Thứ nhất, nó chỉ giữ trong buổi làm việc này, đóng máy là hết. Thứ hai, nó chỉ lùi được cái do AI sửa, bạn tự tay sửa thì nó không quản.
+Thứ ba, và đây là cái quan trọng nhất, nó không lùi được hậu quả của một câu lệnh đã chạy. Lệnh xoá đã chạy thì file đã mất. Ảnh chụp không mọc lại file cho bạn.
+Cho nên checkpoint và cái khoá ở bài đầu tiên đi với nhau thành một cặp. Cái khoá chặn cái không được phép xảy ra. Ảnh chụp gỡ cái lỡ xảy ra.
+Và vẫn nên lưu mốc bằng git sau mỗi bước chạy được, ảnh chụp chỉ là cái lưới đỡ tạm, không phải trí nhớ dài hạn. Dám để AI làm nhanh, là vì biết trước đường lùi nằm ở đâu.

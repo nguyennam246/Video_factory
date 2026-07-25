@@ -1,0 +1,10 @@
+Người thợ đóng dấu đạt lên viên gạch, chưa từng đặt một cân nặng nào lên nó.
+Xưởng dựng cả một bức tường từ những viên gạch đã đóng dấu đạt như vậy. Ngày thứ mười, tường vẫn đứng thẳng, ai nhìn cũng thấy ổn. Ngày thứ mười lăm, thợ chất thêm xi măng lên tầng hai, một góc tường sụp xuống.
+Tường sụp không phải vì thợ ẩu, vì gạch họ đặt vẫn đúng loại. Tường sụp vì con dấu đạt kia chưa từng thật sự bị thử. Không ai từng đặt một cân tải nào lên nó trước khi đóng dấu.
+Coi cả vòng này như một cây cột đèn ba màu, đỏ, vàng, xanh, dựng cạnh công trường. Đèn đỏ phải bật lên trước tiên, cố ý, để chắc chắn mắt còn nhìn thấy nó sáng.
+Việc này có tên là TDD, viết phép thử trước, thấy nó thất bại đúng lý do, rồi mới viết mã chạy thật. Đỏ là phép thử thất bại, xanh là mã tối thiểu đủ để nó qua. Dọn là bước cuối, mã sạch hơn mà phép thử vẫn xanh.
+Ví dụ thật, trong dự án làm video này, có một tập tin thước tự chấm cho bộ hook. Nó không gọi một lượt mô hình nào, tự chấm điểm phép thử của chính bộ hook. Một luật nó giữ, nội dung nạp đầu phiên không được vượt quá mười ba nghìn ký tự.
+Giả sử thêm luật mới, tập tin thiếu khoang trạng thái thì hook phải báo lỗi. Bước một, tạo tập tin thiếu đúng khoang đó, viết phép thử đòi mã thoát khác không, báo rõ. Bước hai, chạy phép thử, nó phải đỏ vì hook chưa biết luật, không vì gõ sai tên.
+Bước ba, thêm đúng phần kiểm tra tối thiểu vào hook, không tiện tay đổi tên hàm hay thêm luật khác. Bước bốn, chạy phép thử mới cùng toàn bộ thước cũ, tất cả phải xanh. Xanh rồi mới được dọn tên biến hay tách hàm, phép thử vẫn phải đứng xanh.
+Bẫy quen nhất, viết mã trước, giữ nó làm mẫu, rồi viết phép thử đúng theo cách mã đã làm. Phép thử viết sau luôn qua ngay, vì soi gương mã đang có. Cách né, bắt phép thử thất bại trước khi có mã, như bắt viên gạch chịu tải trước khi đóng dấu.
+Đừng đóng dấu đạt rồi mới thử viên gạch. Hãy để phép thử thất bại trước, để biết màu xanh sau đó có nghĩa thật. Viên gạch không cần con dấu đẹp, nó cần một cân nặng thật đã từng đặt lên nó.

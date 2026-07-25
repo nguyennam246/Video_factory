@@ -1,0 +1,10 @@
+Đây là bài quan trọng nhất trong bộ này, vì hiểu nó rồi thì tám bài kia mới có lý do tồn tại.
+Hầu hết mọi người tin rằng AI nhớ cuộc trò chuyện. Không. Nó không nhớ một chữ nào.
+Hãy hình dung thế này. Mỗi lần bạn gõ một câu, người thợ bị thay bằng một người thợ mới toanh. Người mới không biết gì, nên toàn bộ cuộc trò chuyện từ đầu buổi được đọc lại cho anh ta nghe, từ câu số một.
+Tờ nội quy. Mọi câu hỏi cũ, mọi câu trả lời cũ, mọi file đã mở ra xem, đọc lại hết. Rồi cuối cùng mới tới câu bạn vừa gõ, và anh ta trả lời.
+Bạn hỏi câu tiếp theo. Lại một người thợ mới, lại đọc lại từ đầu, lần này dài hơn lần trước một đoạn. Nên chi phí không phải là số câu bạn hỏi, nó là độ dài cuộc trò chuyện nhân với số câu.
+Từ đó ra một hệ quả trái ngược hẳn với bản năng. Bạn đổ cả một thư mục vào cho AI tự tìm, nghe thì tiện. Nhưng thư mục đó sẽ được đọc lại ở mọi câu hỏi sau đó, tới hết buổi.
+Cách đúng thì ngược lại. Đếm trước, lọc trước, rồi mới đưa. Đưa mười file đúng, đừng đưa hai trăm file để tìm ra mười.
+Có một cơ chế đệm giúp phần lặp lại rẻ đi khoảng mười lần, nhưng rẻ đi mười lần không có nghĩa là miễn phí. Khi cuộc trò chuyện quá dài, hệ thống tự tóm tắt phần cũ lại để chạy tiếp. Bạn không mất việc đang làm, nhưng chi tiết thì mòn dần.
+Giờ nhìn lại tám bài kia, bạn sẽ thấy chúng đều là một câu trả lời cho cùng một bài toán này. Sai người khác đi lục kho, để đống bụi không nằm lại trong cuộc trò chuyện của bạn. Cẩm nang nằm im trên giá, chỉ mở khi đúng việc, để không phải trả tiền cho nó ở chín phiên không dùng.
+Tờ nội quy giữ cho gọn, vì nó dài thêm một trang là bạn trả thêm ở mọi phiên về sau. Mang ít thì đi được xa.

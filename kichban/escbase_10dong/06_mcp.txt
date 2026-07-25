@@ -1,0 +1,10 @@
+Người thợ bạn thuê rất giỏi, nhưng anh ta chỉ với tay được tới hai thứ.
+Các file trong máy bạn, và cái dòng lệnh. Hết. Ngoài hàng rào đó thì anh ta mù.
+Hộp thư của bạn, anh ta không thấy. Trình duyệt đang mở, không thấy. Bảng tính trên mây, cũng không thấy.
+Bạn có thể tự viết tay từng cây cầu nối tới từng thứ. Nhưng mỗi thứ một kiểu, viết mãi không hết.
+MCP là cách bỏ chuyện đó đi. Nó là một cái phích cắm chuẩn, giống ổ điện trong nhà. Ổ điện không cần biết bạn cắm quạt hay cắm đèn, miễn là đầu phích đúng chuẩn.
+Bên ngoài, người ta dựng sẵn một máy chủ nhỏ. Nó tự khai, tôi làm được những việc này, muốn gọi thì đưa tôi thông tin này. Bạn cắm vào là dùng được ngay, không phải viết cầu nối, không phải hiểu bên trong nó chạy ra sao.
+Cắm bằng một dòng lệnh, khai tên và khai cách khởi động nó. Cái lợi lớn nhất là chuẩn dùng chung. Một máy chủ viết ra một lần, cắm được cho nhiều phần mềm AI khác nhau.
+Nhưng có cái giá, và nó ngược với bản năng của hầu hết mọi người. Mỗi máy chủ bạn cắm vào, bản khai của nó nằm trong đầu AI suốt buổi làm việc, kể cả buổi đó bạn không đụng tới nó một lần nào. Cắm mười cái cho oai, thì mỗi câu bạn hỏi đều gánh theo mười bản khai, chậm hơn và đắt hơn.
+Và tệ nhất là AI dễ chọn nhầm công cụ. Cho một người mười hai món đồ nghề để đóng một cái đinh, thế nào cũng có lúc cầm nhầm. Nên nguyên tắc là cắm ít nhất có thể, chỉ cắm cái mà tuần nào bạn cũng đụng tới.
+Còn một điều phải cảnh giác, thứ từ bên ngoài trả về là dữ liệu, không phải mệnh lệnh. Trang web, file, thư từ, trong đó có thể có câu chữ viết ra để sai khiến AI, gặp thì đừng nghe mà hỏi lại bạn. Nối thêm một cánh tay, thì cũng là mở thêm một cánh cửa.

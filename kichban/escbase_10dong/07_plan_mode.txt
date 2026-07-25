@@ -1,0 +1,10 @@
+Bạn thuê thợ sửa nhà, và bảo đục cái tường ngăn giữa bếp với phòng khách cho thoáng.
+Anh thợ gật, xách búa đi luôn. Nửa tiếng sau bạn nghe tiếng đổ. Anh ta đục nhầm bức tường chịu lực.
+Lỗi ở đâu? Không phải anh thợ dốt. Là không ai kịp cản anh ta trước khi nhát búa đầu tiên rơi xuống.
+AI cũng y hệt. Nó hiểu sai một chỗ ở câu đầu, rồi sửa mười hai file theo cái hiểu sai đó.
+Chế độ lập kế hoạch chặn đúng chỗ đó. Bật lên rồi thì AI được đi xem, được đo, được hỏi. Nhưng không được cầm búa.
+Nó đi khảo sát xong thì quay ra trình bày, tôi hiểu việc thế này, tôi định làm theo các bước sau. Đây là lúc bạn đọc. Và đây cũng là lúc bạn phát hiện nó hiểu sai, khi chưa có bức tường nào đổ.
+Bạn sửa lại chỗ hiểu sai, rồi bạn duyệt. Duyệt xong nó mới được động vào file. Bật bằng cách bấm phím tắt xoay chế độ, hoặc đơn giản hơn, nói thẳng ra là lập kế hoạch trước đã.
+Cái được thật ra không phải bản kế hoạch. Bản kế hoạch chỉ là cái cớ để bạn nhìn thấy nó đang hiểu việc thế nào.
+Dùng khi nào? Việc nhiều bước, việc đụng nhiều file, việc khó lùi lại, và việc chính bạn còn chưa nghĩ thông. Cái cuối cùng là hay nhất, nhiều lần tôi bắt lập kế hoạch không phải để kiểm tra AI, mà để tự nhìn ra chính tôi chưa nghĩ kỹ.
+Đừng dùng khi nào? Việc sửa một dòng, bắt bàn bạc cho việc vặt chỉ tốn thêm một vòng qua lại vô ích. Bàn năm phút rẻ hơn sửa hai giờ.

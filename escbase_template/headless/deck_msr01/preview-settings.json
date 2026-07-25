@@ -1,0 +1,131 @@
+{
+  "theme": {
+    "preset": "custom",
+    "variables": {
+      "--primary": "#ffb020",
+      "--primary-light": "#ffd27a",
+      "--primary-dark": "#8a5a00",
+      "--accent": "#ef4444",
+      "--accent-light": "#ff9a9a",
+      "--info": "#ffcf8a",
+      "--success": "#a3e635",
+      "--bg-dark": "#04070d"
+    },
+    "customVariables": {
+      "--primary": "#ffb020",
+      "--primary-light": "#ffd27a",
+      "--primary-dark": "#8a5a00",
+      "--accent": "#ef4444",
+      "--accent-light": "#ff9a9a",
+      "--info": "#ffcf8a",
+      "--success": "#a3e635",
+      "--bg-dark": "#04070d"
+    }
+  },
+  "bgm": {
+    "mode": "custom",
+    "preset": "ambient",
+    "volume": 0.3,
+    "custom": {
+      "name": "meta.mp3",
+      "path": "preview-assets/bgm/meta.mp3",
+      "url": "preview-assets/bgm/meta.mp3"
+    }
+  },
+  "subtitles": {
+    "enabled": true,
+    "color": "#ffffff",
+    "activeColor": "#ffb020",
+    "fontSize": 18,
+    "bottom": 172,
+    "maxLines": 1
+  },
+  "visuals": {
+    "colorMode": "dark",
+    "backgroundColor": "#04070d",
+    "gridEnabled": false,
+    "gridLight": "#ffb020",
+    "iconGlow": "#ef4444",
+    "iconBacklight": "#ffb020",
+    "iconLight": "#a3e635",
+    "mainLight": "#ffb020",
+    "mainLightPosition": "top-center",
+    "mainLightIntensity": "medium",
+    "softLight": "#ef4444",
+    "softLightPosition": "bottom-right",
+    "softLightIntensity": "medium",
+    "backgroundFx": "particles",
+    "slideLights": {
+      "0": {
+        "mainLight": "#ffb020",
+        "mainLightPosition": "top-center",
+        "mainLightIntensity": "medium",
+        "softLight": "#ef4444",
+        "softLightPosition": "bottom-right",
+        "softLightIntensity": "medium"
+      }
+    },
+    "customValues": {
+      "backgroundColor": "#04070d",
+      "gridLight": "#ffb020",
+      "iconGlow": "#ef4444",
+      "iconBacklight": "#ffb020",
+      "iconLight": "#a3e635",
+      "mainLight": "#ffb020",
+      "mainLightPosition": "top-center",
+      "mainLightIntensity": "medium",
+      "softLight": "#ef4444",
+      "softLightPosition": "bottom-right",
+      "softLightIntensity": "medium",
+      "slideLights": {
+        "0": {
+          "mainLight": "#ffb020",
+          "mainLightPosition": "top-center",
+          "mainLightIntensity": "medium",
+          "softLight": "#ef4444",
+          "softLightPosition": "bottom-right",
+          "softLightIntensity": "medium"
+        }
+      }
+    }
+  },
+  "slides": {
+    "deletedIds": [],
+    "scriptLines": [
+      "Giá vonfram tăng một trăm sáu mươi mốt phần trăm, lãi cả năm mười một tỷ.",
+      "MSR khai thác và chế biến vonfram, fluorit, đồng cùng bismut. Năm 2025, công ty đạt hơn bảy nghìn bốn trăm tỷ đồng doanh thu.",
+      "MSR tạo ra hơn một nghìn ba trăm bảy mươi lăm tỷ lợi nhuận gộp. Đây là phần còn lại sau chi phí làm ra sản phẩm. Lãi vay, tức tiền trả cho vốn mượn, vượt một nghìn không trăm hai mươi tỷ.",
+      "Kết quả cuối cùng năm 2025 chỉ hơn mười một tỷ đồng. Năm 2024, công ty lỗ hơn một nghìn năm trăm tám mươi sáu tỷ. Mỗi cổ phiếu lãi mười đồng năm 2025, còn tiền chia cho cổ đông bằng không suốt năm năm.",
+      "Dòng tiền kinh doanh là tiền từ hoạt động chính. Năm 2025, dòng này dương hơn một nghìn không trăm năm mươi tư tỷ đồng. Nhưng tiền còn nợ đối tác tăng đóng góp hơn sáu trăm năm mươi bảy tỷ, tương đương sáu mươi hai phẩy bốn phần trăm.",
+      "Ngày hai mươi tư tháng bảy năm 2026, MSR giá ba mươi ba nghìn năm trăm đồng. Lãi mỗi cổ phiếu là lợi nhuận tính cho một cổ phiếu, năm 2025 chỉ mười đồng. Giá đứng rất xa kết quả một cổ phiếu làm ra năm đó.",
+      "Lợi nhuận gộp tăng từ gần tám trăm chín mươi ba tỷ lên hơn một nghìn ba trăm bảy mươi lăm tỷ. Lãi vay giảm từ hơn một nghìn ba trăm bảy mươi mốt tỷ xuống hơn một nghìn không trăm hai mươi tỷ.",
+      "Cuối năm 2025, vay ngắn hạn là hơn hai nghìn tám trăm mười bảy tỷ, còn tiền mặt hơn năm trăm bảy mươi tỷ. Báo cáo chưa cho biết cách tài trợ khoản vay ngắn hạn.",
+      "Hãy hỏi lãi từ hoạt động chính còn bao nhiêu sau lãi vay? Dòng tiền đến từ bán hàng hay khoản phải trả tăng? Giá cổ phiếu đang đứng cạnh bao nhiêu đồng lãi thực tế?",
+      "MSR có doanh thu lớn nhưng lợi nhuận cuối cùng rất mỏng. Giá lên là một chuyện, giữ lại bao nhiêu là chuyện khác. Đây không phải lời khuyên mua bán, đây là cách đọc một bản báo cáo."
+    ],
+    "transitionSounds": [
+      "dramatic",
+      "sweep",
+      "rise",
+      "chime",
+      "bass",
+      "alarm",
+      "chord",
+      "boom",
+      "rise",
+      "gong"
+    ],
+    "revealSounds": [
+      "sparkle",
+      "pop",
+      "blip",
+      "tick",
+      "bubble",
+      "bell",
+      "pop",
+      "tick",
+      "blip",
+      "chime"
+    ]
+  }
+}

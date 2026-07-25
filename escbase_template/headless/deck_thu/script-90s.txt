@@ -1,0 +1,10 @@
+Bạn có một cách làm riêng, của riêng bạn, không sách nào dạy.
+Ví dụ, cách bạn thẩm định một doanh nghiệp. Bảy bước, theo đúng thứ tự, bỏ bước nào là hỏng. AI không tự biết bảy bước đó, bạn phải đưa cho nó.
+Cách thứ nhất, chép hết vào tờ nội quy dán ở cửa. Nhưng tờ đó được đọc mỗi phiên. Mười phiên thì chín phiên bạn không thẩm định doanh nghiệp nào cả.
+Vẫn phải trả tiền cho bảy bước đó, chín lần, không dùng tới. Cách thứ hai là skill.
+Hãy hình dung nó như một cuốn cẩm nang để trên giá. Cuốn cẩm nang nằm im, không tốn gì cả. Chỉ khi việc trước mặt đúng là việc nó dạy, nó mới tự nhảy xuống, tự mở đúng trang.
+Cấu tạo rất đơn giản, một thư mục bên trong có một file cẩm nang. Đầu file khai hai dòng, tên cẩm nang và mô tả nó dùng khi nào. Phần thân là bảy bước của bạn.
+Và đây là chỗ quyết định tất cả, dòng mô tả. Vì AI không đọc cả cuốn cẩm nang để quyết định có dùng hay không. Nó chỉ liếc qua đúng dòng mô tả đó.
+Mô tả dở thì cuốn sách nằm trên giá cả đời, ví dụ, hướng dẫn phân tích. Mô tả tốt thì kể ra tình huống, và kể cả những chữ mà bạn hay gõ khi cần tới nó. Bạn cứ tưởng tượng bạn đang viết cái nhãn dán ngoài gáy sách, người đứng xa nhìn vào phải biết ngay khi nào cần rút cuốn này ra.
+Khác cái nút bấm ở bài trước chỗ nào? Nút là bạn bấm, cẩm nang là nó tự nhận ra. Cùng một nội dung, khác nhau ở cái công tắc.
+Cẩm nang còn mang theo được cả phụ lục và mã chạy, AI chỉ mở khi thật sự cần. Kiến thức không nằm trong đầu, thì phải nằm đúng chỗ. Và tự bật đúng lúc.

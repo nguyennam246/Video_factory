@@ -1,0 +1,10 @@
+Thợ đập tường giữa phòng khách, bụi bay thẳng vào nồi cơm đang sôi trên bếp.
+Ngày thứ nhất, thợ mới kê tạm bàn ăn sát bức tường đang đập dở. Ngày thứ hai, vôi vữa lấn dần ra tới cửa bếp. Ngày thứ ba, cả nhà phải bưng bát đứng ăn vì không còn chỗ ngồi sạch.
+Lỗi không nằm ở việc thợ vụng về. Lỗi cũng không nằm ở chỗ việc mới quá khó. Lỗi nằm ở chỗ việc mới và việc đang ở chung một khu, chưa ai quây riêng ra.
+Cách an toàn hơn: dựng thêm một khung cửa công trường riêng, đứng sát nhà đang ở nhưng đi lối khác, nền cũ không suy suyển. Ngay khung cửa đó treo sẵn một tờ phiếu việc, ghi rõ làm gì, đo bằng gì, xong thì nhìn vào đâu để biết đã xong.
+Khung cửa công trường riêng đó, trong Git, gọi là worktree. Nó cho một nhánh một thư mục làm việc riêng, không đụng chỗ đang dùng. Skill worktree luôn hỏi bạn đã đứng ở khu riêng chưa, và ưu tiên công cụ có sẵn của nền tảng.
+Khu riêng vẫn chưa đủ, đội thợ cần thêm một phiếu việc gọi là kế hoạch thi công. Mỗi nhiệm vụ ghi đúng file, phép thử, lệnh chạy, và kết quả mong đợi. Ví dụ thật của dự án này: nhiệm vụ một là tìm cảnh thiếu lời đọc, thử trên file mẫu ba cảnh.
+Bước một, tạo file mẫu ba cảnh, cảnh hai cố tình thiếu dòng lời. Bước hai, chạy trình kiểm tra và đòi nó báo lỗi đúng ngay ở cảnh hai. Mỗi bước như vậy chỉ nên gói trong hai đến năm phút, làm xong là thấy kết quả ngay.
+Bước ba, viết phần đọc file ở mức tối thiểu, chỉ đủ để bắt đúng lỗi đó. Bước bốn, chạy lại và thấy đúng một lỗi báo ở cảnh hai, không thừa không thiếu. Bước năm, chốt một mốc riêng cho nhiệm vụ đó, phiếu việc coi như xong một dòng.
+Bẫy thứ nhất: tạo khu riêng nhưng bỏ qua kiểm tra nền, nền hỏng mà không ai biết. Bẫy thứ hai: viết phiếu chỉ có tiêu đề lớn, không có bằng chứng cho từng bước. Cách né: đứng khu riêng thì bắt nền xanh trước, viết phiếu thì bắt mỗi bước có bằng chứng.
+Khu riêng giữ công trường sạch, phiếu việc rõ giữ người thợ đi đúng đường. Cần cả hai trước khi cầm búa. Không thì bụi vẫn bay thẳng vào nồi cơm đang sôi, chỉ là lần này chẳng ai biết vì sao.

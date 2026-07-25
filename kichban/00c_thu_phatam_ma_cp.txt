@@ -1,0 +1,21 @@
+# BÀI THỬ 1 — CÁCH ĐỌC MÃ CỔ PHIẾU (BOSS nghe rồi chọn A/B/C/D)
+# Mỗi phương án đọc CÙNG một câu, chỉ khác cách viết mã cho máy đọc.
+# Dòng bắt đầu bằng # là ghi chú, không đọc lên.
+
+Bài thử một. Cách đọc mã cổ phiếu. Có bốn phương án, cùng một câu.
+Phương án A. Để nguyên như hiện nay.
+Giá cổ phiếu PNJ hôm nay ba mươi nghìn bảy trăm năm mươi đồng.
+Phương án B.
+Giá cổ phiếu Pê En Giê hôm nay ba mươi nghìn bảy trăm năm mươi đồng.
+Phương án C.
+Giá cổ phiếu Pi En Giây hôm nay ba mươi nghìn bảy trăm năm mươi đồng.
+Phương án D.
+Giá cổ phiếu Pê Nờ Giê hôm nay ba mươi nghìn bảy trăm năm mươi đồng.
+Bây giờ thử mã đứng đầu câu, vì chỗ đó máy hay đọc sai nhất.
+Phương án A. PNJ vừa công bố báo cáo quý một.
+Phương án B. Pê En Giê vừa công bố báo cáo quý một.
+Phương án C. Pi En Giây vừa công bố báo cáo quý một.
+Cuối cùng, thử vài mã khác theo phương án B, xem có ổn cho cả bộ không.
+Em Ét Rờ. Hát Pê Dê. Vê Ét Hát. Tê Cê Lờ.
+Và chỉ số chung. Vê En In Đéc.
+Hết bài thử một.

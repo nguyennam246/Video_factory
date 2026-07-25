@@ -1,0 +1,131 @@
+{
+  "theme": {
+    "preset": "custom",
+    "variables": {
+      "--primary": "#38bdf8",
+      "--primary-light": "#bae6fd",
+      "--primary-dark": "#075985",
+      "--accent": "#fbbf24",
+      "--accent-light": "#fde68a",
+      "--info": "#7dd3fc",
+      "--success": "#34d399",
+      "--bg-dark": "#04070d"
+    },
+    "customVariables": {
+      "--primary": "#38bdf8",
+      "--primary-light": "#bae6fd",
+      "--primary-dark": "#075985",
+      "--accent": "#fbbf24",
+      "--accent-light": "#fde68a",
+      "--info": "#7dd3fc",
+      "--success": "#34d399",
+      "--bg-dark": "#04070d"
+    }
+  },
+  "bgm": {
+    "mode": "preset",
+    "preset": "lofi",
+    "volume": 0.3,
+    "custom": {
+      "name": "meta.mp3",
+      "path": "preview-assets/bgm/meta.mp3",
+      "url": "preview-assets/bgm/meta.mp3"
+    }
+  },
+  "subtitles": {
+    "enabled": true,
+    "color": "#ffffff",
+    "activeColor": "#38bdf8",
+    "fontSize": 18,
+    "bottom": 172,
+    "maxLines": 1
+  },
+  "visuals": {
+    "colorMode": "dark",
+    "backgroundColor": "#04070d",
+    "gridEnabled": false,
+    "gridLight": "#38bdf8",
+    "iconGlow": "#fbbf24",
+    "iconBacklight": "#38bdf8",
+    "iconLight": "#34d399",
+    "mainLight": "#38bdf8",
+    "mainLightPosition": "top-center",
+    "mainLightIntensity": "medium",
+    "softLight": "#fbbf24",
+    "softLightPosition": "bottom-right",
+    "softLightIntensity": "medium",
+    "backgroundFx": "particles",
+    "slideLights": {
+      "0": {
+        "mainLight": "#38bdf8",
+        "mainLightPosition": "top-center",
+        "mainLightIntensity": "medium",
+        "softLight": "#fbbf24",
+        "softLightPosition": "bottom-right",
+        "softLightIntensity": "medium"
+      }
+    },
+    "customValues": {
+      "backgroundColor": "#04070d",
+      "gridLight": "#38bdf8",
+      "iconGlow": "#fbbf24",
+      "iconBacklight": "#38bdf8",
+      "iconLight": "#34d399",
+      "mainLight": "#38bdf8",
+      "mainLightPosition": "top-center",
+      "mainLightIntensity": "medium",
+      "softLight": "#fbbf24",
+      "softLightPosition": "bottom-right",
+      "softLightIntensity": "medium",
+      "slideLights": {
+        "0": {
+          "mainLight": "#38bdf8",
+          "mainLightPosition": "top-center",
+          "mainLightIntensity": "medium",
+          "softLight": "#fbbf24",
+          "softLightPosition": "bottom-right",
+          "softLightIntensity": "medium"
+        }
+      }
+    }
+  },
+  "slides": {
+    "deletedIds": [],
+    "scriptLines": [
+      "Tám căn phòng đã xây xong, ổ điện đặt sai y hệt nhau, cuối tháng mới phát hiện.",
+      "Ngày thi công đầu tiên, tám đội cùng làm một lúc, không ai ngó qua đội khác. Ngày thứ ba mươi, căn nhà mới được mở ra kiểm một lượt. Một sai lệch nhỏ ở ổ điện đã nhân thành tám lần y hệt nhau.",
+      "Lỗi không nằm ở tay nghề của tám đội thợ, ai làm nhanh, làm đúng bản vẽ mình cầm. Lỗi không phải vì đợi cuối tháng là chậm, một tháng thi công vẫn còn kịp. Lỗi nằm ở chỗ không ai nghiệm thu một phòng nào trước khi tám phòng nối liền nhau.",
+      "Cách khác là giao đội thợ xây xong một phòng, gọi người vào nghiệm thu ngay phòng đó. Ổ điện lệch mười phân thì sửa một ổ, không phải đục nguyên dãy tường về sau.",
+      "Superpowers gọi cách này là làm xong một việc nhỏ, review, rồi mới sang việc tiếp theo. Mỗi việc giao cho một subagent mới, chỉ mang phiếu việc và chỗ cần biết. Subagent đó tự làm, tự thử, tự ngó qua một lượt, nhưng chưa thay được người đứng ra nghiệm thu.",
+      "Ví dụ thật của dự án này: video có ba yêu cầu đã chốt trước khi giao việc. Thương hiệu ghi đúng dungladu chấm vi, giọng Nam Minh nhanh mười bốn phần trăm, và màu chính tím Stripe. Cổng nghiệm thu thứ nhất chỉ hỏi một câu: sản phẩm có đúng ba điều đó không.",
+      "Chạy thử đi bốn bước thật, hai bước đầu tiên. Bước một, giao đúng một phiếu việc nhỏ cho một subagent, không gộp việc. Bước hai, subagent làm xong thì đưa bằng chứng: đã thử qua, kết quả thế nào.",
+      "Bước ba, người đứng ra nghiệm thu kiểm cổng một trước: có đúng phiếu việc đã giao không. Rồi mới kiểm cổng hai: cách làm có sạch, có an toàn, có dễ sửa sau này không. Bước bốn, sửa sạch những chỗ cổng hai chỉ ra thì mới đánh dấu hoàn tất.",
+      "Bẫy hay sập nhất: giao nhiều subagent cùng sửa một chỗ trong bản vẽ, chạy cho nhanh. Nhanh trên đồng hồ, nhưng đổi lại là hai bên đụng nhau, phải gỡ rối từ đầu. Cách né: mỗi subagent một hạng mục riêng, ai đụng đâu sửa đúng chỗ đó, không đá qua phần người khác.",
+      "Nghiệm thu ngay sau mỗi phòng không làm công trình chậm lại. Nó ngăn một ổ điện đặt sai trở thành tám bức tường phải đục lại cuối tháng. Cứ giao từng phòng, nghiệm thu từng phòng, tường sẽ đứng đúng chỗ từ ngày đầu."
+    ],
+    "transitionSounds": [
+      "dramatic",
+      "sweep",
+      "rise",
+      "chime",
+      "bass",
+      "alarm",
+      "chord",
+      "boom",
+      "rise",
+      "gong"
+    ],
+    "revealSounds": [
+      "sparkle",
+      "pop",
+      "blip",
+      "tick",
+      "bubble",
+      "bell",
+      "pop",
+      "tick",
+      "blip",
+      "chime"
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+Bạn thuê thợ xây nhà, và chỉ dặn đúng một câu: xây cho tôi một căn nhà đẹp.
+Người thợ có thể bắt tay vào làm ngay. Nhưng đẹp là một tầng hay hai tầng, hai phòng hay bốn phòng? Bạn chưa nói, và cũng không ai hỏi lại.
+Vừa nghe xong đã đổ móng thì tốc độ rất nhanh. Chỉ có điều, họ có thể đang xây nhầm căn nhà. Nhanh mà nhầm thì phải đập đi làm lại từ đầu.
+Viết phần mềm với AI cũng y hệt như vậy. Cái thiếu thường không phải đôi tay gõ mã, mà là quy trình giữ đôi tay đó đi đúng hướng.
+Superpowers chính là quy trình đó. Nó là một bộ skill cho các coding agent như Codex và Claude Code. Nó không làm mô hình thông minh hơn sau một đêm.
+Thứ nó thêm vào là những trạm kiểm soát đặt đúng lúc. Trạm một, hỏi cho rõ bạn muốn xây gì. Trạm hai, chốt bản thiết kế trước khi đụng vào viên gạch đầu tiên.
+Trạm ba, chia công việc thành từng hạng mục nhỏ. Trạm bốn, viết phép thử trước khi thi công. Trạm năm, nghiệm thu xong hạng mục này mới sang hạng mục khác.
+Trạm sáu, chỉ bàn giao khi có bằng chứng. Trong kho Superpowers, mỗi trạm đều có tên thật của nó. Bạn không cần nhớ hết tên ngay từ hôm nay.
+Điều cần nhớ là thứ tự, hiểu đúng rồi lên kế hoạch, làm từng phần, kiểm lại, rồi mới nói xong. Ví dụ thật của chính dự án video này. Yêu cầu là dựng tiếp tám bài, mỗi bài phải đổi một mẫu hình khác nhau.
+Nếu chạy cả tám bài ngay, một hiểu lầm sẽ bị nhân lên tám lần. Làm một bài thành mẫu, xem và duyệt, rồi mới chạy cả loạt. Một câu lệnh có thể dựng lên bức tường, nhưng quy trình mới đặt bức tường đúng chỗ.

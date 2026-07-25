@@ -1,0 +1,10 @@
+Vòi chảy yếu, thợ thay vòi mới, nước vẫn yếu như cũ.
+Lần thứ hai, thợ thay máy bơm, nước vẫn chảy yếu. Lần thứ ba, thợ thay luôn cả van nước, tình hình vẫn y như cũ. Mỗi lần sửa tốn thêm một khoản tiền, mà chưa ai biết nước đang mất áp ở chỗ nào.
+Lỗi không nằm ở cái vòi, cũng không nằm ở máy bơm hay cái van vừa thay. Người thợ vẫn làm đúng nghề, đúng thứ tự, không sai một bước nào cả. Lỗi nằm ở một đoạn ống khuất trong tường, chỗ chưa ai từng mở ra xem.
+Thay đồ ngay tại chỗ thấy nước rỉ ra là sửa mò. Lần theo dòng nước ngược từ vòi vào sâu trong tường, tới đúng chỗ ống vỡ, mới là cách chắc chắn.
+Trang sổ này có tên là Gỡ Lỗi Có Hệ Thống. Luật của nó chỉ một câu: chưa tìm ra đúng chỗ ống vỡ thì chưa được đề xuất cách sửa. Nó buộc người thợ đi đủ bốn bước, không được nhảy cóc sang sửa ngay.
+Ví dụ thật của dự án này: một video có nhạc nền, người xem nghe không rõ giọng đọc. Đo riêng giọng đọc, mức âm đạt khoảng âm hai mươi hai phẩy bốn đề xi ben. Trộn xong với nhạc, cả video chỉ còn khoảng âm ba mươi phẩy bảy đề xi ben.
+Bước một, thu bằng chứng: đọc lỗi, đo từng chặng, thấy chặng tụt ở khâu trộn nhạc với giọng. Bước hai, so mẫu: đặt cách trộn đang lỗi cạnh cách trộn chuẩn, tìm điểm khác nhau. Điểm khác lộ ra: bộ trộn mặc định tự chia nhỏ mức từng kênh âm thanh.
+Bước ba, nêu một giả thuyết: tắt phép tự chia nhỏ đó, tự đặt lại mức từng kênh, không đổi gì khác. Bước bốn, sửa đúng chỗ vừa nêu, rồi đo lại đúng chặng đó. Bản mới đo được khoảng âm mười tám phẩy tám đề xi ben, giọng đọc nghe rõ.
+Bẫy người mới hay sập: thấy số đo đẹp lên liền khen giọng đọc hay hơn. Vì sao sập: máy chỉ đo được mức to nhỏ, không nghe được hay hay dở. Cách né: đo xong thì đưa người thật nghe rồi mới phán, đừng để máy phán thay.
+Đừng thay vòi chỉ vì nước ở vòi chảy yếu. Hãy đo cả đường ống, tìm đúng chỗ vỡ. Sửa đúng một chỗ đó thôi, vòi cũ không phải thay thêm lần nào nữa.

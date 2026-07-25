@@ -1,0 +1,53 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|clear",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/nap_handoff.py\"",
+            "timeout": 10,
+            "statusMessage": "Nạp trạng thái + việc chờ từ video/HANDOFF.md..."
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Write|Edit|NotebookEdit|Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "p=\"$CLAUDE_PROJECT_DIR/../.claude/hooks/khoa_dulieu_tho.py\"; if [ -f \"$p\" ]; then python3 \"$p\"; else exit 0; fi",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit|NotebookEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/nhac_nghi_thuc.py\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/nhac_nghi_thuc.py\"",
+            "timeout": 10,
+            "statusMessage": "Kiểm tra nghi thức ghi sổ..."
+          }
+        ]
+      }
+    ]
+  }
+}

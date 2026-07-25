@@ -1,0 +1,54 @@
+# ═══════════════════════════════════════════════════════════════════════════
+# 🔴 BÍ MẬT — KHÔNG BAO GIỜ COMMIT (đã quét thật 25/07: đúng 3 file này chứa khoá)
+# ═══════════════════════════════════════════════════════════════════════════
+.env
+.env.*
+key.rtf
+escbase_template/config/tts.json
+!escbase_template/config/tts.example.json
+
+# ═══════════════════════════════════════════════════════════════════════════
+# MÔI TRƯỜNG / RÁC MÁY
+# ═══════════════════════════════════════════════════════════════════════════
+.venv/
+**/__pycache__/
+*.pyc
+.DS_Store
+.codex/
+.agents/
+
+# ═══════════════════════════════════════════════════════════════════════════
+# DỰNG LẠI ĐƯỢC — chiếm 3,5 GB, đừng nhét vào git
+# Luật: cái gì một lệnh dựng lại được thì KHÔNG vào git. Cái gì gõ tay mới có
+# (kịch bản, luật, thước, index.html của deck) thì PHẢI vào git.
+# ═══════════════════════════════════════════════════════════════════════════
+# sản phẩm render + tiếng sinh ra
+escbase_template/headless/*/output/
+escbase_template/headless/*/output_headless/
+escbase_template/slide/*/output/
+escbase_template/slide/*/output_headless/
+*.mp4
+*.mov
+
+# demo của template mua sẵn (1,8 GB + 54 MB) — tài liệu tham khảo, tải lại được
+escbase_template/slide/
+escbase_template/template/
+escbase_template/models/
+escbase_template/web/
+escbase_template/docs/assets/
+
+# nhạc nền + tiếng mẫu: file nhị phân nặng, có sẵn từ template
+escbase_template/nhac/
+escbase_template/preview-assets/
+*.mp3
+*.wav
+*.m4a
+*.aac
+# …nhưng GIỮ meta.mp3 của mỗi deck: thiếu nó là lỗi bàn giao (xem CLAUDE.md template)
+!escbase_template/headless/*/preview-assets/bgm/meta.mp3
+
+# thành phẩm: video nặng 12-24 MB/file, dựng lại được từ deck
+thanh_pham/**/*.mp4
+
+# log gọi thợ 2 — dài, không tái dùng
+log_tho2/

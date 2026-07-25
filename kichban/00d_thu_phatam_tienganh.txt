@@ -1,0 +1,18 @@
+# BÀI THỬ 2 — CHỮ TIẾNG ANH TRONG CÂU TIẾNG VIỆT (BOSS nghe rồi chọn A/B/C)
+# A = để nguyên (hiện trạng) · B = viết lại theo âm tiếng Việt · C = dịch hẳn sang tiếng Việt
+# Ba phương án đọc CÙNG một câu.
+
+Bài thử hai. Chữ tiếng Anh nằm trong câu tiếng Việt. Có ba phương án.
+Phương án A. Để nguyên như hiện nay.
+Hôm nay ta học về superpower và hook trong Claude Code.
+Phương án B. Viết lại theo âm tiếng Việt.
+Hôm nay ta học về su pơ pao ơ và húc trong Clốt Cốt.
+Phương án C. Dịch hẳn sang tiếng Việt.
+Hôm nay ta học về siêu năng lực và cái móc trong Clốt Cốt.
+Bây giờ thử riêng những từ hay gặp nhất trong bộ video dạy.
+Phương án A, để nguyên. Subagent. Skill. MCP. Plan mode. Checkpoint. Context. Slash command.
+Phương án B, viết theo âm. Sấp ây dừn. Xì kiu. Em Xê Pê. Pờ lan mốt. Chếch pointi. Con tếch. Xì lát com mừn.
+Phương án C, dịch hẳn. Trợ thủ phụ. Bộ kỹ năng. Cầu nối công cụ. Chế độ lập kế hoạch. Điểm lưu. Bộ nhớ làm việc. Câu lệnh gạch chéo.
+Còn một cách nữa, trộn hai thứ. Giữ tên gốc, nhưng nói nghĩa ngay sau đó.
+Phương án D. Hôm nay ta học về hook, tức là cái móc tự chạy, trong Clốt Cốt.
+Hết bài thử hai.

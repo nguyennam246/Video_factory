@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bàn giao Superpowers — chìa khóa không phải bằng chứng</title>
+  <meta name="description" content="Bài 08 khóa Superpowers: kiểm chứng trước khi báo xong và cách chọn nhập việc vào nhánh chính. Kể bằng ẩn dụ chìa khóa nhà và công tắc chưa bật thử." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="style.css?v=superpowers-08-ban-giao" />
+</head>
+<body>
+  <div class="main-wrapper">
+    <div class="script-panel" id="scriptPanel"><div class="script-panel-title"><i class="fa-solid fa-scroll"></i> Script</div><div class="script-panel-badge" id="scriptSlideBadge">Ready</div><div class="script-panel-text" id="scriptText">Bấm vào slide để bắt đầu...</div></div>
+    <div class="audio-panel" id="audioPanel"><div class="audio-panel-title"><i class="fa-solid fa-sliders"></i> Âm Thanh</div><div class="audio-group"><label class="audio-label"><i class="fa-solid fa-music"></i> Nhạc nền</label><select id="bgmSelect" onchange="switchBGM(this.value)"><option value="ambient" selected>Ambient</option><option value="cinematic">Cinematic</option><option value="lofi">Lo-fi</option><option value="piano">Piano</option><option value="dark">Dark</option><option value="custom">Custom upload</option><option value="none">Tắt</option></select></div><div class="audio-panel-divider"></div><div class="audio-slide-header"><span class="audio-slide-badge" id="audioPanelSlide">Ready</span><div class="audio-slide-nav"><button class="audio-nav-btn" onclick="audioPanelPrev()"><i class="fa-solid fa-chevron-left"></i></button><button class="audio-nav-btn" onclick="audioPanelNext()"><i class="fa-solid fa-chevron-right"></i></button></div></div><div class="audio-group"><label class="audio-label"><i class="fa-solid fa-forward"></i> Chuyển slide</label><select id="transitionSelect" onchange="setSlideTransition(currentSlide, this.value)"><option value="gong">Gong</option><option value="rise">Rise</option><option value="bass">Bass</option><option value="chime">Chime</option><option value="sweep">Sweep</option><option value="boom">Boom</option><option value="alarm">Alarm</option><option value="chord">Chord</option><option value="ascending">Ascending</option><option value="retro">Retro</option><option value="minimal">Minimal</option><option value="dramatic">Dramatic</option></select></div><div class="audio-group"><label class="audio-label"><i class="fa-solid fa-wand-magic-sparkles"></i> Hiện element</label><select id="revealSelect" onchange="setSlideReveal(currentSlide, this.value)"><option value="ping">Ping</option><option value="pop">Pop</option><option value="chime">Chime</option><option value="click">Click</option><option value="bubble">Bubble</option><option value="sparkle">Sparkle</option><option value="blip">Blip</option><option value="tick">Tick</option><option value="bell">Bell</option></select></div><div class="audio-actions"><button onclick="testTransition()">Test slide</button><button onclick="testReveal()">Test reveal</button></div></div>
+
+    <div id="slideContainer" class="slide-container">
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+      <div class="brand-top-left"><span>dungladu.vn</span></div>
+      <div class="brand-bottom-right"><span>dungladu.vn</span></div>
+
+      <!-- ============ SLIDE 1 — HERO (1 câu, 1 reveal) ============ -->
+      <div class="slide active" data-slide="0">
+        <div class="slide-bg slide-bg-1"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content hero-content pixelle-hero-content cursor-pixelle-hero">
+          <div class="slide-element fade-up">
+            <div class="pixelle-hero-orbit cursor-pixelle-orbit">
+              <div class="orbit-ring ring-a"></div><div class="orbit-ring ring-b"></div>
+              <div class="pixelle-core cursor-pixelle-core"><i class="fa-solid fa-key hk-core-icon"></i></div>
+              <span class="orbit-chip pv-chip-script">hiểu ý</span><span class="orbit-chip pv-chip-media">kế hoạch</span><span class="orbit-chip pv-chip-voice">thi công</span><span class="orbit-chip pv-chip-render">kiểm chứng</span>
+            </div>
+            <h1 class="title-main title-shimmer title-glitch"><span class="gradient-text hero-version-text">Dây điện câm</span></h1>
+            <p class="hero-caption">Superpowers, bài 08</p>
+            <div class="repo-stats"><span><i class="fa-solid fa-key"></i> chìa đã trao</span><span>0 công tắc bật thử</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ SLIDE 2 — báo xong, gật đầu, không sáng (3 câu) · WORKFLOW GRID ============ -->
+      <div class="slide" data-slide="1">
+        <div class="slide-bg slide-bg-2"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content hk-content">
+          <div class="slide-element fade-up">
+            <div class="hk-head hk-row"><span class="hk-kicker">ngày bàn giao</span><h2 class="hk-title">một câu <em>"đã xong"</em></h2></div>
+            <div class="workflow-grid vpg-workflow-large sp-grid-3">
+              <div class="workflow-step"><b>ĐỘI THỢ</b><i class="fa-solid fa-comment"></i><span>báo: nhà đã xong</span></div>
+              <div class="workflow-step"><b>CHỦ NHÀ</b><i class="fa-solid fa-handshake"></i><span>gật đầu, nhận chìa khóa</span></div>
+              <div class="workflow-step"><b>BA HÔM SAU</b><i class="fa-solid fa-lightbulb"></i><span>bật công tắc, không sáng</span></div>
+            </div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="vpg-route-lane"><span>đã xong</span><i class="packet"></i><span>gật đầu nhận</span><i class="packet p2"></i><strong>không sáng</strong></div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="hk-note hk-note-cost"><i class="fa-solid fa-plug-circle-xmark"></i> không ai <b>bật công tắc trước</b> khi trao chìa khóa</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ SLIDE 3 — lỗi nằm ở đâu (3 câu) · FLOW DIAGRAM + STRIKE ============ -->
+      <div class="slide" data-slide="2">
+        <div class="slide-bg slide-bg-3"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content hk-content">
+          <div class="slide-element fade-up">
+            <div class="hk-head hk-row"><span class="hk-kicker">lỗi nằm ở đâu</span><h2 class="hk-title">không phải <em>tay nghề</em></h2></div>
+            <div class="flow-diagram vpg-flow-large sp-flow-one">
+              <div class="flow-node flow-old"><i class="fa-solid fa-bolt"></i><span>tại thợ điện kém?</span><div class="flow-strike"></div></div>
+            </div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="vpg-proof-chip"><i class="fa-solid fa-check"></i> dây họ đấu đúng, ổ cắm họ lắp chuẩn</div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="flow-diagram vpg-flow-large sp-flow-two">
+              <div class="flow-arrow"><i class="fa-solid fa-arrow-down-long"></i></div>
+              <div class="flow-node flow-new"><i class="fa-solid fa-power-off"></i><span>không ai bật thử trước khi trao chìa</span><div class="flow-glow"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ SLIDE 4 — ẩn dụ cái cân (2 câu) · ⭐ REVENUE BALANCE (mẫu MỚI bắt buộc) ============ -->
+      <div class="slide" data-slide="3">
+        <div class="slide-bg slide-bg-4"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content hk-content hk-content-tight revenue-balance-scene vpg-revenue-balance sp08-balance">
+          <div class="slide-element fade-up">
+            <div class="open-scene-title"><i class="fa-solid fa-scale-balanced"></i><span>ĐẶT LÊN CÂN</span></div>
+            <div class="balance-beam"><b></b></div>
+            <div class="revenue-column sp08-claim-column"><div class="column-mark"><i class="fa-solid fa-comment-dots"></i></div><strong>LỜI</strong><small>ĐÃ XONG</small><div class="column-fill"></div><b>?</b><em>chưa đo</em></div>
+            <div class="revenue-column sp08-evidence-column"><div class="column-mark"><i class="fa-solid fa-ruler"></i></div><strong>SỐ</strong><small>ĐO ĐƯỢC</small><div class="column-fill"></div><b>✓</b><em>vừa đo</em></div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="revenue-verdict"><span>lời nói <b>NHẸ CÂN</b></span><i class="fa-solid fa-scale-unbalanced"></i><span>bằng chứng <b>NẶNG CÂN</b></span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ SLIDE 5 — GỌI TÊN (3 câu) ============ -->
+      <div class="slide" data-slide="4">
+        <div class="slide-bg slide-bg-5"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content hk-content hk-content-tight">
+          <div class="slide-element fade-up">
+            <div class="hk-names cm-names-big"><code class="hk-name-key">KIỂM CHỨNG</code></div>
+            <p class="cm-caption">trước khi <b>báo đã xong</b></p>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="sg-verify">
+              <span class="sg-verify-head"><i class="fa-solid fa-gavel"></i> luật của nó chỉ một dòng</span>
+              <span class="sg-vchip">không nói đã xong, đã sửa</span><span class="sg-vchip">nếu chưa đo lại mới nhất</span>
+            </div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="hk-note"><i class="fa-solid fa-user-shield"></i> agent phải <b>đưa bằng chứng ra trước</b>, không tự tin thay bạn</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ SLIDE 6 — ví dụ thật, exit 0 vẫn sai (3 câu) · MOCK TERMINAL ============ -->
+      <div class="slide" data-slide="5">
+        <div class="slide-bg slide-bg-6"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content hk-content">
+          <div class="slide-element fade-up">
+            <div class="mock-terminal sp-term">
+              <div class="terminal-bar"><span></span><span></span><span></span><div class="terminal-title">ví dụ thật — dự án video này</div></div>
+              <div class="terminal-body">
+                <div class="terminal-line"><span class="term-prompt">&gt;</span> render_headless.py</div>
+                <div class="terminal-line"><span class="term-ok">exit code</span> 0</div>
+              </div>
+            </div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="vpg-proof-chip"><i class="fa-solid fa-scissors"></i> một dòng lệnh trên slide bị ngắt làm đôi</div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="hk-note hk-note-cost"><i class="fa-solid fa-triangle-exclamation"></i> số không đó <b>không chứng minh gì</b>, hình vẫn sai</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ SLIDE 7 — chạy thử, bước 1-2 (3 câu) ============ -->
+      <div class="slide" data-slide="6">
+        <div class="slide-bg slide-bg-7"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content hk-content">
+          <div class="slide-element fade-up">
+            <div class="hk-head hk-row"><span class="hk-kicker">giờ thử một lần</span><h2 class="hk-title">cho <em>đúng quy trình</em></h2></div>
+            <p class="cm-caption">đi từng bước, không nhảy cóc</p>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="sc-file">
+              <div class="sc-file-top"><i class="fa-solid fa-1"></i><code>BƯỚC 1 — kiểm cấu trúc</code></div>
+              <p class="sc-file-line">khớp từng câu với khung hình và vùng chữ an toàn</p>
+            </div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="sc-file">
+              <div class="sc-file-top"><i class="fa-solid fa-2"></i><code>BƯỚC 2 — dựng video thật</code></div>
+              <p class="sc-file-line">render từ lời đọc và deck vừa kiểm</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ SLIDE 8 — đo lại, chụp 3 khung, soi ảnh (3 câu) · MOCK TERMINAL ============ -->
+      <div class="slide" data-slide="7">
+        <div class="slide-bg slide-bg-8"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content hk-content">
+          <div class="slide-element fade-up">
+            <div class="mock-terminal sp-term">
+              <div class="terminal-bar"><span></span><span></span><span></span><div class="terminal-title">BƯỚC 3 — đo lại khung hình</div></div>
+              <div class="terminal-body">
+                <div class="terminal-line"><span class="term-prompt">&gt;</span> ffprobe output.mp4</div>
+                <div class="terminal-line"><span class="term-ok">1080 × 1920</span> đúng thời lượng</div>
+              </div>
+            </div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="vpg-proof-chip"><i class="fa-solid fa-camera"></i> BƯỚC 4 — chụp ba khung: đầu · giữa · cuối</div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="hk-note"><i class="fa-solid fa-eye"></i> mở từng ảnh, <b>nhìn tận mắt</b> chữ có tràn không, có đúng chỗ không</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ SLIDE 9 — cái bẫy (3 câu) · RISK CARDS ============ -->
+      <div class="slide" data-slide="8">
+        <div class="slide-bg slide-bg-9"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content hk-content">
+          <div class="slide-element fade-up">
+            <div class="risk-cards-container vpg-risk-large">
+              <div class="risk-card lit-red"><div class="risk-icon"><i class="fa-solid fa-triangle-exclamation"></i></div><div class="risk-text"><strong>Cái bẫy</strong><span>đọc câu "đã xong" thấy hợp lý, gật đầu luôn</span></div></div>
+            </div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="risk-cards-container vpg-risk-large">
+              <div class="risk-card lit-yellow"><div class="risk-icon"><i class="fa-solid fa-circle-question"></i></div><div class="risk-text"><strong>Vì sao sập</strong><span>không tự đo lại, không tự mở ảnh ra soi</span></div></div>
+            </div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="risk-cards-container vpg-risk-large">
+              <div class="risk-card lit-green"><div class="risk-icon"><i class="fa-solid fa-circle-check"></i></div><div class="risk-text"><strong>Cách né</strong><span>chỉ tin khi chính mắt thấy bằng chứng</span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ SLIDE 10 — CHỐT đối xứng (3 câu) · FINAL LOCKUP ============ -->
+      <div class="slide" data-slide="9">
+        <div class="slide-bg slide-bg-10"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content conclusion-content hk-content hk-content-tight">
+          <div class="slide-element fade-up">
+            <div class="glowing-conclusion vpg-final-large">
+              <div class="glowing-orb"></div>
+              <div class="icon-badge icon-badge-large"><i class="fa-solid fa-key"></i></div>
+              <h2 class="slide-title">Tám bài, một chuyện</h2>
+              <p class="conclusion-text"><strong class="gradient-text">hiểu ý → kế hoạch → dựng → kiểm → bàn giao</strong></p>
+            </div>
+          </div>
+          <div class="slide-element fade-up">
+            <div class="split-panel active"><span>chìa khóa</span><strong>không phải bằng chứng đã xong</strong><i class="fa-solid fa-key"></i></div>
+          </div>
+          <div class="slide-element fade-up">
+            <div class="hk-lockup hk-lockup-b"><div class="glowing-orb"></div><i class="fa-solid fa-plug-circle-check"></i><span class="hk-lockup-line"><strong>Biên bản kiểm tra mới là bằng chứng, đúng như dây điện đã được bật thử.</strong></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-controls"><button class="side-btn" id="muteBtn" onclick="toggleMute()"><i class="fa-solid fa-volume-high"></i></button><div class="side-divider"></div><button class="side-btn" id="prevBtn" onclick="prevSlide()"><i class="fa-solid fa-chevron-up"></i></button><div class="side-counter"><span id="currentSlide">1</span>/<span id="totalSlides">10</span></div><button class="side-btn" id="nextBtn" onclick="nextSlide()"><i class="fa-solid fa-chevron-down"></i></button></div>
+  </div>
+  <script src="app.js?v=superpowers-08-ban-giao"></script>
+</body>
+</html>

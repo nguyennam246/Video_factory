@@ -1,0 +1,10 @@
+Chìa khóa đã trao, dây điện mới lắp chưa ai bật thử.
+Đến ngày bàn giao, đội thợ báo một câu: nhà đã xong. Chủ nhà không hỏi lại, chỉ gật đầu nhận chìa khóa. Ba hôm sau, bật công tắc phòng khách, không có gì sáng lên.
+Lỗi không nằm ở tay nghề thợ điện. Dây họ đấu đúng, ổ cắm họ lắp chuẩn. Lỗi nằm ở chỗ không ai bật công tắc trước khi trao chìa khóa.
+Đặt câu "đã xong" lên một cái cân, bên kia đặt kết quả vừa đo được. Cân nghiêng về bên nào, sự thật nằm ở bên đó.
+Quy trình này Superpowers gọi là kiểm chứng trước khi báo xong. Luật của nó chỉ một dòng: không được nói đã xong, đã sửa hay mọi phép thử đều qua nếu chưa chạy lại phép đo mới nhất. Agent không được tự tin thay bạn, phải đưa bằng chứng ra trước.
+Ví dụ thật của chính dự án video này: dây chuyền từng render sạch, thoát ra đúng số không. Nhưng một dòng lệnh trên slide bị ngắt làm đôi. Số không đó không chứng minh gì, hình vẫn sai.
+Giờ thử một lần cho đúng quy trình. Bước một, chạy phép kiểm khớp từng câu với đúng khung hình và vùng chữ an toàn. Bước hai, dựng video thật.
+Bước ba, đo lại khung hình, phải đúng một nghìn không trăm tám mươi nhân một nghìn chín trăm hai mươi và đúng thời lượng. Bước bốn, chụp ba khung: đầu, giữa, cuối. Mở từng ảnh ra, nhìn tận mắt chữ có tràn không, có đúng chỗ không.
+Bẫy hay gặp nhất: đọc câu đã xong, thấy hợp lý, rồi gật đầu luôn. Không tự chạy lại phép đo, không tự mở ảnh ra soi. Cách né: chỉ tin khi chính mắt mình thấy bằng chứng, không tin vì câu chữ nghe xuôi tai.
+Tám bài, một câu chuyện: hiểu ý, lên kế hoạch, dựng lên, kiểm rồi mới bàn giao. Chìa khóa không phải bằng chứng nhà đã xong. Biên bản kiểm tra mới là thứ cho phép bạn trao chìa khóa, đúng như dây điện đã được bật thử.
