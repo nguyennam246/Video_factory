@@ -21,14 +21,19 @@ dự án này**; repo kia chỉ có ví dụ đồ chơi.
 > Khoang này CỐ Ý GỌN (hook nạp đầu phiên, trần 7000 ký tự). Diễn biến cũ đã dời xuống
 > `## 🗄️ LỊCH SỬ TRẠNG THÁI` cuối file — không mất chữ nào. Chi tiết đầy đủ: `../tri_thuc/patch_history.md`.
 
-### 🆕🎬 25/07 TỐI — KỊCH BẢN PNJ ĐÃ SOẠN, CHỜ BOSS DUYỆT + DỰNG
-`kichban/pnj_dam_chay_kim_cuong.md` — 15 cảnh, 416 từ, parser `--loi` pass, CHỮ ≤34 ký tự,
-không dấu cấm. Góc kể: ca American Express 1963 của Buffett soi vào ca PNJ 2026 (vụ P-Lab
-khởi tố 03/07 → 7 phiên sàn, giá 68.000đ→30.750đ) + 3 chỗ phải soi (án chưa tuyên · niềm tin ·
-lãi đỉnh 2,78× TB 15 năm). Nguồn số: `Research copy/baocao/PNJ_BaoCao.md` + `ketqua.db`
-(zscore/mscore/n10) + `gia.db` (7 phiên sàn tự đối chiếu từng phiên) + web search 25/07
-(Tuổi Trẻ/CafeF/Vietstock). Dựng: `python3 lam_video.py kichban/pnj_dam_chay_kim_cuong.md`
-— BOSS nghe giọng duyệt trước khi render thật.
+### 🆕🎬 25/07 TỐI — KỊCH BẢN PNJ (bản 3, BOSS chỉnh 2 vòng), CHỜ BOSS DUYỆT + DỰNG
+`kichban/pnj_dam_chay_kim_cuong.md` — "Vết nứt niềm tin và hai tiền lệ ngành trang sức".
+15 cảnh, 420 từ, parser `--loi` pass, CHỮ ≤34 ký tự. Khung kể: vụ P-Lab (khởi tố 03/07,
+7 phiên sàn, 68.000đ→30.750đ) đặt giữa HAI tiền lệ trái chiều cùng ngành: Ratners Anh 1991
+(niềm tin sụp, khách quay lưng, −500tr bảng, đổi tên Signet) vs Kingold TQ 2020 (giấy giám
+định che 83 tấn vàng giả, hủy niêm yết) — chưa phân định PNJ thuộc ca nào; kết trung lập.
+**BOSS chỉnh 2 vòng (25/07 tối):** ① P/B 0,79 trong `PNJ_BaoCao.md` SAI — giá sau chia tách
+÷ book trên 341tr cp cũ; đúng ~512tr cp, sổ sách ≈26-28k/cp, P/B >1 (kiểm `BCTC.db`: VCSH
+13.275 tỷ, vốn điều lệ 3.413 tỷ). DT tháng 7 +20% = số TỰ công bố, 3 tuần chưa phân định;
+cổ phiếu quỹ trả 5 đợt/120 ngày khi dòng tiền BÁO ĐỘNG → đều thành điểm NGHI. ② Bỏ ẩn dụ
+AmEx 1963 — chọn ca kết cục đẹp làm mỏ neo = ngầm cài kết luận nghiêng mua; thay bằng 2
+tiền lệ cùng ngành 2 chiều. Dựng: `python3 lam_video.py kichban/pnj_dam_chay_kim_cuong.md`
+(đường dẫn TUYỆT ĐỐI) — BOSS nghe giọng duyệt trước khi render thật.
 
 ### 🆕☁️ 25/07 TỐI — 2 REPO ĐÃ LÊN GITHUB PRIVATE (BOSS lệnh)
 `video/` → **`nguyennam246/Video_factory`** · `Research copy/` → **`nguyennam246/Research-cp`**.
