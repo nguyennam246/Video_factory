@@ -37,27 +37,27 @@ CHỮ*: TRUNG QUỐC · 2020
 MÃ: Kingold: 83 tấn vàng giả
 CHỮ: biến mất khỏi sàn
 ---
-LỜI: PNJ giống ca nào? Máy đo quá khứ nói cỗ máy khỏe. Sinh lời trên vốn hơn hai mươi phần trăm nhiều năm, sổ sách sạch, lãi kỷ lục giữa lúc ngành co lại.
+LỜI: PNJ giống ca nào? Quá khứ sinh lời tốt. Tỷ suất sinh lời trên vốn hơn hai mươi phần trăm nhiều năm liền, sổ sách sạch, lãi kỷ lục giữa lúc ngành co lại.
 MÃ: ROE 21,5% · Z 11,0 · M sạch
 MÃ: LNST 2025: 2.828 tỷ (+33,8%)
-CHỮ: quá khứ: khỏe
+CHỮ: quá khứ: sinh lời tốt
 ---
 LỜI: Điểm khác quan trọng. Theo công bố, sai phạm nằm ở cá nhân tại công ty con, không phải cách công ty mẹ kiếm tiền. Nhưng đó là lời công ty. Cơ quan điều tra chưa kết luận.
 CHỮ: sai phạm ở công ty con
 CHỮ*: CHƯA CÓ KẾT LUẬN ĐIỀU TRA
 ---
-LỜI: Công ty trấn an: doanh thu tháng Bảy vẫn tăng gần hai mươi phần trăm. Khoan, số tự công bố, mới ba tuần. Trang sức vài năm mua một lần, niềm tin rạn hiện ra chậm.
+LỜI: Công ty trấn an: doanh thu tháng Bảy vẫn tăng gần hai mươi phần trăm. Khoan, số tự công bố, mới ba tuần. Trang sức vài năm mua một lần, niềm tin rạn nứt hiện ra chậm.
 MÃ: DT 7/2026: +20% · tự công bố
 CHỮ: ba tuần chưa phân định
 ---
-LỜI: Cổ phiếu quỹ cũng cần soi. Tiền trả năm đợt, kéo một trăm hai mươi ngày, khi máy đo dòng tiền công ty đang báo động.
-CHỮ: cổ phiếu quỹ trả 5 đợt
-MÃ: 120 ngày · dòng tiền: BÁO ĐỘNG
+LỜI: Cách công ty xử lý khủng hoảng khi khách tới bán lại nữ trang cũng nói lên nhiều điều. Tiền trả giãn tới một trăm hai mươi ngày, có hạn mức mỗi ngày, đúng lúc dòng tiền đang báo động.
+CHỮ: khách tới bán lại nữ trang
+MÃ: mua lại 70–90% hóa đơn · giãn 120 ngày · dòng tiền: BÁO ĐỘNG
 ---
-LỜI: Còn giá. Sau chia tách, sổ sách quanh hai mươi sáu tới hai mươi tám nghìn. Giá nhỉnh hơn sổ sách, trên mức lãi đỉnh lịch sử. Rẻ hơn trước, không phải cho không.
-MÃ: sổ sách ≈26–28 nghìn đ/cp
+LỜI: Còn giá. Sau chia tách, giá trị sổ sách khoảng hai mươi tám nghìn một cổ phiếu. Giá đang nhỉnh hơn sổ sách, và trên mức lãi đỉnh lịch sử. Rẻ hơn trước, nhưng chưa phải cho không.
+MÃ: sổ sách 28.128đ/cp (Q1/2026)
 MÃ: P/B > 1 · lãi đỉnh 2,78× TB 15 năm
-CHỮ: rẻ hơn, không phải cho không
+CHỮ: rẻ hơn, chưa phải cho không
 ---
 LỜI: Ba thứ sẽ phân định PNJ thuộc ca nào. Sức mua từng tháng từ nguồn độc lập, diễn biến vụ án, và dòng tiền quý tới.
 CHỮ*: BA THỨ PHẢI THEO DÕI

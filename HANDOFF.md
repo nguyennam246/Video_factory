@@ -21,7 +21,7 @@ dự án này**; repo kia chỉ có ví dụ đồ chơi.
 > Khoang này CỐ Ý GỌN (hook nạp đầu phiên, trần 7000 ký tự). Diễn biến cũ đã dời xuống
 > `## 🗄️ LỊCH SỬ TRẠNG THÁI` cuối file — không mất chữ nào. Chi tiết đầy đủ: `../tri_thuc/patch_history.md`.
 
-### 🆕🎬🎬 25/07 KHUYA — `PNJ_04_hoso.mp4` (126,9s): BẢN **THAY ÁO** CỦA PNJ 03 — CHỜ BOSS CHỌN ÁO
+### 🆕🎬🎬 25/07 KHUYA — `PNJ_04_hoso.mp4` (128,4s): BẢN **THAY ÁO** CỦA PNJ 03 — CHỜ BOSS CHỌN ÁO
 `thanh_pham/baocao/PNJ_04_hoso.mp4` · deck `headless/deck_pnj04` · truy vết
 `kichban/escbase_10dong/README_pnj04.md`. **Cùng lời, cùng nhịp, cùng số với PNJ 03** — chỉ khác áo.
 - **Lời sửa đúng 1 chỗ (BOSS):** *"tòa chưa tuyên"* → **"cơ quan điều tra chưa kết luận"** (vụ mới
@@ -35,7 +35,21 @@ dự án này**; repo kia chỉ có ví dụ đồ chơi.
   dung do phiên trước tải **chưa rõ giấy phép**, BOSS đã quyết dùng.
 - **Slide 1 = biểu đồ giá THẬT** 31 phiên (12/06→24/07) đọc từ kho giá, vẽ SVG trong DOM.
   **Slide 16** chỉ còn **logo chìa khoá website xoay ngang + 1 dòng `dungladu.vn`** (BOSS lệnh).
-- **Máy: 7/7 ĐẠT** + thước reveal-cuối ≥1,2s sạch + soi 6 frame thật. Render 256,2s.
+- 🆕 **ĐỢT SỬA 2 (BOSS xem bản render rồi phán 7 điều — đã áp hết):** bỏ câu máy móc "máy đo quá
+  khứ nói cỗ máy khỏe" → *"Quá khứ sinh lời tốt…"* · "rạn" → **"rạn nứt"** · slide 12 bỏ *"cổ phiếu
+  quỹ cũng cần soi"* (BOSS: vô duyên, không nối với đoạn trước) → **"cách công ty xử lý khủng hoảng
+  khi cổ đông tới bán"** · **sổ sách lấy đúng Q1/2026 từ `BCTC.db`: 28.128đ/cp** (VCSH 14.401 tỷ ÷
+  512,0tr cp sau thưởng 50%; số "26–28k" cũ là ước chừng — P/B 1,09) · *"nhưng chưa phải cho không"* ·
+  dòng chốt bỏ "xem thêm tại", còn đúng tên miền · **vá chữ `dungladu.vn` cụt chân `g`**
+  (`background-clip:text` + `line-height:1.1` cắt phần dưới đường chân → 1.42 + đệm dưới).
+  🔴 **BOSS bắt tiếp LỖI SỰ THẬT ở chính câu này:** không phải "cổ đông tới bán" (tôi đoán sai), mà là
+  **KHÁCH TỚI BÁN LẠI NỮ TRANG**. Tra ngược nguồn (`pnj_01_danhgia.txt` · `pnj02_01_hanhdong.txt`, báo
+  22/07): PNJ **cam kết mua lại nữ trang của khách bằng 70–90% giá hóa đơn**, sau vụ việc **khách bán lại
+  gấp 5 LẦN lượng bán ra**, tiền trả **giãn tới 120 ngày + có hạn mức mỗi ngày**. ⇒ chữ **"5 đợt"** của bản
+  PNJ 03 là **đọc nhầm "gấp 5 lần"**, lại gán sang **cổ phiếu quỹ** — chuyện khác hẳn.
+  ⚠️ **`PNJ_03_niemtin.mp4` vẫn mang con số sai đó ⇒ ĐỪNG DÙNG BẢN 03.**
+- **Máy: 7/7 ĐẠT** + thước reveal-cuối ≥1,2s sạch + soi **11 frame thật** qua 2 vòng render.
+  Lời 128,38s · video 128,4s · thước kịch bản `KETLUAN|38|439|DAT`. Render 245,3s.
 ⏳ **BOSS xem rồi phán:** ① chọn áo **03 hay 04** ② 2 cách đọc mới (`dungladu.vn` = "Đúng Là Đủ chấm
 vi en"? · `Buffett` = "Ba phét") — vẫn CHƯA ai nghe ③ nhịp ~127s có dài không.
 

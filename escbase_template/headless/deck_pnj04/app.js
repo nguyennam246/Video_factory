@@ -63,14 +63,14 @@ const slideScripts = [
   "Hàng hôm sau vẫn y hệt hôm trước. Nhưng khách quay lưng. Hãng mất nửa tỷ bảng, đóng trăm cửa hàng, đổi tên mới sống nổi.",
   "Vì trang sức không bán kim loại. Nó bán niềm tin và hãnh diện của người đeo. Niềm tin vỡ, cỗ máy còn nguyên cũng vô dụng.",
   "Tiền lệ khác tệ hơn. Hãng vàng lớn Trung Quốc năm hai không hai không dùng giấy giám định che tám mươi ba tấn vàng giả, rồi biến mất khỏi sàn.",
-  "PNJ giống ca nào? Máy đo quá khứ nói cỗ máy khỏe. Sinh lời trên vốn hơn hai mươi phần trăm nhiều năm, sổ sách sạch, lãi kỷ lục giữa lúc ngành co lại.",
+  "PNJ giống ca nào? Quá khứ sinh lời tốt. Tỷ suất sinh lời trên vốn hơn hai mươi phần trăm nhiều năm liền, sổ sách sạch, lãi kỷ lục giữa lúc ngành co lại.",
   "Điểm khác quan trọng. Theo công bố, sai phạm nằm ở cá nhân tại công ty con, không phải cách công ty mẹ kiếm tiền. Nhưng đó là lời công ty, cơ quan điều tra chưa kết luận.",
-  "Công ty trấn an: doanh thu tháng Bảy vẫn tăng gần hai mươi phần trăm. Khoan, số tự công bố, mới ba tuần. Trang sức vài năm mua một lần, niềm tin rạn hiện ra chậm.",
-  "Cổ phiếu quỹ cũng cần soi. Tiền trả năm đợt, kéo một trăm hai mươi ngày, khi máy đo dòng tiền công ty đang báo động.",
-  "Còn giá. Sau chia tách, sổ sách quanh hai mươi sáu tới hai mươi tám nghìn. Giá nhỉnh hơn sổ sách, trên mức lãi đỉnh lịch sử. Rẻ hơn trước, không phải cho không.",
+  "Công ty trấn an: doanh thu tháng Bảy vẫn tăng gần hai mươi phần trăm. Khoan, số tự công bố, mới ba tuần. Trang sức vài năm mua một lần, niềm tin rạn nứt hiện ra chậm.",
+  "Cách công ty xử lý khủng hoảng khi khách tới bán lại nữ trang cũng nói lên nhiều điều. Tiền trả giãn tới một trăm hai mươi ngày, có hạn mức mỗi ngày, đúng lúc dòng tiền đang báo động.",
+  "Còn giá. Sau chia tách, giá trị sổ sách khoảng hai mươi tám nghìn một cổ phiếu. Giá đang nhỉnh hơn sổ sách, và trên mức lãi đỉnh lịch sử. Rẻ hơn trước, nhưng chưa phải cho không.",
   "Ba thứ sẽ phân định PNJ thuộc ca nào. Sức mua từng tháng từ nguồn độc lập, diễn biến vụ án, và dòng tiền quý tới.",
   "Nhà đầu tư giá trị không cần đoán. Chưa chắc thì đứng ngoài quan sát, chắc rồi mới xuống tiền. Đây không phải lời khuyên mua bán.",
-  "Xem thêm tại dungladu.vn."
+  "dungladu.vn"
 ];
 const initialSlideScripts = [...slideScripts];
 const initialSlideTransitions = [...slideTransitions];
