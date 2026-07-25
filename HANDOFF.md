@@ -21,7 +21,24 @@ dự án này**; repo kia chỉ có ví dụ đồ chơi.
 > Khoang này CỐ Ý GỌN (hook nạp đầu phiên, trần 7000 ký tự). Diễn biến cũ đã dời xuống
 > `## 🗄️ LỊCH SỬ TRẠNG THÁI` cuối file — không mất chữ nào. Chi tiết đầy đủ: `../tri_thuc/patch_history.md`.
 
-### 🆕🎬 25/07 TỐI — KỊCH BẢN PNJ (bản 3, BOSS chỉnh 2 vòng), CHỜ BOSS DUYỆT + DỰNG
+### 🆕🎬 25/07 ĐÊM — ĐÃ DỰNG XONG `PNJ_03_niemtin.mp4` (126,3s) — CHỜ BOSS NGHE
+`thanh_pham/baocao/PNJ_03_niemtin.mp4` · deck `headless/deck_pnj03` · lời
+`kichban/escbase_10dong/pnj03_01_niemtin.txt` · truy vết `escbase_10dong/README_pnj03.md`.
+Dựng từ kịch bản BOSS tự chỉnh 2 vòng, **giữ nguyên văn**; chỉ thêm dòng 16 (slide thương hiệu
+`dungladu.vn`, BOSS lệnh giữa phiên) và đổi 2 dấu chấm thành phẩy vì bug reveal dưới đây.
+**Góc MỚI `hai_tien_le`** (16 dòng · 38 reveal) · **bộ scene MỚI hoàn toàn**, namespace `nn-*`
+viết trong `<style>` của deck ⇒ **trùng deck cũ 0%** · icon **Lucide (ISC)** dán inline 14/14 ·
+tiêu đề **serif Playfair** (12 deck cũ toàn Inter). `KETLUAN|38|424|DAT` · `validate` PASS ·
+nghiệm thu máy **7/7**.
+🔴 **BẪY MỚI:** vòng render 1 **đạt 7/7 mà video vẫn thiếu chữ** — reveal 2 của slide 1 đứng
+trên màn **0,00 giây** (`auto_render.py:1014`: slide HOOK đặt reveal 2 đúng lúc dứt giọng;
+khuôn cũ slide 1 luôn 1 câu nên chưa từng lộ). **Chỉ soi frame video thật mới thấy.** Thước
+mới: *reveal cuối mỗi slide phải còn ≥1,2s trên màn*. Chi tiết: patch_history 25/07 đêm.
+⏳ **BOSS nghe rồi phán 3 thứ:** ① 2 cách đọc mới — `dungladu.vn` = *"Đúng Là Đủ chấm vi en"*
+(hay là "Dũng"?) và `Buffett` = *"Ba phét"*; sửa = 1 dòng `tts/phat_am.json`, KHÔNG phải dựng
+lại · ② nhịp 126s có dài không · ③ slide 16 đã đủ nổi bật chưa.
+
+### 25/07 TỐI — kịch bản nguồn (đã dựng thành video ở mục trên)
 `kichban/pnj_dam_chay_kim_cuong.md` — "Vết nứt niềm tin và hai tiền lệ ngành trang sức".
 15 cảnh, 420 từ, parser `--loi` pass, CHỮ ≤34 ký tự. Khung kể: vụ P-Lab (khởi tố 03/07,
 7 phiên sàn, 68.000đ→30.750đ) đặt giữa HAI tiền lệ trái chiều cùng ngành: Ratners Anh 1991

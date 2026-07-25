@@ -19,6 +19,7 @@ trạng thái.
 
 | File | Mã | Dài | Ngày | Trạng thái |
 | :-- | :-- | :-- | :-- | :-- |
+| `PNJ_03_niemtin.mp4` | PNJ | **126,3s** | 25/07/2026 | 🆕⭐ **DỰNG TỪ KỊCH BẢN BOSS TỰ CHỈNH 2 VÒNG** (`kichban/pnj_dam_chay_kim_cuong.md`) — 16 slide, góc mới `hai_tien_le`, **bộ scene mới hoàn toàn** (0% trùng 12 deck cũ), icon Lucide dán inline, tiêu đề chữ serif. Có **slide 16 quảng bá `dungladu.vn`** theo lệnh BOSS. Máy nghiệm thu **7/7**. 🔴 Vòng render 1 dính lỗi **reveal 2 của slide 1 đứng trên màn 0,00 giây** — 7/7 vẫn ĐẠT, chỉ soi frame thật mới thấy; đã vá bằng dấu câu rồi render lại. **BOSS chưa nghe** — cần phán 2 cách đọc mới (`dungladu.vn`, `Buffett`) |
 | `PNJ_02_hanhdong.mp4` | PNJ | **98,8s** | 25/07/2026 | ⭐ **BẢN 02b** — máy nghiệm thu đạt **7/7** (thêm cổng ⑦ đuôi). Sửa cả 3 điều BOSS nghe xong phán: bỏ chỗ giải thích giá 127 · `PNJ` nay đọc "Pi En Giây" · đuôi 1,4s hết cắt phựt. **BOSS chưa nghe bản này**. Có **dòng miễn trừ trách nhiệm** ở slide cuối |
 | ~~`PNJ_01_danhgia.mp4`~~ | PNJ | 103,0s | 25/07/2026 | 🔴 **BOSS BÁC — ĐỪNG DÙNG.** Sai số: nói *"−76% từ đỉnh 127.000đ"*, trong khi đỉnh phải chia lại vì **thưởng cổ phiếu 50% ngày 23/04** ⇒ đúng là **−64% từ 84.667đ**. Góc `ho_voi` BOSS chê *"chưa hay lắm"* |
 | `HPD_01_danhgia.mp4` | HPD | 111,7s | 24/07/2026 | ⚠️ dựng trước khi có đuôi 1,4s + từ điển phát âm · ✅ **BOSS DUYỆT 25/07** (*"những video đó làm đều đạt cả"*) |

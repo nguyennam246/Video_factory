@@ -25,8 +25,17 @@ KHUON = [1, 2, 3, 3, 3, 3, 2, 2, 3, 3]   # khuôn tài chính cũ — dùng khi 
 GOC_DIR = Path(__file__).resolve().parents[4] / "goc" / "taichinh"
 
 
+TRAN_TU = (300, 380)
+TRAN_HOOK = 16
+
+
 def doc_nhip(ma_goc):
-    """Đọc `nhip:` trong header file góc. Trả (nhịp, tên). Không thấy thì thoát."""
+    """Đọc header file góc. Trả (nhịp, tên, trần_từ, trần_hook). Thiếu nhịp thì thoát.
+
+    `tran_tu:` và `tran_hook:` là TÙY CHỌN — thiếu thì dùng mặc định (300-380 · 16 từ).
+    Có mặt khi góc dài hơn khuôn 10 dòng (góc `hai_tien_le` 16 dòng: 390-460 từ).
+    ⚠️ Chỉ nới TRẦN ĐỘ DÀI. Danh sách từ cấm (CAM_*) KHÔNG bao giờ nới theo góc.
+    """
     f = GOC_DIR / f"{ma_goc}.md"
     if not f.is_file():
         co = sorted(p.stem for p in GOC_DIR.glob("*.md"))
@@ -38,9 +47,14 @@ def doc_nhip(ma_goc):
         print(f"❌ File góc {f} thiếu dòng `nhip: [...]` trong header")
         sys.exit(2)
     ten = re.search(r"^ten:\s*(.+)$", txt, re.M)
-    return [int(x) for x in m.group(1).split(",")], (ten.group(1).strip() if ten else ma_goc)
-TRAN_TU = (300, 380)
-TRAN_HOOK = 16
+    mt = re.search(r"^tran_tu:\s*\[\s*(\d+)\s*,\s*(\d+)\s*\]", txt, re.M)
+    mh = re.search(r"^tran_hook:\s*(\d+)", txt, re.M)
+    return (
+        [int(x) for x in m.group(1).split(",")],
+        (ten.group(1).strip() if ten else ma_goc),
+        ((int(mt.group(1)), int(mt.group(2))) if mt else TRAN_TU),
+        (int(mh.group(1)) if mh else TRAN_HOOK),
+    )
 
 # (a) mã + ngôn ngữ hệ thống nội bộ — người xem không cần biết, BOSS cấm 24/07/2026
 CAM_HE_THONG = [
@@ -60,7 +74,9 @@ CAM_KHUYEN = ['nên mua', 'nên bán', 'tránh xa', 'đáng tiền', 'cơ hội'
 
 
 def do(path, ma_goc=None):
-    khuon, ten_goc = (doc_nhip(ma_goc) if ma_goc else (KHUON, 'khuôn cũ (không nêu góc)'))
+    khuon, ten_goc, tran_tu, tran_hook = (
+        doc_nhip(ma_goc) if ma_goc
+        else (KHUON, 'khuôn cũ (không nêu góc)', TRAN_TU, TRAN_HOOK))
     lines = [l for l in open(path, encoding='utf-8').read().split('\n') if l.strip()]
     cau = [len([s for s in re.split(r'(?<=[.?!])\s+', l.strip()) if s.strip()]) for l in lines]
     tu = [len(l.split()) for l in lines]
@@ -77,10 +93,10 @@ def do(path, ma_goc=None):
         loi.append(f'phải đúng {len(khuon)} dòng (theo góc), đang {len(lines)}')
     if cau != khuon:
         loi.append(f'số câu/dòng phải {khuon}, đang {cau}')
-    if not (TRAN_TU[0] <= sum(tu) <= TRAN_TU[1]):
-        loi.append(f'tổng từ phải {TRAN_TU[0]}-{TRAN_TU[1]}, đang {sum(tu)}')
-    if hook_tu > TRAN_HOOK:
-        loi.append(f'hook phải ≤{TRAN_HOOK} từ, đang {hook_tu}')
+    if not (tran_tu[0] <= sum(tu) <= tran_tu[1]):
+        loi.append(f'tổng từ phải {tran_tu[0]}-{tran_tu[1]}, đang {sum(tu)}')
+    if hook_tu > tran_hook:
+        loi.append(f'hook phải ≤{tran_hook} từ, đang {hook_tu}')
     if '—' in full:
         loi.append('còn dấu — (máy đọc rất xấu), thay bằng dấu phẩy hoặc chấm')
     if hit:

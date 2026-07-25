@@ -423,6 +423,45 @@ Cuối cùng **soi mắt 2-3 frame của video thật** (không chỉ tin ảnh 
 
 ---
 
+## 7b. 🔴🔴 THƯỚC BẮT BUỘC MỚI — "REVEAL CUỐI CÒN LẠI BAO NHIÊU GIÂY TRÊN MÀN" (25/07/2026)
+
+**Ca PNJ 03: `validate` PASS · ảnh deck đúng · `nghiem_thu_video` ĐẠT CẢ 7 CỔNG — mà reveal 2
+của slide 1 đứng trên màn 0,00 giây.** Cả dải giá `68.000đ → 30.750đ` **không bao giờ hiện**.
+Sáu phép đo cũ không cái nào bắt được, vì chúng đo *khung hình có sáng không*, không đo
+*chữ có kịp lên không*.
+
+Hai nguyên nhân, đều nằm trong `auto_render.build_click_timeline`:
+1. Lịch reveal chia theo **vị trí ký tự** của câu trong dòng ⇒ **câu chót NGẮN đứng cuối dòng
+   DÀI** hiện ở ~95% thời lượng slide (ca slide 10: `"Tòa chưa tuyên."` chỉ 0,52s).
+2. **Slide HOOK có luật riêng** ([auto_render.py:1014](../../../escbase_template/auto_render.py:1014)):
+   reveal 2 đặt **đúng lúc dứt giọng đọc** ⇒ trùng khít mốc chuyển slide. Vô hại suốt 12 deck cũ
+   vì khuôn cũ slide 1 luôn **1 câu / 1 reveal**; bài đầu tiên viết hook 2 câu là lộ.
+
+**Chạy TRƯỚC khi render** (0 API, tất định — sửa `ru=` cho khớp nhịp bài):
+```bash
+cd /Users/simple/Desktop/Cloud/video/escbase_template
+.venv/bin/python -c "
+import json, re, auto_render as ar
+t=json.load(open('headless/deck_XXX/output/timing.json'))
+ru=[1,1,2,3,2,3,3,2,3,3,3,2,4,2,3,1]
+cum=0; starts=[]
+for x in t: starts.append(cum); cum+=x['duration']
+last={}
+for e in ar.build_click_timeline(t,ru):
+    m=re.match(r'Slide (\d+): reveal (\d+)/(\d+)', e['desc'])
+    if m and m.group(2)==m.group(3): last[int(m.group(1))-1]=e['time']
+xau=[(s+1, round(starts[s]+t[s]['duration']-last[s],2)) for s in last
+     if starts[s]+t[s]['duration']-last[s] < 1.2]
+print('slide có reveal cuối <1,2s:', xau or 'KHÔNG CÒN')"
+```
+
+**Hai luật rút ra:**
+- 🔴 **DÒNG 1 PHẢI LÀ MỘT CÂU.** Muốn hook 2 vế thì nối bằng dấu phẩy, đừng dùng dấu chấm.
+- Dòng khác có câu chót ngắn ⇒ gộp vào câu trước bằng dấu phẩy. **Vá bằng dấu câu, đừng sửa
+  `auto_render.py`** — đó là code dùng chung cho mọi deck, sửa nó là đổi luật cả xưởng.
+- Và: **luôn soi frame video THẬT ở vài mốc**, không chỉ ảnh deck. Ảnh deck bật sẵn mọi reveal
+  nên nó **không thể** phát hiện lỗi loại này.
+
 ## 8. BƯỚC 7 — BÁO BOSS + GHI 4 SỔ
 
 Báo BOSS phải **tách bạch**: cái gì máy đo được (nêu số), cái gì cần BOSS nghe rồi phán
@@ -452,6 +491,7 @@ BOSS lệnh: *"mỗi lần làm video thì cập nhật skill này"*, để lầ
 
 | Ngày | Mã | Video | Dài | Giọng | Từ | Ghi chú / lỗi soi ra |
 | :-- | :-- | :-- | :-- | :-- | :-- | :-- |
+| 25/07/2026 | PNJ | `PNJ_03_niemtin.mp4` | **126,3s** | edge NamMinh +14% | 424 | ⭐ **BÀI ĐẦU DỰNG TỪ KỊCH BẢN BOSS TỰ VIẾT/CHỈNH** (`kichban/pnj_dam_chay_kim_cuong.md`) và **bài đầu 16 slide** — góc mới `hai_tien_le`, bộ scene mới hoàn toàn (`nn-*` trong `<style>` của deck, **trùng deck cũ 0%**), icon **Lucide ISC** dán inline, tiêu đề **serif Playfair**. Thêm **slide 16 quảng bá `dungladu.vn`** (BOSS lệnh). 🔴 **LỖI QUAN TRỌNG NHẤT TỪ TRƯỚC TỚI NAY: nghiệm thu 7/7 mà video vẫn thiếu chữ** — xem mục **7b**. Thước kịch bản nay đọc `tran_tu:`/`tran_hook:` từ file góc (góc dài hơn 10 dòng thì khai báo, mặc định KHÔNG đổi) |
 | 25/07/2026 | PNJ | `PNJ_02_hanhdong.mp4` **(02b)** | **98,8s** | edge NamMinh +14% | 380 | 🔊 **BOSS NGHE RỒI PHÁN 3 ĐIỀU, sửa cả 3:** ① bỏ slide giải thích 127→84.667 (thay bằng độ sâu/tốc độ/**lượng khớp 41,3tr = lớn nhất 4.128 phiên từ 2010**) · ② `PNJ` đọc lỗi ⇒ dựng 2 bài thử cho BOSS chọn ⇒ **từ điển phát âm** `tts/phat_am.json` (mục 5) · ③ *"chưa hết mà đã dừng"* ⇒ `TAIL_SECONDS=1.4` + **cổng ⑦**. Nghiệm thu **7/7**. Bẫy mới: cổng ⑦ đo mp4 ra −19 dB (tưởng hỏng) vì **nhạc nền** che — phải đo file GIỌNG (−91 dB) |
 | 25/07/2026 | PNJ | ~~`PNJ_02` bản đầu~~ | 97,2s | edge NamMinh +14% | 380 | ⭐ **DỰNG LẠI SAU KHI BOSS BÁC BÀI PNJ 01.** Góc mới `viec_can_lam`. 🔴 Lỗi bị bác: **giá đỉnh không chia lại theo thưởng cổ phiếu** (xem cảnh báo đỏ mục 2). Bài đầu đi **ĐƯỜNG RẺ**: 0 subagent, 0 scene mới, chép `deck_msr01` chỉ thay chữ, soi bằng `contact_sheet.py` ⇒ **2 lượt đọc ảnh** thay vì 20-30. Thước kịch bản ĐẠT **ngay vòng 1**. Chỉ 1 lỗi soi ảnh: `hk-lockup-a` đỏ bọc câu dạy nghề đứng vững (3 bẫy còn lại chặn trước bằng CSS `.vcl-flat`). Render **64,1 ms/khung** — mốc nhanh nhất tới nay |
 | 24/07/2026 | MSR | `msr_01_danhgia.mp4` | 108,4s | edge NamMinh +14% | 379 | Bài tài chính đầu bằng headless. 3 lỗi chỉ lộ khi soi ảnh, nặng nhất: `hk-strike` gạch ngang câu chốt ĐÚNG. Bẫy `remap_palette` chỉ map từ bảng rose ⇒ deck lai màu |
