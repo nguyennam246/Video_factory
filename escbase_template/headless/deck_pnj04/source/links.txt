@@ -1,0 +1,27 @@
+NGUỒN 3 ẢNH DÙNG TRONG DECK PNJ 04 (ghi 25/07/2026)
+
+1) img/kingold.jpg — đống thỏi vàng, slide 8 (tiền lệ Trung Quốc 2020)
+   Nguồn: Wikimedia Commons, File:Gold bullion bars.jpg
+   https://commons.wikimedia.org/wiki/File:Gold_bullion_bars.jpg
+   Tải thẳng: https://upload.wikimedia.org/wikipedia/commons/a/af/Gold_bullion_bars.jpg
+   Giấy phép: CC0 1.0 (hiến tặng công cộng — KHÔNG cần ghi công, dùng thương mại được).
+   Tác giả: Stevebidmead (nguồn gốc Pixabay). Đã thu nhỏ còn 1200x900 bằng `sips`.
+   ⚠️ Đây KHÔNG phải ảnh vàng thật của Kingold — là ẢNH MINH HOẠ, và chú thích trên
+   màn hình ghi đúng chữ "ảnh minh hoạ".
+
+2) img/ratners.jpg — chân dung Gerald Ratner, slide 5 (tiền lệ Anh 1991)
+   Nguồn: tải về trong phiên 25/07/2026 (21:03) — ⚠️ KHÔNG GHI LẠI URL, CHƯA XÁC ĐỊNH
+   GIẤY PHÉP. BOSS đã quyết dùng (25/07: "dùng đi").
+   Danh tính đã kiểm chéo: đối chiếu với ảnh có nguồn rõ trên Wikimedia Commons
+   File:Gerald Ratner (2015).jpg (CC BY-SA 4.0) — cùng một người.
+   👉 Nếu sau này cần bản CÓ giấy phép: dùng thẳng ảnh Commons ở trên, nhưng CC BY-SA
+   đòi ghi công + chia sẻ tương tự, nên phải cân nhắc trước khi đăng.
+
+3) img/buffett.jpg — chân dung Warren Buffett, slide 4
+   Nguồn: tải về trong phiên 25/07/2026 (21:02) — ⚠️ KHÔNG GHI LẠI URL, CHƯA XÁC ĐỊNH
+   GIẤY PHÉP. BOSS đã quyết dùng.
+   (Bản có giấy phép rõ nếu cần thay: Wikimedia Commons có nhiều ảnh Buffett CC BY-SA /
+   PD-USGov.)
+
+LUẬT CHO DECK SAU: ảnh mới thì ghi URL + giấy phép vào file này NGAY lúc tải, đừng để
+phiên sau phải đoán. Ưu tiên CC0 / PD (không ràng buộc), tránh CC BY-SA cho video.

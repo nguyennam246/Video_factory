@@ -42,9 +42,9 @@ MÃ: ROE 21,5% · Z 11,0 · M sạch
 MÃ: LNST 2025: 2.828 tỷ (+33,8%)
 CHỮ: quá khứ: khỏe
 ---
-LỜI: Điểm khác quan trọng. Theo công bố, sai phạm nằm ở cá nhân tại công ty con, không phải cách công ty mẹ kiếm tiền. Nhưng đó là lời công ty. Tòa chưa tuyên.
+LỜI: Điểm khác quan trọng. Theo công bố, sai phạm nằm ở cá nhân tại công ty con, không phải cách công ty mẹ kiếm tiền. Nhưng đó là lời công ty. Cơ quan điều tra chưa kết luận.
 CHỮ: sai phạm ở công ty con
-CHỮ*: TÒA CHƯA TUYÊN
+CHỮ*: CHƯA CÓ KẾT LUẬN ĐIỀU TRA
 ---
 LỜI: Công ty trấn an: doanh thu tháng Bảy vẫn tăng gần hai mươi phần trăm. Khoan, số tự công bố, mới ba tuần. Trang sức vài năm mua một lần, niềm tin rạn hiện ra chậm.
 MÃ: DT 7/2026: +20% · tự công bố

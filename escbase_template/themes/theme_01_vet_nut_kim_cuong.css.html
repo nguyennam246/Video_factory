@@ -1,0 +1,216 @@
+  <style>
+  /* =====================================================================
+     BỘ SCENE "VẾT NỨT" — dựng riêng cho bài PNJ 03 (25/07/2026)
+     Ngôn ngữ thị giác: hộp trang sức tối, nét khắc mảnh màu vàng, mặt cắt kim cương.
+     Icon: Lucide (giấy phép ISC) dán inline dạng <symbol> — không gọi mạng khi render.
+     Chữ tiêu đề: Playfair Display (serif) — CỐ Ý khác 12 deck cũ (toàn Inter).
+     ===================================================================== */
+  :root{
+    --nn-gold:#ffb020; --nn-gold-2:#f7d9a0;
+    --nn-ivory:#ece6dc; --nn-dim:rgba(236,230,220,.62);
+    --nn-red:#ef4444; --nn-line:rgba(255,176,32,.24);
+    --nn-glass:rgba(255,255,255,.045);
+    --nn-serif:'Playfair Display','Times New Roman',Georgia,serif;
+  }
+
+  /* ---------- NỀN: mặt cắt kim cương, 6 biến thể đổi hướng sáng ---------- */
+  .nn-bg{position:absolute;inset:0;z-index:0;
+    --gx:50%; --gy:-6%; --rx:8%; --ry:104%;
+    background:
+      radial-gradient(120% 72% at var(--gx) var(--gy), rgba(255,176,32,.13), transparent 62%),
+      radial-gradient(92% 58% at var(--rx) var(--ry), rgba(239,68,68,.09), transparent 66%),
+      linear-gradient(180deg,#05070c 0%,#080a12 52%,#04060a 100%);}
+  .nn-bg::after{content:"";position:absolute;inset:0;opacity:.55;
+    background:
+      repeating-linear-gradient(58deg, rgba(255,214,150,.055) 0 1px, transparent 1px 44px),
+      repeating-linear-gradient(-58deg, rgba(255,214,150,.038) 0 1px, transparent 1px 60px);
+    -webkit-mask-image:radial-gradient(circle at 50% 34%, #000 0%, rgba(0,0,0,.35) 55%, transparent 82%);
+            mask-image:radial-gradient(circle at 50% 34%, #000 0%, rgba(0,0,0,.35) 55%, transparent 82%);}
+  .nn-b2{--gx:84%;--gy:4%;--rx:4%;--ry:78%}
+  .nn-b3{--gx:16%;--gy:2%;--rx:92%;--ry:88%}
+  .nn-b4{--gx:50%;--gy:52%;--rx:50%;--ry:110%}
+  .nn-b5{--gx:92%;--gy:44%;--rx:10%;--ry:14%}
+  .nn-b6{--gx:8%;--gy:46%;--rx:88%;--ry:12%}
+
+  /* ---------- KHUNG CHUNG ---------- */
+  .nn-content{gap:13px;justify-content:flex-start}
+  .nn-content.nn-mid{justify-content:center;padding-top:78px}
+  .nn-sprite{display:none}
+  .nn-i{width:1em;height:1em;stroke:currentColor;fill:none;stroke-width:1.8;
+        stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
+
+  /* kicker: chữ nhỏ in hoa, hai bên có gạch chỉ vàng mảnh */
+  .nn-kicker{display:flex;align-items:center;gap:9px;width:100%;justify-content:center;
+    font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--nn-gold);opacity:.92;margin:0}
+  .nn-kicker::before,.nn-kicker::after{content:"";height:1px;flex:1 1 auto;max-width:52px;
+    background:linear-gradient(90deg,transparent,var(--nn-line))}
+  .nn-kicker::after{background:linear-gradient(270deg,transparent,var(--nn-line))}
+
+  .nn-title{font-family:var(--nn-serif);font-weight:700;font-size:27px;line-height:1.18;
+    color:var(--nn-ivory);letter-spacing:.005em;margin:0;text-align:center}
+  .nn-title em{font-style:italic;color:var(--nn-gold);font-weight:600}
+  .nn-title.sm{font-size:22px}
+  .nn-sub{font-size:12.5px;line-height:1.5;color:var(--nn-dim);text-align:center;margin:0}
+
+  /* thẻ kính: nền mờ + viền vàng mảnh + một tia sáng chéo ở góc */
+  .nn-card{position:relative;width:100%;border-radius:14px;padding:12px 14px;
+    background:linear-gradient(160deg,rgba(255,255,255,.055),rgba(255,255,255,.018));
+    border:1px solid var(--nn-line);overflow:hidden}
+  .nn-card::before{content:"";position:absolute;top:-40%;left:-30%;width:60%;height:180%;
+    transform:rotate(18deg);background:linear-gradient(90deg,transparent,rgba(255,214,150,.07),transparent)}
+  .nn-row{position:relative;display:flex;align-items:center;gap:10px;text-align:left;width:100%}
+  .nn-row .nn-i{font-size:19px;color:var(--nn-gold)}
+  .nn-row.warn .nn-i{color:var(--nn-red)}
+  .nn-row p{margin:0;font-size:12.5px;line-height:1.45;color:var(--nn-ivory)}
+  .nn-row p b{color:var(--nn-gold-2);font-weight:800}
+  .nn-row p .q{color:var(--nn-dim);font-weight:500}
+
+  /* ---------- S1: viên kim cương nứt ---------- */
+  .nn-gem{width:126px;height:114px;display:block;margin:0 auto}
+  .nn-gem .cut{fill:none;stroke:var(--nn-gold);stroke-width:1.5;opacity:.88;stroke-linejoin:round}
+  .nn-gem .face{fill:rgba(255,176,32,.07)}
+  .nn-gem .crack{fill:none;stroke:var(--nn-red);stroke-width:2.2;stroke-linecap:round;
+    filter:drop-shadow(0 0 6px rgba(239,68,68,.55))}
+  .nn-rail{display:flex;align-items:center;justify-content:center;gap:11px;width:100%}
+  .nn-price{font-family:var(--nn-serif);font-weight:700;font-size:25px;line-height:1;
+    color:var(--nn-ivory);white-space:nowrap}
+  .nn-price.old{color:var(--nn-dim);font-size:20px;position:relative}
+  .nn-price.old::after{content:"";position:absolute;left:-4%;right:-4%;top:52%;height:1.5px;
+    background:var(--nn-dim);transform:rotate(-7deg)}
+  .nn-price.now{color:var(--nn-gold)}
+  .nn-arrow{color:var(--nn-red);font-size:17px;display:flex}
+
+  /* ---------- S3: bậc thang phiên sàn ---------- */
+  .nn-stairs{display:flex;align-items:flex-end;justify-content:center;gap:6px;width:100%;
+    height:92px;padding:0 4px}
+  .nn-stairs span{flex:1 1 0;border-radius:3px 3px 1px 1px;
+    background:linear-gradient(180deg,rgba(239,68,68,.8),rgba(239,68,68,.26));
+    box-shadow:0 0 10px rgba(239,68,68,.2)}
+  .nn-stairs span:nth-child(1){height:96%}.nn-stairs span:nth-child(2){height:82%}
+  .nn-stairs span:nth-child(3){height:69%}.nn-stairs span:nth-child(4){height:56%}
+  .nn-stairs span:nth-child(5){height:42%;background:linear-gradient(180deg,#ef4444,rgba(239,68,68,.4))}
+  .nn-stairs span:nth-child(6){height:28%;background:linear-gradient(180deg,#ef4444,rgba(239,68,68,.4))}
+  .nn-stairs span:nth-child(7){height:15%;background:linear-gradient(180deg,#ef4444,rgba(239,68,68,.4))}
+  .nn-chip{display:inline-flex;align-items:center;gap:7px;padding:6px 11px;border-radius:999px;
+    border:1px solid var(--nn-line);background:var(--nn-glass);
+    font-size:11.5px;font-weight:600;color:var(--nn-ivory)}
+  .nn-chip .nn-i{font-size:14px;color:var(--nn-gold)}
+  .nn-chip b{color:var(--nn-gold-2);font-weight:800}
+  .nn-chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;width:100%}
+
+  /* ---------- S4: hai làn nhìn ---------- */
+  .nn-lane{display:flex;align-items:center;gap:11px;width:100%;padding:11px 13px;
+    border-radius:13px;background:var(--nn-glass);border:1px solid rgba(255,255,255,.07)}
+  .nn-lane.hi{border-color:var(--nn-line);
+    background:linear-gradient(160deg,rgba(255,176,32,.10),rgba(255,176,32,.02))}
+  .nn-lane .nn-i{font-size:21px;color:var(--nn-dim)}
+  .nn-lane.hi .nn-i{color:var(--nn-gold)}
+  .nn-lane-txt{text-align:left}
+  .nn-lane-who{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--nn-dim);font-weight:700;margin:0 0 2px}
+  .nn-lane.hi .nn-lane-who{color:var(--nn-gold)}
+  .nn-lane-say{font-size:13px;font-weight:600;color:var(--nn-ivory);margin:0}
+  .nn-ask{font-family:var(--nn-serif);font-weight:900;font-size:26px;line-height:1.2;
+    color:var(--nn-gold);text-align:center;margin:0;letter-spacing:.01em;
+    text-shadow:0 0 22px rgba(255,176,32,.28)}
+
+  /* ---------- S5 & S8: hai hồ sơ tiền lệ — CÙNG khung, CÙNG cỡ ---------- */
+  .nn-file{position:relative;width:100%;border-radius:4px 14px 14px 4px;padding:14px 15px 13px;
+    background:linear-gradient(155deg,rgba(255,255,255,.06),rgba(255,255,255,.015));
+    border:1px solid rgba(255,255,255,.10);border-left:3px solid var(--nn-gold)}
+  .nn-file-tab{position:absolute;top:-9px;left:14px;padding:2px 9px;border-radius:4px;
+    background:var(--nn-gold);color:#120c02;font-size:9px;font-weight:900;letter-spacing:.14em}
+  .nn-file-where{font-family:var(--nn-serif);font-size:19px;font-weight:700;color:var(--nn-ivory);
+    margin:4px 0 6px;letter-spacing:.04em;text-align:left}
+  .nn-file-what{font-size:12.5px;line-height:1.5;color:var(--nn-dim);margin:0;text-align:left}
+  .nn-file-what b{color:var(--nn-ivory);font-weight:700}
+  .nn-quote{position:relative;width:100%;padding:12px 14px 12px 34px;border-radius:12px;
+    background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07)}
+  .nn-quote::before{content:"\201C";position:absolute;left:9px;top:-2px;font-family:var(--nn-serif);
+    font-size:44px;line-height:1;color:var(--nn-gold);opacity:.55}
+  .nn-quote p{margin:0;font-family:var(--nn-serif);font-style:italic;font-size:14.5px;
+    line-height:1.42;color:var(--nn-ivory);text-align:left}
+  .nn-stat3{display:flex;gap:7px;width:100%}
+  .nn-stat3 div{flex:1 1 0;padding:9px 6px;border-radius:11px;text-align:center;
+    background:var(--nn-glass);border:1px solid rgba(255,255,255,.07)}
+  .nn-stat3 strong{display:block;font-family:var(--nn-serif);font-size:16px;font-weight:700;
+    color:var(--nn-gold-2);line-height:1.1}
+  .nn-stat3 span{display:block;margin-top:3px;font-size:9.5px;line-height:1.28;color:var(--nn-dim)}
+
+  /* ---------- S7: phương trình niềm tin ---------- */
+  .nn-eq{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;margin:0;
+    font-family:var(--nn-serif);font-size:19px;font-weight:700;color:var(--nn-ivory)}
+  .nn-eq .op{font-size:22px;color:var(--nn-gold);font-family:'Inter',sans-serif;font-weight:300}
+  .nn-eq .off{color:var(--nn-dim);text-decoration:line-through;text-decoration-color:rgba(239,68,68,.75)}
+  .nn-eq .on{color:var(--nn-gold)}
+  .nn-crackline{width:100%;height:26px;display:block}
+  .nn-crackline path{fill:none;stroke:var(--nn-red);stroke-width:2;stroke-linecap:round;
+    filter:drop-shadow(0 0 5px rgba(239,68,68,.5))}
+
+  /* ---------- S9: bảng số quá khứ, CÓ nhãn thời điểm ---------- */
+  .nn-past{display:flex;gap:8px;width:100%}
+  .nn-past div{flex:1 1 0;padding:11px 8px;border-radius:12px;text-align:center;
+    background:linear-gradient(170deg,rgba(255,255,255,.06),rgba(255,255,255,.015));
+    border:1px solid rgba(255,255,255,.08)}
+  .nn-past strong{display:block;font-family:var(--nn-serif);font-size:21px;font-weight:700;
+    color:var(--nn-ivory);line-height:1}
+  .nn-past span{display:block;margin-top:4px;font-size:10px;color:var(--nn-dim);line-height:1.3}
+  .nn-tag{display:inline-block;padding:3px 9px;border-radius:999px;font-size:9.5px;font-weight:800;
+    letter-spacing:.13em;text-transform:uppercase;border:1px dashed var(--nn-line);
+    color:var(--nn-gold);background:rgba(255,176,32,.06)}
+
+  /* ---------- S10: cán cân chưa nghiêng + con dấu ---------- */
+  .nn-scale{width:150px;height:74px;display:block;margin:0 auto}
+  .nn-scale path,.nn-scale line{fill:none;stroke:var(--nn-gold);stroke-width:1.6;
+    stroke-linecap:round;opacity:.9}
+  .nn-scale .pan{fill:rgba(255,176,32,.08)}
+  .nn-stamp{font-family:var(--nn-serif);font-weight:900;font-size:17px;letter-spacing:.1em;
+    color:var(--nn-red);border:2.5px solid var(--nn-red);border-radius:7px;padding:6px 16px;
+    transform:rotate(-5deg);opacity:.92;text-transform:uppercase}
+
+  /* ---------- S13: thước giá — CỐ Ý không tô màu phán xét ---------- */
+  .nn-ruler{position:relative;width:100%;height:72px}
+  .nn-ruler-axis{position:absolute;left:0;right:0;bottom:6px;height:1.5px;
+    background:linear-gradient(90deg,transparent,rgba(236,230,220,.45),transparent)}
+  .nn-mark{position:absolute;top:0;transform:translateX(-50%);text-align:center;width:110px}
+  .nn-mark i{display:block;width:1.5px;height:14px;margin:8px auto 0;background:rgba(236,230,220,.6)}
+  .nn-mark strong{display:block;font-family:var(--nn-serif);font-size:15px;font-weight:700;
+    color:var(--nn-ivory);line-height:1.1}
+  .nn-mark span{display:block;font-size:9.5px;color:var(--nn-dim);margin-top:2px}
+  .nn-mark.b strong{color:var(--nn-gold)}
+
+  /* ---------- S14: ba ô theo dõi ---------- */
+  .nn-watch{display:flex;gap:7px;width:100%}
+  .nn-watch div{flex:1 1 0;padding:12px 7px 11px;border-radius:13px;text-align:center;
+    display:flex;flex-direction:column;align-items:center;
+    background:var(--nn-glass);border:1px solid var(--nn-line)}
+  .nn-watch .nn-i{font-size:20px;color:var(--nn-gold);margin-bottom:6px}
+  .nn-watch p{margin:0;font-size:11px;line-height:1.35;color:var(--nn-ivory);font-weight:600}
+  .nn-watch em{display:block;font-style:normal;font-size:9px;color:var(--nn-dim);
+    margin-top:auto;padding-top:4px}
+
+  /* ---------- S15: chốt ---------- */
+  .nn-final{position:relative;width:100%;padding:17px 15px;border-radius:16px;text-align:center;
+    background:linear-gradient(165deg,rgba(255,176,32,.12),rgba(255,176,32,.02));
+    border:1px solid var(--nn-line)}
+  .nn-final p{margin:0;font-family:var(--nn-serif);font-weight:700;font-size:22px;line-height:1.25;
+    color:var(--nn-gold);text-shadow:0 0 20px rgba(255,176,32,.25)}
+
+  /* ---------- S16: khoá thương hiệu ---------- */
+  .nn-brand{display:flex;flex-direction:column;align-items:center;gap:12px;width:100%}
+  .nn-brand-gem{width:52px;height:47px}
+  .nn-brand-gem .cut{fill:none;stroke:var(--nn-gold);stroke-width:1.8;stroke-linejoin:round}
+  .nn-brand-gem .face{fill:rgba(255,176,32,.12)}
+  .nn-brand-url{font-family:var(--nn-serif);font-weight:900;font-size:37px;line-height:1.1;
+    letter-spacing:.005em;margin:0;
+    background:linear-gradient(96deg,#ffd98a 0%,#ffb020 42%,#fff0cf 62%,#ffb020 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    filter:drop-shadow(0 0 20px rgba(255,176,32,.35))}
+  .nn-brand-line{width:96px;height:1.5px;
+    background:linear-gradient(90deg,transparent,var(--nn-gold),transparent)}
+  .nn-brand-say{font-size:12.5px;letter-spacing:.03em;color:var(--nn-dim);margin:0;text-align:center}
+  /* slide cuối đã có tên miền cỡ lớn ⇒ tắt watermark góc cho khỏi lặp chữ */
+  .slide-container:has(.slide[data-slide="15"].active) .brand-top-left,
+  .slide-container:has(.slide[data-slide="15"].active) .brand-bottom-right{opacity:0}
+  </style>

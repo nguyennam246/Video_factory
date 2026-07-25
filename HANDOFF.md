@@ -21,7 +21,25 @@ dự án này**; repo kia chỉ có ví dụ đồ chơi.
 > Khoang này CỐ Ý GỌN (hook nạp đầu phiên, trần 7000 ký tự). Diễn biến cũ đã dời xuống
 > `## 🗄️ LỊCH SỬ TRẠNG THÁI` cuối file — không mất chữ nào. Chi tiết đầy đủ: `../tri_thuc/patch_history.md`.
 
-### 🆕🎬 25/07 ĐÊM — ĐÃ DỰNG XONG `PNJ_03_niemtin.mp4` (126,3s) — CHỜ BOSS NGHE
+### 🆕🎬🎬 25/07 KHUYA — `PNJ_04_hoso.mp4` (126,9s): BẢN **THAY ÁO** CỦA PNJ 03 — CHỜ BOSS CHỌN ÁO
+`thanh_pham/baocao/PNJ_04_hoso.mp4` · deck `headless/deck_pnj04` · truy vết
+`kichban/escbase_10dong/README_pnj04.md`. **Cùng lời, cùng nhịp, cùng số với PNJ 03** — chỉ khác áo.
+- **Lời sửa đúng 1 chỗ (BOSS):** *"tòa chưa tuyên"* → **"cơ quan điều tra chưa kết luận"** (vụ mới
+  ở giai đoạn khởi tố/điều tra). Sửa cả 4 nơi: lời đọc · kịch bản gốc · con dấu slide 10 · ô slide 14.
+  38 reveal giữ nguyên. ⚠️ Bản **PNJ_03 vẫn mang chữ cũ**.
+- **Áo mới = theme 02 "HỒ SƠ ĐIỀU TRA"** (`escbase_template/themes/`, tiền tố `hs-`): xanh thép +
+  lưới blueprint + thẻ góc vuông có gáy hồ sơ + tiêu đề Oswald condensed in hoa + nhãn mono.
+  **Thư viện theme giờ có 2 áo dùng lại được** — quy trình thay áo ở `themes/README.md`.
+- **3 ẢNH THẬT (deck đầu tiên của xưởng có ảnh):** Buffett · Gerald Ratner · thỏi vàng (**CC0**,
+  Wikimedia, chú thích "ảnh minh hoạ"). Nguồn+giấy phép: `deck_pnj04/source/links.txt` — 2 ảnh chân
+  dung do phiên trước tải **chưa rõ giấy phép**, BOSS đã quyết dùng.
+- **Slide 1 = biểu đồ giá THẬT** 31 phiên (12/06→24/07) đọc từ kho giá, vẽ SVG trong DOM.
+  **Slide 16** chỉ còn **logo chìa khoá website xoay ngang + 1 dòng `dungladu.vn`** (BOSS lệnh).
+- **Máy: 7/7 ĐẠT** + thước reveal-cuối ≥1,2s sạch + soi 6 frame thật. Render 256,2s.
+⏳ **BOSS xem rồi phán:** ① chọn áo **03 hay 04** ② 2 cách đọc mới (`dungladu.vn` = "Đúng Là Đủ chấm
+vi en"? · `Buffett` = "Ba phét") — vẫn CHƯA ai nghe ③ nhịp ~127s có dài không.
+
+### 🎬 25/07 ĐÊM — ĐÃ DỰNG XONG `PNJ_03_niemtin.mp4` (126,3s) — CHỜ BOSS NGHE
 `thanh_pham/baocao/PNJ_03_niemtin.mp4` · deck `headless/deck_pnj03` · lời
 `kichban/escbase_10dong/pnj03_01_niemtin.txt` · truy vết `escbase_10dong/README_pnj03.md`.
 Dựng từ kịch bản BOSS tự chỉnh 2 vòng, **giữ nguyên văn**; chỉ thêm dòng 16 (slide thương hiệu

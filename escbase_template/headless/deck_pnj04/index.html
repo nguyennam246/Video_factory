@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PNJ — vết nứt niềm tin và hai tiền lệ ngành trang sức</title>
+  <meta name="description" content="Ca PNJ tháng 7/2026: cổ phiếu mất hơn một nửa trong sáu tuần, từ 68.000đ xuống 30.750đ, sau khi cựu giám đốc công ty con kiểm định đá quý bị khởi tố vì hơn 28.000 viên kim cương lậu và chứng thư giả. Đặt cạnh hai tiền lệ trái chiều cùng ngành trang sức: Ratners (Anh, 1991) và Kingold (Trung Quốc, 2020). Số quá khứ của PNJ: sinh lời trên vốn hơn 20% nhiều năm, lãi 2025 đạt 2.828 tỷ (+33,8%). Điểm còn nghi: doanh thu tháng 7 là số tự công bố, cổ phiếu quỹ trả 5 đợt trong 120 ngày, giá sau chia tách đứng trên giá trị sổ sách 26-28 nghìn đồng. Không phải khuyến nghị mua bán." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Oswald:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="style.css?v=pnj-04-ho-so" />
+  <style>
+  /* =====================================================================
+     THEME 02 — "HỒ SƠ ĐIỀU TRA" (25/07/2026) · tiền tố class: hs-
+     Ngôn ngữ thị giác: phòng hồ sơ tối xanh thép, lưới blueprint mờ, thẻ GÓC VUÔNG
+     3px viền mảnh, gáy hồ sơ đánh số mono, dấu mộc đỏ nghiêng.
+     Chữ: tiêu đề Oswald (condensed, IN HOA) · nhãn/số IBM Plex Mono · thân Inter.
+     Icon: Lucide (ISC) dán inline dạng <symbol> — không gọi mạng khi render.
+     Ảnh: khung tang vật (xám thép + viền mảnh + nhãn mono), CHÚ THÍCH bắt buộc.
+     TỰ CHỨA: chỉ dùng class có tiền tố hs- + biến :root của nó ⇒ cắm vào deck nào
+     cũng không làm hỏng deck khác.
+     ===================================================================== */
+  :root{
+    --hs-amber:#e8ad4e; --hs-amber-2:#f4d79a;
+    --hs-steel:#8fb6d6; --hs-paper:#e7ecf2; --hs-dim:rgba(231,236,242,.60);
+    --hs-red:#e0413a; --hs-line:rgba(143,182,214,.20);
+    --hs-glass:rgba(143,182,214,.055);
+    --hs-cond:'Oswald','Arial Narrow',Impact,sans-serif;
+    --hs-mono:'IBM Plex Mono',Menlo,Consolas,monospace;
+  }
+
+  /* ---------- NỀN: phòng hồ sơ + lưới blueprint, 6 biến thể đổi hướng đèn ---------- */
+  .hs-bg{position:absolute;inset:0;z-index:0;
+    --gx:50%; --gy:-4%; --rx:6%; --ry:104%;
+    background:
+      radial-gradient(118% 70% at var(--gx) var(--gy), rgba(143,182,214,.22), transparent 60%),
+      radial-gradient(92% 56% at var(--rx) var(--ry), rgba(232,173,78,.045), transparent 64%),
+      linear-gradient(180deg,#070b11 0%,#0b1119 54%,#05080d 100%);}
+  .hs-bg::after{content:"";position:absolute;inset:0;opacity:.78;
+    background:
+      repeating-linear-gradient(0deg, rgba(143,182,214,.055) 0 1px, transparent 1px 30px),
+      repeating-linear-gradient(90deg, rgba(143,182,214,.045) 0 1px, transparent 1px 30px),
+      repeating-linear-gradient(0deg, rgba(143,182,214,.028) 0 1px, transparent 1px 150px);
+    -webkit-mask-image:radial-gradient(circle at 50% 36%, #000 0%, rgba(0,0,0,.42) 58%, transparent 86%);
+            mask-image:radial-gradient(circle at 50% 36%, #000 0%, rgba(0,0,0,.42) 58%, transparent 86%);}
+  .hs-b2{--gx:86%;--gy:2%;--rx:4%;--ry:80%}
+  .hs-b3{--gx:14%;--gy:2%;--rx:92%;--ry:88%}
+  .hs-b4{--gx:50%;--gy:50%;--rx:50%;--ry:110%}
+  .hs-b5{--gx:92%;--gy:42%;--rx:8%;--ry:12%}
+  .hs-b6{--gx:8%;--gy:44%;--rx:90%;--ry:12%}
+
+  /* ---------- KHUNG CHUNG ---------- */
+  .hs-content{gap:13px;justify-content:flex-start}
+  .hs-content.hs-mid{justify-content:center;padding-top:78px}
+  .hs-sprite{display:none}
+  .hs-i{width:1em;height:1em;stroke:currentColor;fill:none;stroke-width:1.8;
+        stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
+
+  /* nhãn hồ sơ: mono in hoa, hai bên gạch chỉ thép mảnh */
+  .hs-kicker{display:flex;align-items:center;gap:9px;width:100%;justify-content:center;
+    font-family:var(--hs-mono);font-size:10px;font-weight:600;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--hs-steel);opacity:.95;margin:0}
+  .hs-kicker::before,.hs-kicker::after{content:"";height:1px;flex:1 1 auto;max-width:52px;
+    background:linear-gradient(90deg,transparent,var(--hs-line))}
+  .hs-kicker::after{background:linear-gradient(270deg,transparent,var(--hs-line))}
+
+  .hs-title{font-family:var(--hs-cond);font-weight:600;font-size:31px;line-height:1.14;
+    color:var(--hs-paper);letter-spacing:.012em;margin:0;text-align:center;text-transform:uppercase}
+  .hs-title em{font-style:normal;color:var(--hs-amber);font-weight:700}
+  .hs-title.sm{font-size:25px}
+  .hs-sub{font-size:12.5px;line-height:1.5;color:var(--hs-dim);text-align:center;margin:0}
+
+  /* thẻ hồ sơ: GÓC VUÔNG 3px, viền thép mảnh, một vệt sáng đèn bàn ở góc */
+  .hs-card{position:relative;width:100%;border-radius:3px;padding:12px 14px;
+    background:linear-gradient(160deg,rgba(143,182,214,.075),rgba(143,182,214,.02));
+    border:1px solid var(--hs-line);overflow:hidden}
+  .hs-card::before{content:"";position:absolute;top:-40%;left:-30%;width:60%;height:180%;
+    transform:rotate(18deg);background:linear-gradient(90deg,transparent,rgba(200,225,245,.055),transparent)}
+  .hs-row{position:relative;display:flex;align-items:center;gap:10px;text-align:left;width:100%}
+  .hs-row .hs-i{font-size:19px;color:var(--hs-steel)}
+  .hs-row.warn .hs-i{color:var(--hs-red)}
+  .hs-row p{margin:0;font-size:12.5px;line-height:1.45;color:var(--hs-paper)}
+  .hs-row p b{color:var(--hs-amber-2);font-weight:800}
+  .hs-row p .q{color:var(--hs-dim);font-weight:500}
+
+  /* ---------- S1: BIỂU ĐỒ GIÁ RƠI (số thật, 6 tuần, gia.db) ---------- */
+  .hs-chart{position:relative;width:100%;height:132px;border-radius:3px;overflow:hidden;
+    background:linear-gradient(180deg,rgba(143,182,214,.05),rgba(224,65,58,.05));
+    border:1px solid var(--hs-line)}
+  .hs-chart svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+  .hs-chart .grid{stroke:rgba(143,182,214,.16);stroke-width:.6;stroke-dasharray:3 5}
+  .hs-chart .area{fill:url(#hs-fall);stroke:none}
+  .hs-chart .line{fill:none;stroke:var(--hs-red);stroke-width:2.2;
+    stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 6px rgba(224,65,58,.5))}
+  .hs-chart .dot{fill:var(--hs-red);filter:drop-shadow(0 0 6px rgba(224,65,58,.75))}
+  .hs-chart-cap{position:absolute;left:9px;bottom:7px;margin:0;font-family:var(--hs-mono);
+    font-size:9px;letter-spacing:.1em;color:var(--hs-dim);text-transform:uppercase}
+  .hs-rail{display:flex;align-items:center;justify-content:center;gap:11px;width:100%}
+  .hs-price{font-family:var(--hs-cond);font-weight:600;font-size:27px;line-height:1;
+    color:var(--hs-paper);white-space:nowrap}
+  .hs-price.old{color:var(--hs-dim);font-size:21px;position:relative}
+  .hs-price.old::after{content:"";position:absolute;left:-4%;right:-4%;top:52%;height:1.5px;
+    background:var(--hs-dim);transform:rotate(-7deg)}
+  .hs-price.now{color:var(--hs-red)}
+  .hs-arrow{color:var(--hs-red);font-size:17px;display:flex}
+
+  /* ---------- ẢNH TANG VẬT: khung thép + chú thích mono BẮT BUỘC ---------- */
+  .hs-fig{position:relative;width:100%;margin:0;border-radius:3px;overflow:hidden;
+    border:1px solid var(--hs-line);background:#070b11}
+  .hs-fig img{display:block;width:100%;height:100%;object-fit:cover;
+    filter:grayscale(.72) contrast(1.06) brightness(.78) sepia(.16)}
+  .hs-fig::after{content:"";position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(180deg,rgba(7,11,17,0) 42%,rgba(7,11,17,.82) 100%),
+               radial-gradient(120% 90% at 50% 0%, rgba(232,173,78,.10), transparent 62%)}
+  .hs-fig figcaption{position:absolute;left:9px;right:9px;bottom:7px;z-index:2;margin:0;
+    font-family:var(--hs-mono);font-size:9px;letter-spacing:.08em;line-height:1.35;
+    color:rgba(231,236,242,.82);text-align:left;text-transform:uppercase}
+  .hs-fig figcaption b{color:var(--hs-amber-2);font-weight:700}
+  .hs-fig.tall{height:168px}
+  .hs-fig.wide{height:76px}
+  /* ẢNH KẸP TRONG HỒ SƠ: chân dung dọc đứng cạnh chữ (khuôn dùng cho CẢ HAI tiền lệ) */
+  .hs-file-inner{display:flex;align-items:flex-start;gap:12px;width:100%}
+  .hs-file-inner>div{flex:1 1 auto;min-width:0}
+  .hs-shot{position:relative;flex:0 0 auto;width:76px;margin:2px 0 0;
+    border-radius:2px;overflow:hidden;border:1px solid var(--hs-line);background:#070b11}
+  .hs-shot img{display:block;width:76px;height:92px;object-fit:cover;object-position:50% 26%;
+    filter:grayscale(.72) contrast(1.06) brightness(.84) sepia(.16)}
+  .hs-shot figcaption{display:block;padding:3px 4px 4px;font-family:var(--hs-mono);font-size:7.5px;
+    line-height:1.25;letter-spacing:.05em;text-transform:uppercase;color:var(--hs-dim);
+    background:rgba(143,182,214,.07);text-align:center}
+  /* ảnh chân dung nhỏ đứng trong làn nhìn */
+  .hs-avatar{width:52px;height:52px;flex:0 0 auto;border-radius:3px;overflow:hidden;
+    border:1px solid var(--hs-line);background:#070b11}
+  .hs-avatar img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 22%;
+    filter:grayscale(.72) contrast(1.06) brightness(.82) sepia(.16)}
+
+  /* ---------- S3: bậc thang phiên sàn ---------- */
+  .hs-stairs{display:flex;align-items:flex-end;justify-content:center;gap:6px;width:100%;
+    height:92px;padding:0 4px}
+  .hs-stairs span{flex:1 1 0;border-radius:1px;
+    background:linear-gradient(180deg,rgba(224,65,58,.8),rgba(224,65,58,.24));
+    box-shadow:0 0 10px rgba(224,65,58,.2)}
+  .hs-stairs span:nth-child(1){height:96%}.hs-stairs span:nth-child(2){height:82%}
+  .hs-stairs span:nth-child(3){height:69%}.hs-stairs span:nth-child(4){height:56%}
+  .hs-stairs span:nth-child(5){height:42%;background:linear-gradient(180deg,#e0413a,rgba(224,65,58,.4))}
+  .hs-stairs span:nth-child(6){height:28%;background:linear-gradient(180deg,#e0413a,rgba(224,65,58,.4))}
+  .hs-stairs span:nth-child(7){height:15%;background:linear-gradient(180deg,#e0413a,rgba(224,65,58,.4))}
+  .hs-chip{display:inline-flex;align-items:center;gap:7px;padding:6px 11px;border-radius:2px;
+    border:1px solid var(--hs-line);background:var(--hs-glass);
+    font-size:11.5px;font-weight:600;color:var(--hs-paper)}
+  .hs-chip .hs-i{font-size:14px;color:var(--hs-steel)}
+  .hs-chip b{color:var(--hs-amber-2);font-weight:800}
+  .hs-chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;width:100%}
+
+  /* ---------- S4: hai làn nhìn ---------- */
+  .hs-lane{display:flex;align-items:center;gap:11px;width:100%;padding:11px 13px;
+    border-radius:3px;background:var(--hs-glass);border:1px solid rgba(143,182,214,.10)}
+  .hs-lane.hi{border-color:rgba(232,173,78,.34);
+    background:linear-gradient(160deg,rgba(232,173,78,.10),rgba(232,173,78,.02))}
+  .hs-lane .hs-i{font-size:21px;color:var(--hs-dim)}
+  .hs-lane.hi .hs-i{color:var(--hs-amber)}
+  .hs-lane-txt{text-align:left}
+  .hs-lane-who{font-family:var(--hs-mono);font-size:9.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--hs-dim);font-weight:600;margin:0 0 2px}
+  .hs-lane.hi .hs-lane-who{color:var(--hs-amber)}
+  .hs-lane-say{font-size:13px;font-weight:600;color:var(--hs-paper);margin:0}
+  .hs-ask{font-family:var(--hs-cond);font-weight:600;font-size:29px;line-height:1.16;
+    color:var(--hs-amber);text-align:center;margin:0;letter-spacing:.015em;text-transform:uppercase;
+    text-shadow:0 0 22px rgba(232,173,78,.26)}
+
+  /* ---------- S5 & S8: hai hồ sơ tiền lệ — CÙNG khung, CÙNG cỡ, có GÁY đánh số ---------- */
+  .hs-file{position:relative;width:100%;border-radius:3px;padding:14px 15px 13px 26px;
+    background:linear-gradient(155deg,rgba(143,182,214,.08),rgba(143,182,214,.02));
+    border:1px solid rgba(143,182,214,.16);border-left:3px solid var(--hs-steel);overflow:hidden}
+  .hs-file::before{content:"HỒ SƠ";position:absolute;left:2px;top:50%;
+    transform:translateY(-50%) rotate(180deg);writing-mode:vertical-rl;
+    font-family:var(--hs-mono);font-size:8px;letter-spacing:.26em;color:rgba(143,182,214,.5)}
+  .hs-file-tab{position:absolute;top:0;right:0;padding:3px 9px;border-radius:0 0 0 3px;
+    background:var(--hs-steel);color:#060a10;font-family:var(--hs-mono);
+    font-size:9px;font-weight:700;letter-spacing:.14em}
+  .hs-file-where{font-family:var(--hs-cond);font-size:22px;font-weight:600;color:var(--hs-paper);
+    margin:2px 0 6px;letter-spacing:.05em;text-align:left;text-transform:uppercase}
+  .hs-file-what{font-size:12.5px;line-height:1.5;color:var(--hs-dim);margin:0;text-align:left}
+  .hs-file-what b{color:var(--hs-paper);font-weight:700}
+  .hs-quote{position:relative;width:100%;padding:12px 14px 12px 34px;border-radius:3px;
+    background:rgba(143,182,214,.045);border:1px solid rgba(143,182,214,.10);
+    border-left:2px solid var(--hs-amber)}
+  .hs-quote::before{content:"\201C";position:absolute;left:9px;top:-4px;font-family:Georgia,serif;
+    font-size:42px;line-height:1;color:var(--hs-amber);opacity:.5}
+  .hs-quote p{margin:0;font-style:italic;font-size:14.5px;
+    line-height:1.42;color:var(--hs-paper);text-align:left}
+  .hs-stat3{display:flex;gap:7px;width:100%}
+  .hs-stat3 div{flex:1 1 0;padding:9px 6px;border-radius:3px;text-align:center;
+    background:var(--hs-glass);border:1px solid rgba(143,182,214,.12)}
+  .hs-stat3 strong{display:block;font-family:var(--hs-cond);font-size:19px;font-weight:600;
+    color:var(--hs-amber-2);line-height:1.1}
+  .hs-stat3 span{display:block;margin-top:3px;font-size:9.5px;line-height:1.28;color:var(--hs-dim)}
+
+  /* ---------- S7: phương trình niềm tin ---------- */
+  .hs-eq{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;margin:0;
+    font-family:var(--hs-cond);font-size:22px;font-weight:600;color:var(--hs-paper);
+    text-transform:uppercase;letter-spacing:.02em}
+  .hs-eq .op{font-size:22px;color:var(--hs-steel);font-family:'Inter',sans-serif;font-weight:300}
+  .hs-eq .off{color:var(--hs-dim);text-decoration:line-through;text-decoration-color:rgba(224,65,58,.75)}
+  .hs-eq .on{color:var(--hs-amber)}
+  .hs-crackline{width:100%;height:26px;display:block}
+  .hs-crackline path{fill:none;stroke:var(--hs-red);stroke-width:2;stroke-linecap:round;
+    filter:drop-shadow(0 0 5px rgba(224,65,58,.5))}
+
+  /* ---------- S9: bảng số quá khứ, CÓ nhãn thời điểm ---------- */
+  .hs-past{display:flex;gap:8px;width:100%}
+  .hs-past div{flex:1 1 0;padding:11px 8px;border-radius:3px;text-align:center;
+    background:linear-gradient(170deg,rgba(143,182,214,.08),rgba(143,182,214,.02));
+    border:1px solid rgba(143,182,214,.13)}
+  .hs-past strong{display:block;font-family:var(--hs-cond);font-size:24px;font-weight:600;
+    color:var(--hs-paper);line-height:1}
+  .hs-past span{display:block;margin-top:4px;font-size:10px;color:var(--hs-dim);line-height:1.3}
+  .hs-tag{display:inline-block;padding:3px 9px;border-radius:2px;font-family:var(--hs-mono);
+    font-size:9.5px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;
+    border:1px dashed var(--hs-line);color:var(--hs-steel);background:rgba(143,182,214,.06)}
+
+  /* ---------- S10: cán cân chưa nghiêng + DẤU MỘC ĐỎ ---------- */
+  .hs-scale{width:150px;height:74px;display:block;margin:0 auto}
+  .hs-scale path,.hs-scale line{fill:none;stroke:var(--hs-steel);stroke-width:1.6;
+    stroke-linecap:round;opacity:.9}
+  .hs-scale .pan{fill:rgba(143,182,214,.08)}
+  .hs-stamp{font-family:var(--hs-cond);font-weight:600;font-size:16px;letter-spacing:.09em;
+    color:var(--hs-red);border:2px solid var(--hs-red);outline:1px solid var(--hs-red);
+    outline-offset:3px;border-radius:2px;padding:6px 15px;
+    transform:rotate(-5deg);opacity:.94;text-transform:uppercase}
+
+  /* ---------- S13: thước giá — CỐ Ý không tô màu phán xét ---------- */
+  .hs-ruler{position:relative;width:100%;height:72px}
+  .hs-ruler-axis{position:absolute;left:0;right:0;bottom:6px;height:1.5px;
+    background:linear-gradient(90deg,transparent,rgba(231,236,242,.45),transparent)}
+  .hs-mark{position:absolute;top:0;transform:translateX(-50%);text-align:center;width:110px}
+  .hs-mark i{display:block;width:1.5px;height:14px;margin:8px auto 0;background:rgba(231,236,242,.6)}
+  .hs-mark strong{display:block;font-family:var(--hs-cond);font-size:17px;font-weight:600;
+    color:var(--hs-paper);line-height:1.1}
+  .hs-mark span{display:block;font-family:var(--hs-mono);font-size:9px;color:var(--hs-dim);margin-top:2px}
+  .hs-mark.b strong{color:var(--hs-amber)}
+
+  /* ---------- S14: ba ô theo dõi ---------- */
+  .hs-watch{display:flex;gap:7px;width:100%}
+  .hs-watch div{flex:1 1 0;padding:12px 7px 11px;border-radius:3px;text-align:center;
+    display:flex;flex-direction:column;align-items:center;
+    background:var(--hs-glass);border:1px solid var(--hs-line)}
+  .hs-watch .hs-i{font-size:20px;color:var(--hs-steel);margin-bottom:6px}
+  .hs-watch p{margin:0;font-size:11px;line-height:1.35;color:var(--hs-paper);font-weight:600}
+  .hs-watch em{display:block;font-style:normal;font-family:var(--hs-mono);font-size:8.5px;
+    color:var(--hs-dim);margin-top:auto;padding-top:4px;line-height:1.3}
+
+  /* ---------- S15: chốt ---------- */
+  .hs-final{position:relative;width:100%;padding:17px 15px;border-radius:3px;text-align:center;
+    background:linear-gradient(165deg,rgba(232,173,78,.12),rgba(232,173,78,.02));
+    border:1px solid rgba(232,173,78,.30)}
+  .hs-final p{margin:0;font-family:var(--hs-cond);font-weight:600;font-size:25px;line-height:1.2;
+    color:var(--hs-amber);text-transform:uppercase;text-shadow:0 0 20px rgba(232,173,78,.24)}
+
+  /* ---------- S16: KHOÁ THƯƠNG HIỆU — logo chìa khoá NẰM NGANG + 1 dòng tên miền ---------- */
+  .hs-brand{display:flex;flex-direction:column;align-items:center;gap:18px;width:100%}
+  .hs-key{width:108px;height:108px;display:block;transform:rotate(-90deg);
+    filter:drop-shadow(0 0 18px rgba(190,147,64,.45))}
+  .hs-key-wrap{height:108px;display:flex;align-items:center;justify-content:center}
+  .hs-brand-url{font-family:var(--hs-cond);font-weight:600;font-size:40px;line-height:1.1;
+    letter-spacing:.02em;margin:0;text-transform:lowercase;
+    background:linear-gradient(96deg,#f4d79a 0%,#e8ad4e 42%,#fff0cf 62%,#e8ad4e 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    filter:drop-shadow(0 0 20px rgba(232,173,78,.35))}
+  /* slide cuối chỉ còn MỘT dòng tên miền ⇒ tắt watermark góc cho khỏi lặp chữ */
+  .slide-container:has(.slide[data-slide="15"].active) .brand-top-left,
+  .slide-container:has(.slide[data-slide="15"].active) .brand-bottom-right{opacity:0}
+  </style>
+</head>
+<body>
+  <div class="main-wrapper">
+    <div class="script-panel" id="scriptPanel"><div class="script-panel-title"><i class="fa-solid fa-scroll"></i> Script</div><div class="script-panel-badge" id="scriptSlideBadge">Ready</div><div class="script-panel-text" id="scriptText">Bấm vào slide để bắt đầu...</div></div>
+    <div class="audio-panel" id="audioPanel"><div class="audio-panel-title"><i class="fa-solid fa-sliders"></i> Âm Thanh</div><div class="audio-group"><label class="audio-label"><i class="fa-solid fa-music"></i> Nhạc nền</label><select id="bgmSelect" onchange="switchBGM(this.value)"><option value="ambient" selected>Ambient</option><option value="cinematic">Cinematic</option><option value="lofi">Lo-fi</option><option value="piano">Piano</option><option value="dark">Dark</option><option value="custom">Custom upload</option><option value="none">Tắt</option></select></div><div class="audio-panel-divider"></div><div class="audio-slide-header"><span class="audio-slide-badge" id="audioPanelSlide">Ready</span><div class="audio-slide-nav"><button class="audio-nav-btn" onclick="audioPanelPrev()"><i class="fa-solid fa-chevron-left"></i></button><button class="audio-nav-btn" onclick="audioPanelNext()"><i class="fa-solid fa-chevron-right"></i></button></div></div><div class="audio-group"><label class="audio-label"><i class="fa-solid fa-forward"></i> Chuyển slide</label><select id="transitionSelect" onchange="setSlideTransition(currentSlide, this.value)"><option value="gong">Gong</option><option value="rise">Rise</option><option value="bass">Bass</option><option value="chime">Chime</option><option value="sweep">Sweep</option><option value="boom">Boom</option><option value="alarm">Alarm</option><option value="chord">Chord</option><option value="ascending">Ascending</option><option value="retro">Retro</option><option value="minimal">Minimal</option><option value="dramatic">Dramatic</option></select></div><div class="audio-group"><label class="audio-label"><i class="fa-solid fa-wand-magic-sparkles"></i> Hiện element</label><select id="revealSelect" onchange="setSlideReveal(currentSlide, this.value)"><option value="ping">Ping</option><option value="pop">Pop</option><option value="chime">Chime</option><option value="click">Click</option><option value="bubble">Bubble</option><option value="sparkle">Sparkle</option><option value="blip">Blip</option><option value="tick">Tick</option><option value="bell">Bell</option></select></div><div class="audio-actions"><button onclick="testTransition()">Test slide</button><button onclick="testReveal()">Test reveal</button></div></div>
+
+    <!-- ===== BỘ ICON LUCIDE (giấy phép ISC) dán inline — render không cần mạng ===== -->
+    <svg class="hs-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <symbol id="ic-gem" viewBox="0 0 24 24"><path d="M10.5 3 8 9l4 13 4-13-2.5-6"/><path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/><path d="M2 9h20"/></symbol>
+      <symbol id="ic-cert" viewBox="0 0 24 24"><path d="M13 22h5a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v3.3"/><path d="M14 2v5a1 1 0 0 0 1 1h5"/><path d="m7.69 16.479 1.29 4.88a.5.5 0 0 1-.698.591l-1.843-.849a1 1 0 0 0-.879.001l-1.846.85a.5.5 0 0 1-.692-.593l1.29-4.88"/><circle cx="6" cy="14" r="3"/></symbol>
+      <symbol id="ic-gavel" viewBox="0 0 24 24"><path d="m14 13-8.381 8.38a1 1 0 0 1-3.001-3l8.384-8.381"/><path d="m16 16 6-6"/><path d="m21.5 10.5-8-8"/><path d="m8 8 6-6"/><path d="m8.5 7.5 8 8"/></symbol>
+      <symbol id="ic-flame" viewBox="0 0 24 24"><path d="M12 3q1 4 4 6.5t3 5.5a1 1 0 0 1-14 0 5 5 0 0 1 1-3 1 1 0 0 0 5 0c0-2-1.5-3-1.5-5q0-2 2.5-4"/></symbol>
+      <symbol id="ic-store" viewBox="0 0 24 24"><path d="M15 21v-5a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v5"/><path d="M17.774 10.31a1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.451 0 1.12 1.12 0 0 0-1.548 0 2.5 2.5 0 0 1-3.452 0 1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.77-3.248l2.889-4.184A2 2 0 0 1 7 2h10a2 2 0 0 1 1.653.873l2.895 4.192a2.5 2.5 0 0 1-3.774 3.244"/><path d="M4 10.95V19a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8.05"/></symbol>
+      <symbol id="ic-down" viewBox="0 0 24 24"><path d="M16 17h6v-6"/><path d="m22 17-8.5-8.5-5 5L2 7"/></symbol>
+      <symbol id="ic-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></symbol>
+      <symbol id="ic-hourglass" viewBox="0 0 24 24"><path d="M5 22h14"/><path d="M5 2h14"/><path d="M17 22v-4.172a2 2 0 0 0-.586-1.414L12 12l-4.414 4.414A2 2 0 0 0 7 17.828V22"/><path d="M7 2v4.172a2 2 0 0 0 .586 1.414L12 12l4.414-4.414A2 2 0 0 0 17 6.172V2"/></symbol>
+      <symbol id="ic-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="M12 8v4"/><path d="M12 16h.01"/></symbol>
+      <symbol id="ic-wallet" viewBox="0 0 24 24"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/></symbol>
+      <symbol id="ic-eye" viewBox="0 0 24 24"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></symbol>
+      <symbol id="ic-rhombus" viewBox="0 0 24 24"><path d="M2.7 10.3a2.41 2.41 0 0 0 0 3.41l7.59 7.59a2.41 2.41 0 0 0 3.41 0l7.59-7.59a2.41 2.41 0 0 0 0-3.41l-7.59-7.59a2.41 2.41 0 0 0-3.41 0Z"/></symbol>
+      <symbol id="ic-alert" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol>
+      <symbol id="ic-fork" viewBox="0 0 24 24"><circle cx="12" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><circle cx="18" cy="6" r="3"/><path d="M18 9v2c0 .6-.4 1-1 1H7c-.6 0-1-.4-1-1V9"/><path d="M12 12v3"/></symbol>
+    </svg>
+
+    <div id="slideContainer" class="slide-container">
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+      <div class="brand-top-left"><span>dungladu.vn</span></div>
+      <div class="brand-bottom-right"><span>dungladu.vn</span></div>
+
+      <!-- ============ SLIDE 1 — HOOK: viên kim cương nứt (2 câu) ============ -->
+      <div class="slide active" data-slide="0">
+        <div class="slide-bg hs-bg"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content hs-content hs-mid">
+          <div class="slide-element fade-up">
+            <div class="hs-chart">
+              <svg viewBox="0 0 300 136" preserveAspectRatio="none" aria-hidden="true">
+                <defs><linearGradient id="hs-fall" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#e0413a" stop-opacity=".26"/>
+                  <stop offset="1" stop-color="#e0413a" stop-opacity="0"/>
+                </linearGradient></defs>
+                <line class="grid" x1="0" y1="36" x2="300" y2="36"/>
+                <line class="grid" x1="0" y1="76" x2="300" y2="76"/>
+                <line class="grid" x1="0" y1="116" x2="300" y2="116"/>
+                <path class="area" d="M0.0,29.2 L10.0,19.9 L20.0,10.0 L30.0,10.6 L40.0,10.6 L50.0,13.4 L60.0,16.8 L70.0,19.3 L80.0,18.4 L90.0,22.7 L100.0,24.6 L110.0,25.5 L120.0,26.1 L130.0,27.0 L140.0,25.8 L150.0,39.4 L160.0,52.1 L170.0,63.9 L180.0,60.2 L190.0,66.4 L200.0,76.9 L210.0,85.4 L220.0,76.0 L230.0,86.0 L240.0,94.6 L250.0,88.1 L260.0,94.3 L270.0,103.1 L280.0,111.3 L290.0,118.9 L300.0,126.0 L300,136 L0,136 Z"/>
+                <polyline class="line" points="0.0,29.2 10.0,19.9 20.0,10.0 30.0,10.6 40.0,10.6 50.0,13.4 60.0,16.8 70.0,19.3 80.0,18.4 90.0,22.7 100.0,24.6 110.0,25.5 120.0,26.1 130.0,27.0 140.0,25.8 150.0,39.4 160.0,52.1 170.0,63.9 180.0,60.2 190.0,66.4 200.0,76.9 210.0,85.4 220.0,76.0 230.0,86.0 240.0,94.6 250.0,88.1 260.0,94.3 270.0,103.1 280.0,111.3 290.0,118.9 300.0,126.0"/>
+                <circle class="dot" cx="300.0" cy="126.0" r="4"/>
+              </svg>
+              <p class="hs-chart-cap">PNJ · giá đóng cửa · 12/06 → 24/07/2026</p>
+            </div>
+            <p class="hs-kicker">PNJ · sáu tuần</p>
+            <h1 class="hs-title">Mất hơn <em>một nửa</em> giá</h1>
+            <div class="hs-rail" style="margin-top:14px">
+              <span class="hs-price old">68.000đ</span>
+              <span class="hs-arrow"><svg class="hs-i"><use href="#ic-down"/></svg></span>
+              <span class="hs-price now">30.750đ</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ SLIDE 2 — NGÒI NỔ (1 câu) ============ -->
+      <div class="slide" data-slide="1">
+        <div class="slide-bg hs-bg hs-b2"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content hs-content hs-mid">
+          <div class="slide-element fade-up">
+            <p class="hs-kicker">ngòi nổ · 03/07/2026</p>
+            <h2 class="hs-title">khởi tố <em>cựu giám đốc</em><br/>công ty con kiểm định</h2>
+            <div class="hs-card" style="margin-top:12px">
+              <div class="hs-row warn" style="margin-bottom:9px">
+                <svg class="hs-i"><use href="#ic-gem"/></svg>
+                <p>hơn <b>28.000 viên kim cương</b> lậu</p>
+              </div>
+              <div class="hs-row warn">
+                <svg class="hs-i"><use href="#ic-cert"/></svg>
+                <p>và <b>chứng thư giả</b></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ SLIDE 3 — PHẢN ỨNG THỊ TRƯỜNG (2 câu) ============ -->
+      <div class="slide" data-slide="2">
+        <div class="slide-bg hs-bg hs-b3"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content hs-content hs-mid">
+          <div class="slide-element fade-up">
+            <p class="hs-kicker">thị trường hoảng loạn</p>
+            <div class="hs-stairs"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+            <h2 class="hs-title sm"><em>bảy phiên</em> giảm sàn một tháng</h2>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="hs-chips">
+              <span class="hs-chip"><svg class="hs-i"><use href="#ic-down"/></svg>21–24/07: <b>4 phiên sàn liền</b></span>
+              <span class="hs-chip"><svg class="hs-i"><use href="#ic-alert"/></svg>trắng bên mua</span>
+              <span class="hs-chip"><svg class="hs-i"><use href="#ic-flame"/></svg>24/07: <b>41 triệu cp</b> sang tay</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ SLIDE 4 — ĐỔI CÂU HỎI (3 câu) ============ -->
+      <div class="slide" data-slide="3">
+        <div class="slide-bg hs-bg hs-b4"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content hs-content hs-mid">
+          <div class="slide-element fade-up">
+            <div class="hs-lane">
+              <svg class="hs-i"><use href="#ic-eye"/></svg>
+              <div class="hs-lane-txt">
+                <p class="hs-lane-who">người thường</p>
+                <p class="hs-lane-say">nhìn giá rơi</p>
+              </div>
+            </div>
+          </div>
+          <div class="slide-element fade-up">
+            <div class="hs-lane hi">
+              <span class="hs-avatar"><img src="img/buffett.jpg" alt="Warren Buffett"/></span>
+              <div class="hs-lane-txt">
+                <p class="hs-lane-who">nhà đầu tư giá trị</p>
+                <p class="hs-lane-say">hỏi như Buffett</p>
+              </div>
+            </div>
+          </div>
+          <div class="slide-element scale-in">
+            <p class="hs-ask">Cỗ máy kiếm tiền<br/>có hỏng không?</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ SLIDE 5 — TIỀN LỆ 1 (2 câu) ============ -->
+      <div class="slide" data-slide="4">
+        <div class="slide-bg hs-bg hs-b5"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content hs-content hs-mid">
+          <div class="slide-element fade-up">
+            <p class="hs-kicker">ngành trang sức có tiền lệ</p>
+            <div class="hs-file" style="margin-top:10px">
+              <span class="hs-file-tab">TIỀN LỆ 1</span>
+              <div class="hs-file-inner">
+                <figure class="hs-shot">
+                  <img src="img/ratners.jpg" alt="Gerald Ratner"/>
+                  <figcaption>Gerald Ratner<br/>ảnh tư liệu</figcaption>
+                </figure>
+                <div>
+                  <p class="hs-file-where">NƯỚC ANH · 1991</p>
+                  <p class="hs-file-what">ông chủ <b>hãng trang sức lớn nhất thế giới</b> lỡ miệng, ngay trên bục diễn thuyết</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="hs-quote"><p>chê hàng của chính mình<br/>là đồ rẻ tiền</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ SLIDE 6 — KẾT CỤC TIỀN LỆ 1 (3 câu) ============ -->
+      <div class="slide" data-slide="5">
+        <div class="slide-bg hs-bg hs-b5"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content hs-content hs-mid">
+          <div class="slide-element fade-up">
+            <div class="hs-card">
+              <div class="hs-row"><svg class="hs-i"><use href="#ic-gem"/></svg><p>hàng hôm sau <span class="q">vẫn y hệt hôm trước</span></p></div>
+            </div>
+          </div>
+          <div class="slide-element fade-up">
+            <div class="hs-card" style="border-color:rgba(239,68,68,.30)">
+              <div class="hs-row warn"><svg class="hs-i"><use href="#ic-store"/></svg><p>nhưng <b style="color:#ff9a9a">khách quay lưng</b></p></div>
+            </div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="hs-stat3">
+              <div><strong>−500</strong><span>triệu bảng</span></div>
+              <div><strong>~100</strong><span>cửa hàng đóng</span></div>
+              <div><strong>Signet</strong><span>đổi tên mới sống</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ SLIDE 7 — BÀI HỌC NGÀNH (3 câu) ============ -->
+      <div class="slide" data-slide="6">
+        <div class="slide-bg hs-bg hs-b6"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content hs-content hs-mid">
+          <div class="slide-element fade-up">
+            <p class="hs-kicker">thứ họ thật sự bán</p>
+            <p class="hs-eq"><span class="off">kim loại</span><span class="op">≠</span><span>trang sức</span></p>
+          </div>
+          <div class="slide-element fade-up">
+            <p class="hs-eq"><span class="on">niềm tin</span><span class="op">+</span><span class="on">hãnh diện</span></p>
+            <p class="hs-sub">của người đeo nó</p>
+          </div>
+          <div class="slide-element scale-in">
+            <svg class="hs-crackline" viewBox="0 0 300 26" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M2 13 L58 13 L74 4 L96 22 L118 6 L140 20 L162 8 L184 18 L206 11 L298 13"/>
+            </svg>
+            <h2 class="hs-title sm">niềm tin vỡ, <em>cỗ máy còn nguyên</em> cũng vô dụng</h2>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ SLIDE 8 — TIỀN LỆ 2 (2 câu) — CÙNG KHUNG SLIDE 5 ============ -->
+      <div class="slide" data-slide="7">
+        <div class="slide-bg hs-bg hs-b5"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content hs-content hs-mid">
+          <div class="slide-element fade-up">
+            <p class="hs-kicker">tiền lệ khác, tệ hơn</p>
+            <div class="hs-file" style="margin-top:10px">
+              <span class="hs-file-tab">TIỀN LỆ 2</span>
+              <div class="hs-file-inner">
+                <figure class="hs-shot">
+                  <img src="img/kingold.jpg" alt="thỏi vàng" style="filter:grayscale(.22) contrast(1.04) brightness(.86) sepia(.12)"/>
+                  <figcaption>83 tấn “vàng”<br/>ảnh minh hoạ</figcaption>
+                </figure>
+                <div>
+                  <p class="hs-file-where">TRUNG QUỐC · 2020</p>
+                  <p class="hs-file-what">hãng vàng lớn dùng <b>giấy giám định</b> che <b>83 tấn vàng giả</b></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="hs-card" style="border-color:rgba(239,68,68,.30)">
+              <div class="hs-row warn"><svg class="hs-i"><use href="#ic-alert"/></svg><p>rồi <b style="color:#ff9a9a">biến mất khỏi sàn</b></p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ SLIDE 9 — SỐ QUÁ KHỨ CỦA PNJ (3 câu) ============ -->
+      <div class="slide" data-slide="8">
+        <div class="slide-bg hs-bg hs-b3"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content hs-content hs-mid">
+          <div class="slide-element fade-up">
+            <h2 class="hs-title">PNJ giống <em>ca nào?</em></h2>
+            <span class="hs-tag">số đo của quá khứ</span>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="hs-past">
+              <div><strong>&gt;20%</strong><span>sinh lời trên vốn,<br/>nhiều năm liền</span></div>
+              <div><strong>sạch</strong><span>sổ sách, không dấu<br/>hiệu bất thường</span></div>
+            </div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="hs-card">
+              <div class="hs-row"><svg class="hs-i"><use href="#ic-wallet"/></svg><p>lãi 2025: <b>2.828 tỷ</b> <span class="q">(+33,8%)</span>, kỷ lục giữa lúc ngành co lại</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ SLIDE 10 — ĐIỂM KHÁC + CHƯA CÓ KẾT LUẬN ĐIỀU TRA (4 câu) ============ -->
+      <div class="slide" data-slide="9">
+        <div class="slide-bg hs-bg hs-b4"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content hs-content">
+          <div class="slide-element fade-up">
+            <svg class="hs-scale" viewBox="0 0 150 74" aria-hidden="true">
+              <line x1="75" y1="10" x2="75" y2="62"/><line x1="55" y1="64" x2="95" y2="64"/>
+              <line x1="22" y1="22" x2="128" y2="22"/>
+              <line x1="22" y1="22" x2="22" y2="34"/><line x1="128" y1="22" x2="128" y2="34"/>
+              <path class="pan" d="M6 34 H38 L30 50 H14 Z"/><path d="M6 34 H38 L30 50 H14 Z"/>
+              <path class="pan" d="M112 34 H144 L136 50 H120 Z"/><path d="M112 34 H144 L136 50 H120 Z"/>
+            </svg>
+            <p class="hs-kicker">điểm khác quan trọng</p>
+          </div>
+          <div class="slide-element fade-up">
+            <div class="hs-card"><div class="hs-row"><svg class="hs-i"><use href="#ic-rhombus"/></svg><p>sai phạm ở <b>cá nhân</b>, tại <b>công ty con</b></p></div></div>
+          </div>
+          <div class="slide-element fade-up">
+            <div class="hs-card"><div class="hs-row"><svg class="hs-i"><use href="#ic-store"/></svg><p>không phải cách <b>công ty mẹ</b> kiếm tiền<span class="q">, theo công bố</span></p></div></div>
+            <span class="hs-stamp" style="margin-top:14px">Chưa có kết luận điều tra</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ SLIDE 11 — ĐIỂM NGHI 1: SỐ TỰ CÔNG BỐ (3 câu) ============ -->
+      <div class="slide" data-slide="10">
+        <div class="slide-bg hs-bg hs-b2"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content hs-content hs-mid">
+          <div class="slide-element fade-up">
+            <p class="hs-kicker">công ty trấn an</p>
+            <h2 class="hs-title">doanh thu tháng 7<br/>vẫn tăng <em>gần 20%</em></h2>
+          </div>
+          <div class="slide-element fade-up">
+            <div class="hs-chips">
+              <span class="hs-chip"><svg class="hs-i"><use href="#ic-cert"/></svg>số <b>tự công bố</b></span>
+              <span class="hs-chip"><svg class="hs-i"><use href="#ic-hourglass"/></svg>mới <b>ba tuần</b></span>
+            </div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="hs-card">
+              <div class="hs-row"><svg class="hs-i"><use href="#ic-gem"/></svg><p>trang sức <b>vài năm mua một lần</b>, niềm tin rạn <b>hiện ra chậm</b></p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ SLIDE 12 — ĐIỂM NGHI 2: CỔ PHIẾU QUỸ (2 câu) ============ -->
+      <div class="slide" data-slide="11">
+        <div class="slide-bg hs-bg hs-b6"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content hs-content hs-mid">
+          <div class="slide-element fade-up">
+            <p class="hs-kicker">cổ phiếu quỹ cũng cần soi</p>
+            <div class="hs-stat3" style="margin-top:8px">
+              <div><strong>5 đợt</strong><span>tiền trả làm nhiều lần</span></div>
+              <div><strong>120</strong><span>ngày kéo dài</span></div>
+            </div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="hs-card" style="border-color:rgba(239,68,68,.32)">
+              <div class="hs-row warn"><svg class="hs-i"><use href="#ic-shield"/></svg><p>đúng lúc số đo <b style="color:#ff9a9a">dòng tiền đang báo động</b></p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ SLIDE 13 — GIÁ (4 câu) · CỐ Ý KHÔNG TÔ MÀU PHÁN XÉT ============ -->
+      <div class="slide" data-slide="12">
+        <div class="slide-bg hs-bg hs-b3"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content hs-content hs-mid">
+          <div class="slide-element fade-up">
+            <p class="hs-kicker">còn giá · sau chia tách</p>
+          </div>
+          <div class="slide-element fade-up">
+            <div class="hs-ruler">
+              <div class="hs-ruler-axis"></div>
+              <div class="hs-mark" style="left:27%"><strong>26–28k</strong><span>giá trị sổ sách</span><i></i></div>
+              <div class="hs-mark b" style="left:73%"><strong>30.750đ</strong><span>giá thị trường</span><i></i></div>
+            </div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="hs-card">
+              <div class="hs-row" style="margin-bottom:8px"><svg class="hs-i"><use href="#ic-rhombus"/></svg><p>giá <b>nhỉnh hơn</b> sổ sách</p></div>
+              <div class="hs-row"><svg class="hs-i"><use href="#ic-flame"/></svg><p>và đứng trên <b>mức lãi đỉnh lịch sử</b></p></div>
+            </div>
+          </div>
+          <div class="slide-element scale-in">
+            <h2 class="hs-title sm">rẻ hơn trước,<br/><em>không phải cho không</em></h2>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ SLIDE 14 — BA THỨ PHẢI THEO DÕI (2 câu) ============ -->
+      <div class="slide" data-slide="13">
+        <div class="slide-bg hs-bg hs-b4"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content hs-content hs-mid">
+          <div class="slide-element fade-up">
+            <svg class="hs-i" style="font-size:26px;color:var(--hs-gold)"><use href="#ic-fork"/></svg>
+            <h2 class="hs-title">ba thứ sẽ <em>phân định</em><br/>PNJ thuộc ca nào</h2>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="hs-watch">
+              <div><svg class="hs-i"><use href="#ic-store"/></svg><p>sức mua từng tháng<em>từ nguồn độc lập</em></p></div>
+              <div><svg class="hs-i"><use href="#ic-gavel"/></svg><p>diễn biến vụ án<em>tới khi có kết luận</em></p></div>
+              <div><svg class="hs-i"><use href="#ic-wallet"/></svg><p>dòng tiền quý tới<em>tiền thật đi ra</em></p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ SLIDE 15 — CHỐT (3 câu) ============ -->
+      <div class="slide" data-slide="14">
+        <div class="slide-bg hs-bg"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content hs-content hs-mid">
+          <div class="slide-element fade-up">
+            <p class="hs-kicker">nhà đầu tư giá trị không cần đoán</p>
+          </div>
+          <div class="slide-element fade-up">
+            <div class="hs-card">
+              <div class="hs-row" style="margin-bottom:9px"><svg class="hs-i"><use href="#ic-eye"/></svg><p>chưa chắc thì <b>đứng ngoài quan sát</b></p></div>
+              <div class="hs-row"><svg class="hs-i"><use href="#ic-wallet"/></svg><p>chắc rồi <b>mới xuống tiền</b></p></div>
+            </div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="hs-final"><p>Chưa chắc<br/>thì đứng ngoài</p></div>
+          </div>
+        </div>
+        <!-- MIỄN TRỪ: CỐ Ý không mang class .slide-element ⇒ hiện suốt slide, không tính reveal -->
+        <p class="mien-tru">Video này không phải là khuyến nghị mua bán. Chỉ là tổng hợp thông tin.</p>
+      </div>
+
+      <!-- ============ SLIDE 16 — KHOÁ THƯƠNG HIỆU (1 câu, ~2 giây) ============ -->
+      <div class="slide" data-slide="15">
+        <div class="slide-bg hs-bg hs-b4"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content hs-content hs-mid">
+          <div class="slide-element scale-in">
+            <div class="hs-brand">
+              <span class="hs-key-wrap">
+                <svg class="hs-key" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+                  <defs><linearGradient id="hs-keyg" gradientUnits="userSpaceOnUse" x1="60" y1="14" x2="60" y2="106">
+                    <stop offset="0" stop-color="#BE9340"/><stop offset="1" stop-color="#8A6622"/>
+                  </linearGradient></defs>
+                  <circle cx="60" cy="36" r="21" stroke="url(#hs-keyg)" stroke-width="7.5"/>
+                  <circle cx="60" cy="36" r="6" fill="#C98598"/>
+                  <line x1="60" y1="57" x2="60" y2="100" stroke="url(#hs-keyg)" stroke-width="7.5" stroke-linecap="round"/>
+                  <line x1="60" y1="84" x2="76" y2="84" stroke="url(#hs-keyg)" stroke-width="7.5" stroke-linecap="round"/>
+                  <line x1="60" y1="98" x2="71" y2="98" stroke="url(#hs-keyg)" stroke-width="7.5" stroke-linecap="round"/>
+                </svg>
+              </span>
+              <p class="hs-brand-url">dungladu.vn</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-controls"><button class="side-btn" id="muteBtn" onclick="toggleMute()"><i class="fa-solid fa-volume-high"></i></button><div class="side-divider"></div><button class="side-btn" id="prevBtn" onclick="prevSlide()"><i class="fa-solid fa-chevron-up"></i></button><div class="side-counter"><span id="currentSlide">1</span>/<span id="totalSlides">16</span></div><button class="side-btn" id="nextBtn" onclick="nextSlide()"><i class="fa-solid fa-chevron-down"></i></button></div>
+  </div>
+  <script src="app.js?v=pnj-04-ho-so"></script>
+</body>
+</html>
