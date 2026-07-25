@@ -181,9 +181,13 @@ Bản mới: **`thanh_pham/baocao/PNJ_02_hanhdong.mp4` — 98,8s, nghiệm thu 7
 > rồi chạy 2 script THẬT → exit **50**, không quay; nhả xong chạy lại → exit 0, đủ 10 slide.
 > Xem ai giữ: `python3 video/khoa_render.py --kiem`. Mã 50 ≠ render hỏng, chỉ là xếp hàng.
 >
-> ⚠️ **VIỆC 0c — CHỜ BOSS CHỐT HỢP NHẤT `tri_thuc/`:** hai cây song song đã phân nhánh
-> (`Cloud/tri_thuc/` 5904 dòng ← video ghi vào đây · `Research copy/tri_thuc/` 5626 dòng).
-> Bản nào là bản chính, bản kia xoá hay đổi thành symlink?
+> ✅ **VIỆC 0c — HỢP NHẤT `tri_thuc/` + `video/` VÀO GIT: XONG 25/07.**
+> Gốc bệnh: `Cloud/` KHÔNG phải repo (repo là `Research copy/`), mà `video/` nằm NGOÀI repo ⇒
+> `../tri_thuc/` trỏ ra một bản sao ngoài git. Đã gộp **311 mục, 0 mất 0 lặp** (+68 gạch đầu
+> dòng `kinh_nghiem`), rồi `Cloud/tri_thuc` → **symlink** vào `Research copy/tri_thuc`.
+> **Chỉ còn MỘT sổ, nằm trong git.** ⚠️ Thứ tự tương đối trong 24-25/07 không tin được.
+> `video/` giờ là **repo git riêng** (`main`, commit `dfe6e01`, 325 file/31,4 MB, `.git` 6,3 MB).
+> Đã quét khoá: `.env` · `key.rtf` · `config/tts.json` đều KHÔNG vào git. Rollback đã thử thật.
 >
 > **VIỆC 1 — ✅ BOSS ĐÃ DUYỆT HẾT 25/07** (*"những video đó làm đều đạt cả"*): 8 bài Superpowers
 > + `hpd_01_danhgia` + `headless_05_skill`. Đã cất vào `thanh_pham/` (superpowers vào ngăn

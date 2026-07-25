@@ -34,6 +34,15 @@ tiếng Việt, dọc 9:16 — *"chỉ xem video là hiểu vấn đề và làm
 ## NGHI THỨC (hook trong `video/.claude/` tự nhắc khi mở phiên tại video/)
 - **Đầu phiên:** hook `nap_handoff.py` tự nạp 2 khoang sống của `video/HANDOFF.md`
   (📍 TRẠNG THÁI + 🎯 ĐANG THI CÔNG DỞ). Còn lại tự đọc khi cần — kỷ luật token.
+- 🆕 **`video/` LÀ REPO GIT RIÊNG từ 25/07/2026** (`git log` chạy được ngay trong `video/`).
+  Trước đó cả xưởng không có version control. `.gitignore` chặn 3 file chứa khoá
+  (`.env` · `key.rtf` · `escbase_template/config/tts.json`) và 3,5 GB thứ dựng lại được.
+  **Luật thêm file vào git:** một lệnh dựng lại được ⇒ KHÔNG vào git; gõ tay mới có
+  (kịch bản, luật, thước, `index.html` của deck) ⇒ PHẢI vào git.
+- 🆕 **`../tri_thuc` giờ là SYMLINK** → `Research copy/tri_thuc` (repo git của Research).
+  Trước 25/07 có HAI cây `tri_thuc/` chạy song song và đã phân nhánh — vì `video/` nằm
+  NGOÀI repo Research nên `../tri_thuc/` trỏ ra một bản sao ngoài git. Đã gộp (311 mục,
+  0 mất 0 lặp) rồi thay bằng symlink. **Chỉ còn MỘT cuốn sổ, và nó nằm trong git.**
 - **Cuối phiên:** 4 sổ ghi VỀ GỐC repo (không mở sổ riêng, tránh tri thức phân mảnh):
   `../tri_thuc/patch_history.md` (mục mới LÊN ĐẦU) · `../tri_thuc/kinh_nghiem.md`
   (bẫy, kèm ngày) · cập nhật `video/HANDOFF.md` (trạng thái + việc chờ, giữ GỌN) ·
@@ -49,6 +58,10 @@ tiếng Việt, dọc 9:16 — *"chỉ xem video là hiểu vấn đề và làm
 | `video/HANDOFF.md` | Trạng thái + việc chờ + công thức kịch bản — ĐIỂM VÀO |
 | `video/lam_video.py` | Dây chuyền kịch bản → mp4 (neo `BASE_DIR` = gốc repo) |
 | `video/kichban/` | 10 bài dạy + truyện + bài thử giọng |
+| 🆕 **`video/nghe/`** | ⭐ **NGHỀ GIỮ MẮT** — trục thứ 2, độc lập với `goc/`. 10 kiểu hook · 2 mốc rơi (dòng 2 và dòng 5-7) · nhịp ngắt mẫu · câu đáng chụp màn hình · trần ý. BOSS nghiệm thu 25/07 qua bản A/B: *"bản mới hút mắt hơn"* |
+| `video/goc/` | GÓC TIẾP CẬN — trục 1: kể chuyện gì (ra nhịp). Nhật ký chống lặp trong `NHAT_KY.md` |
+| 🆕 **`video/khoa_render.py`** | 🔒 **KHOÁ RENDER** — `flock`, một lúc một tiến trình quay. Cắm TRONG `render_headless`/`auto_render`/`capture_slides`, không ở runner. Mã thoát **50** = đang xếp hàng, KHÔNG phải render hỏng |
+| `video/lam_bai.py` | ⭐ MỘT LỆNH RA BÀI — 9 bước, 4 loại cổng chặn. `--goc` (kể gì) · `--nghe` (giữ mắt) · `--duong re` (bài làm lại) |
 | `video/escbase_template/` | Template mua 199k (dây chuyền HTML/CSS thay Pillow — đang thử) |
 | `video/README.md` | Cách chạy + định dạng kịch bản đầy đủ |
 | **`video/thanh_pham/`** | ⭐ **CHỖ CỐ ĐỊNH BOSS TÌM VIDEO** (BOSS chốt 25/07/2026): `baocao/` video mã CP · `kynang/` video dạy. Nghiệm thu xong là copy về đây + ghi 1 dòng README |
