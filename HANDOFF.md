@@ -21,6 +21,15 @@ dự án này**; repo kia chỉ có ví dụ đồ chơi.
 > Khoang này CỐ Ý GỌN (hook nạp đầu phiên, trần 7000 ký tự). Diễn biến cũ đã dời xuống
 > `## 🗄️ LỊCH SỬ TRẠNG THÁI` cuối file — không mất chữ nào. Chi tiết đầy đủ: `../tri_thuc/patch_history.md`.
 
+### 🆕🎬 25/07 TỐI — KỊCH BẢN PNJ ĐÃ SOẠN, CHỜ BOSS DUYỆT + DỰNG
+`kichban/pnj_dam_chay_kim_cuong.md` — 15 cảnh, 416 từ, parser `--loi` pass, CHỮ ≤34 ký tự,
+không dấu cấm. Góc kể: ca American Express 1963 của Buffett soi vào ca PNJ 2026 (vụ P-Lab
+khởi tố 03/07 → 7 phiên sàn, giá 68.000đ→30.750đ) + 3 chỗ phải soi (án chưa tuyên · niềm tin ·
+lãi đỉnh 2,78× TB 15 năm). Nguồn số: `Research copy/baocao/PNJ_BaoCao.md` + `ketqua.db`
+(zscore/mscore/n10) + `gia.db` (7 phiên sàn tự đối chiếu từng phiên) + web search 25/07
+(Tuổi Trẻ/CafeF/Vietstock). Dựng: `python3 lam_video.py kichban/pnj_dam_chay_kim_cuong.md`
+— BOSS nghe giọng duyệt trước khi render thật.
+
 ### 🆕☁️ 25/07 TỐI — 2 REPO ĐÃ LÊN GITHUB PRIVATE (BOSS lệnh)
 `video/` → **`nguyennam246/Video_factory`** · `Research copy/` → **`nguyennam246/Research-cp`**.
 Push qua SSH (`~/.ssh/id_ed25519`, xác thực sẵn). Đã kiểm `git ls-remote` khớp HEAD cả 3 nhánh;
