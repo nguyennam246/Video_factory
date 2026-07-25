@@ -21,6 +21,18 @@ dự án này**; repo kia chỉ có ví dụ đồ chơi.
 > Khoang này CỐ Ý GỌN (hook nạp đầu phiên, trần 7000 ký tự). Diễn biến cũ đã dời xuống
 > `## 🗄️ LỊCH SỬ TRẠNG THÁI` cuối file — không mất chữ nào. Chi tiết đầy đủ: `../tri_thuc/patch_history.md`.
 
+### 🆕☁️ 25/07 TỐI — 2 REPO ĐÃ LÊN GITHUB PRIVATE (BOSS lệnh)
+`video/` → **`nguyennam246/Video_factory`** · `Research copy/` → **`nguyennam246/Research-cp`**.
+Push qua SSH (`~/.ssh/id_ed25519`, xác thực sẵn). Đã kiểm `git ls-remote` khớp HEAD cả 3 nhánh;
+quét khoá **cả lịch sử** 2 repo = 0 khoá.
+🔑 **LUẬT MỚI: commit xong PHẢI `git push`** — git init chỉ chống *sửa hỏng*, remote mới chống
+*ổ cứng chết*. Không push thì GitHub đứng lại còn máy chạy tiếp, hụt đúng phần mới nhất.
+⚠️ `git push` từng bị cơ chế phê duyệt Claude Code **chặn** (không nhất quán giữa 2 repo) ⇒
+đưa lệnh cho BOSS chạy tay, đừng thử lách. Chưa có hook nhắc push.
+Kèm: dọn 39 thay đổi treo ở `Research copy/` thành 3 commit — trong đó xoá **bản chụp `video/`
+cũ** (35 file thời video còn trong repo Research, lần xoá chưa từng commit; **đã đối chiếu từng
+file, 0 file mất**). Chi tiết: patch_history 25/07 tối.
+
 ### 🆕⚖️ 25/07 TỐI — DÒNG MIỄN TRỪ TRÁCH NHIỆM (BOSS lệnh) + tra pháp lý
 `<p class="mien-tru">` cuối slide 10, **ngoài `.slide-content` và không mang class reveal**
 ⇒ không đụng safezone, không đổi nhịp, không tốn từ. **Runner đóng thành CỔNG bước 6** cho

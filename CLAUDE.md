@@ -39,6 +39,10 @@ tiếng Việt, dọc 9:16 — *"chỉ xem video là hiểu vấn đề và làm
   (`.env` · `key.rtf` · `escbase_template/config/tts.json`) và 3,5 GB thứ dựng lại được.
   **Luật thêm file vào git:** một lệnh dựng lại được ⇒ KHÔNG vào git; gõ tay mới có
   (kịch bản, luật, thước, `index.html` của deck) ⇒ PHẢI vào git.
+  🆕 **Remote: `nguyennam246/Video_factory` (private, SSH)** — từ 25/07 tối. `Research copy/`
+  → `nguyennam246/Research-cp`. **Commit xong PHẢI `git push`**: git chống *sửa hỏng*, chỉ
+  remote mới chống *ổ cứng chết*. Nếu `git push` bị cơ chế phê duyệt chặn thì ĐƯA LỆNH cho
+  BOSS chạy tay, đừng lách.
 - 🆕 **`../tri_thuc` giờ là SYMLINK** → `Research copy/tri_thuc` (repo git của Research).
   Trước 25/07 có HAI cây `tri_thuc/` chạy song song và đã phân nhánh — vì `video/` nằm
   NGOÀI repo Research nên `../tri_thuc/` trỏ ra một bản sao ngoài git. Đã gộp (311 mục,
