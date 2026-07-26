@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VEA — giá 33.900 đ đã tính sẵn bốn điều</title>
+  <meta name="description" content="Đọc báo cáo tài chính cho người mới: ca VEA (VEAM). Lãi sau thuế hợp nhất 2025 là 7.219,4 tỷ trên doanh thu thuần 4.465,5 tỷ; phần lãi liên doanh 6.630,1 tỷ = 91,8%. Nợ xấu giá gốc 844,97 tỷ, công ty tự đánh giá thu hồi được 45,45 tỷ. Cổ tức 2025 là 5.240 đồng mỗi cổ phiếu, chia xong lợi nhuận giữ lại còn 2,58 tỷ. Không phải khuyến nghị đầu tư." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="style.css?v=vea-01-danh-gia" />
+  <style>
+  /* dòng miễn trừ (BOSS lệnh 25/07) — đáy giữa, dưới vùng phụ đề */
+  .mien-tru { position:absolute; left:50%; bottom:46px; transform:translateX(-50%);
+    z-index:90; width:88%; text-align:center; font-size:9.5px; font-weight:600;
+    line-height:1.4; letter-spacing:.01em; color:rgba(255,255,255,.5); pointer-events:none; }
+  /* quầng sáng kho là XANH = "tốt"; bài này cấm phán -> về vàng palette tc */
+  .hk-lockup-b .glowing-orb { background: radial-gradient(circle, rgba(255,176,32,.18) 0%, transparent 70%); }
+
+  /* S2 — đọc NGƯỢC: từ giá tách ra thành các mảnh kỳ vọng (mũi tên chạy ngược) */
+  .vea-flow { display:flex; align-items:center; gap:12px; justify-content:center; }
+  .vea-flow-gia { font-size:22px; font-weight:900; color:var(--primary,#ffb020);
+    border:2px solid rgba(255,176,32,.5); border-radius:12px; padding:10px 14px; white-space:nowrap; }
+  .vea-flow-mui { font-size:20px; color:rgba(255,255,255,.45); }
+  .vea-flow-manh { display:flex; flex-direction:column; gap:8px; }
+  .vea-flow-manh span { font-size:13px; font-weight:700; color:rgba(255,255,255,.82);
+    background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.14);
+    border-radius:9px; padding:7px 12px; white-space:nowrap; }
+
+  /* S4 — bốn ô giả định. Trung tính: KHÔNG tô màu phán tốt/xấu */
+  .vea-gt { display:flex; align-items:center; gap:11px;
+    background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.14);
+    border-left:3px solid rgba(255,176,32,.62); border-radius:10px; padding:9px 13px; }
+  .vea-gt-so { flex:0 0 auto; width:22px; height:22px; border-radius:50%;
+    background:rgba(255,176,32,.16); color:var(--primary,#ffb020);
+    font-size:12px; font-weight:900; display:flex; align-items:center; justify-content:center; }
+  .vea-gt-chu { font-size:14px; font-weight:700; color:rgba(255,255,255,.9); line-height:1.3; }
+  .vea-kicker { font-size:11px; font-weight:800; letter-spacing:.12em; text-transform:uppercase;
+    color:rgba(255,255,255,.42); margin-bottom:10px; }
+
+  /* S7 — cùng một đồng lãi, giá trả ngày càng ít. Hai cột CÙNG MÀU (cấm phán) */
+  .vea-pe { display:flex; align-items:flex-end; justify-content:center; gap:26px; height:104px; }
+  .vea-pe-cot { display:flex; flex-direction:column; align-items:center; gap:7px; }
+  .vea-pe-thanh { width:46px; background:rgba(255,176,32,.34);
+    border:1px solid rgba(255,176,32,.5); border-radius:6px 6px 0 0; }
+  .vea-pe-so { font-size:17px; font-weight:900; color:var(--primary,#ffb020); }
+  .vea-pe-nam { font-size:11px; font-weight:700; color:rgba(255,255,255,.5); }
+
+  /* S8 — LỚP BÓC: thanh lãi mẹ bị bóc mất tầng cổ tức, còn lại một vệt mỏng */
+  .vea-boc { display:flex; flex-direction:column; gap:6px; align-items:stretch; }
+  .vea-boc-tang { display:flex; align-items:center; justify-content:space-between; gap:14px;
+    border-radius:8px; padding:9px 13px; font-size:13px; font-weight:700; }
+  .vea-boc-goc { background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.18);
+    color:rgba(255,255,255,.88); }
+  .vea-boc-mat { background:rgba(239,68,68,.13); border:1px dashed rgba(239,68,68,.55);
+    color:rgba(255,255,255,.72); transform:translateX(11px) rotate(-1.2deg); }
+  .vea-boc-con { background:rgba(255,176,32,.15); border:1px solid rgba(255,176,32,.6);
+    color:var(--primary,#ffb020); padding:7px 13px; }
+  .vea-boc-nhan { font-size:11px; font-weight:700; opacity:.72; }
+  </style>
+</head>
+<body>
+  <div class="main-wrapper">
+    <div class="script-panel" id="scriptPanel"><div class="script-panel-title"><i class="fa-solid fa-scroll"></i> Script</div><div class="script-panel-badge" id="scriptSlideBadge">Ready</div><div class="script-panel-text" id="scriptText">Bấm vào slide để bắt đầu...</div></div>
+    <div class="audio-panel" id="audioPanel"><div class="audio-panel-title"><i class="fa-solid fa-sliders"></i> Âm Thanh</div><div class="audio-group"><label class="audio-label"><i class="fa-solid fa-music"></i> Nhạc nền</label><select id="bgmSelect" onchange="switchBGM(this.value)"><option value="ambient" selected>Ambient</option><option value="cinematic">Cinematic</option><option value="lofi">Lo-fi</option><option value="piano">Piano</option><option value="dark">Dark</option><option value="custom">Custom upload</option><option value="none">Tắt</option></select></div><div class="audio-panel-divider"></div><div class="audio-slide-header"><span class="audio-slide-badge" id="audioPanelSlide">Ready</span><div class="audio-slide-nav"><button class="audio-nav-btn" onclick="audioPanelPrev()"><i class="fa-solid fa-chevron-left"></i></button><button class="audio-nav-btn" onclick="audioPanelNext()"><i class="fa-solid fa-chevron-right"></i></button></div></div><div class="audio-group"><label class="audio-label"><i class="fa-solid fa-forward"></i> Chuyển slide</label><select id="transitionSelect" onchange="setSlideTransition(currentSlide, this.value)"><option value="gong">Gong</option><option value="rise">Rise</option><option value="bass">Bass</option><option value="chime">Chime</option><option value="sweep">Sweep</option><option value="boom">Boom</option><option value="alarm">Alarm</option><option value="chord">Chord</option><option value="ascending">Ascending</option><option value="retro">Retro</option><option value="minimal">Minimal</option><option value="dramatic">Dramatic</option></select></div><div class="audio-group"><label class="audio-label"><i class="fa-solid fa-wand-magic-sparkles"></i> Hiện element</label><select id="revealSelect" onchange="setSlideReveal(currentSlide, this.value)"><option value="ping">Ping</option><option value="pop">Pop</option><option value="chime">Chime</option><option value="click">Click</option><option value="bubble">Bubble</option><option value="sparkle">Sparkle</option><option value="blip">Blip</option><option value="tick">Tick</option><option value="bell">Bell</option></select></div><div class="audio-actions"><button onclick="testTransition()">Test slide</button><button onclick="testReveal()">Test reveal</button></div></div>
+
+    <div id="slideContainer" class="slide-container">
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+      <div class="brand-top-left"><span>dungladu.vn</span></div>
+      <div class="brand-bottom-right"><span>dungladu.vn</span></div>
+
+      <!-- S1 · HOOK 1 câu — hero điều kiện: con số giá đứng giữa khung -->
+      <div class="slide active" data-slide="0">
+        <div class="slide-bg slide-bg-1"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content hero-content pixelle-hero-content cursor-pixelle-hero">
+          <div class="slide-element fade-up">
+            <div class="pixelle-hero-orbit cursor-pixelle-orbit">
+              <div class="orbit-ring ring-a"></div><div class="orbit-ring ring-b"></div>
+              <div class="pixelle-core cursor-pixelle-core"><i class="fa-solid fa-tag hk-core-icon"></i></div>
+              <span class="orbit-chip pv-chip-script">kiểm toán ngoại trừ</span><span class="orbit-chip pv-chip-media">845 tỷ nợ xấu</span><span class="orbit-chip pv-chip-voice">bốn bản án</span><span class="orbit-chip pv-chip-render">lãi liên doanh</span>
+            </div>
+            <h1 class="title-main title-shimmer title-glitch"><span class="gradient-text hero-version-text">33.900 đ</span></h1>
+            <p class="hero-caption">đã tính sẵn bốn điều</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- S2 · 2 câu — đọc NGƯỢC từ giá ra kỳ vọng -->
+      <div class="slide" data-slide="1">
+        <div class="slide-bg slide-bg-2"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content hk-content">
+          <div class="slide-element fade-up">
+            <div class="hk-head hk-row"><span class="hk-kicker">giá cổ phiếu là</span><h2 class="hk-title">một bản <em>cộng dồn</em></h2></div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="vea-flow">
+              <div class="vea-flow-gia">33.900 đ</div>
+              <div class="vea-flow-mui"><i class="fa-solid fa-arrow-left-long"></i></div>
+              <div class="vea-flow-manh"><span>điều người mua tin</span><span>điều người mua ngại</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- S3 · 2 câu — mã này là ai, tiền ở đâu ra -->
+      <div class="slide" data-slide="2">
+        <div class="slide-bg slide-bg-3"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content hk-content">
+          <div class="slide-element fade-up">
+            <div class="hk-head hk-row"><span class="hk-kicker">VEA · vốn nhà nước 88%</span><h2 class="hk-title">máy động lực, <em>máy nông nghiệp</em></h2></div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="hk-names"><code class="hk-name-key">Honda</code><code class="hk-name-key">Toyota</code><code class="hk-name-key">Ford</code></div>
+            <p class="cm-caption">gần <b>92%</b> lợi nhuận hợp nhất</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- S4 · 4 câu — bốn giả định, mỗi câu một ô. Slide dễ tràn nhất của góc -->
+      <div class="slide" data-slide="3">
+        <div class="slide-bg slide-bg-4"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content hk-content hk-content-tight">
+          <div class="vea-kicker">giá đang tính sẵn rằng</div>
+          <div class="slide-element fade-up">
+            <div class="vea-gt"><span class="vea-gt-so">1</span><span class="vea-gt-chu">kiểm toán ba năm không xác nhận</span></div>
+          </div>
+          <div class="slide-element fade-up">
+            <div class="vea-gt"><span class="vea-gt-so">2</span><span class="vea-gt-chu">845 tỷ nợ xấu gần như mất</span></div>
+          </div>
+          <div class="slide-element fade-up">
+            <div class="vea-gt"><span class="vea-gt-so">3</span><span class="vea-gt-chu">chuỗi bản án chưa khép</span></div>
+          </div>
+          <div class="slide-element fade-up">
+            <div class="vea-gt"><span class="vea-gt-so">4</span><span class="vea-gt-chu">lãi liên doanh sẽ co lại</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- S5 · 3 câu — ba điều đầu CÓ bằng chứng -->
+      <div class="slide" data-slide="4">
+        <div class="slide-bg slide-bg-5"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content hk-content hk-content-tight">
+          <div class="slide-element fade-up">
+            <div class="hk-head hk-row"><span class="hk-kicker">ba điều đầu</span><h2 class="hk-title">có <em>bằng chứng</em></h2></div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="cm-cost">
+              <div class="cm-cost-row"><span class="cm-cost-tag">45 tỷ</span><div class="cm-cost-bar"><span></span></div></div>
+              <p class="cm-cost-label">công ty tự đánh giá thu hồi được, trên <b>845 tỷ nợ xấu</b></p>
+            </div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="hk-note"><i class="fa-solid fa-clock-rotate-left"></i> một năm trước còn <b>189 tỷ</b></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- S6 · 3 câu — điều thứ tư CHƯA có bằng chứng -->
+      <div class="slide" data-slide="5">
+        <div class="slide-bg slide-bg-6"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content hk-content hk-content-tight">
+          <div class="slide-element fade-up">
+            <div class="hk-head hk-row"><span class="hk-kicker">điều thứ tư</span><h2 class="hk-title"><em>chưa</em> có bằng chứng</h2></div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="hk-note"><i class="fa-solid fa-motorcycle"></i> Honda Việt Nam <b>~2,3 triệu xe máy</b></div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="hk-note"><i class="fa-solid fa-bullhorn"></i> bên dự báo giảm là <b>chính VEAM</b></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- S7 · 3 câu — lịch sử: cùng một đồng lãi, giá trả ngày càng ít -->
+      <div class="slide" data-slide="6">
+        <div class="slide-bg slide-bg-7"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content hk-content hk-content-tight">
+          <div class="slide-element fade-up">
+            <div class="hk-head hk-row"><span class="hk-kicker">năm năm qua</span><h2 class="hk-title">lãi <em>đi ngang</em></h2></div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="vea-pe">
+              <div class="vea-pe-cot"><span class="vea-pe-so">10,3</span><div class="vea-pe-thanh" style="height:74px"></div><span class="vea-pe-nam">2021</span></div>
+              <div class="vea-pe-cot"><span class="vea-pe-so">6,4</span><div class="vea-pe-thanh" style="height:46px"></div><span class="vea-pe-nam">2025</span></div>
+            </div>
+            <p class="cm-caption">giá trả cho <b>mỗi đồng lãi</b></p>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="hk-note"><i class="fa-solid fa-scale-balanced"></i> có nơi gỡ sau <b>một kỳ sạch</b>, có nơi treo nhiều năm</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- S8 · 2 câu — LỚP BÓC: thanh lãi mẹ bị bóc mất tầng cổ tức -->
+      <div class="slide" data-slide="7">
+        <div class="slide-bg slide-bg-8"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content hk-content">
+          <div class="slide-element fade-up">
+            <div class="hk-head hk-row"><span class="hk-kicker">nếu điều thứ tư thành thật</span><h2 class="hk-title">thứ đổi trước là <em>cổ tức</em></h2></div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="vea-boc">
+              <div class="vea-boc-tang vea-boc-goc"><span>lãi công ty mẹ</span><span>7.005,7 tỷ</span></div>
+              <div class="vea-boc-tang vea-boc-mat"><span class="vea-boc-nhan">chia cổ tức</span><span>6.962,9 tỷ</span></div>
+              <div class="vea-boc-tang vea-boc-con"><span>giữ lại cho năm sau</span><span>2,6 tỷ</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- S9 · 3 câu — nhìn vào đâu để biết đúng hay trượt -->
+      <div class="slide" data-slide="8">
+        <div class="slide-bg slide-bg-9"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content hk-content hk-content-tight">
+          <div class="slide-element fade-up">
+            <div class="hk-head hk-row"><span class="hk-kicker">đúng hay trượt</span><h2 class="hk-title">nhìn <em>quý hai</em></h2></div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="sc-file">
+              <p class="sc-file-line"><span class="sg-num">1</span> dòng tiền kinh doanh nửa năm</p>
+            </div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="sc-file">
+              <p class="sc-file-line"><span class="sg-num">2</span> cổ tức Honda còn nợ về bao nhiêu</p>
+              <p class="sc-file-line"><span class="sg-num">3</span> một kỳ không còn ngoại trừ</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- S10 · 3 câu — chốt đối xứng + dòng miễn trừ (ngoài hộp bố cục) -->
+      <div class="slide" data-slide="9">
+        <div class="slide-bg slide-bg-10"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content conclusion-content hk-content hk-content-tight">
+          <div class="slide-element fade-up">
+            <div class="hk-note"><i class="fa-solid fa-tag"></i> quay lại con số <b>33.900 đ</b></div>
+          </div>
+          <div class="slide-element fade-up">
+            <div class="hk-lockup hk-lockup-a"><i class="fa-solid fa-list-check"></i><span class="hk-lockup-line"><strong>Bốn điều đã nằm sẵn trong đó.</strong></span></div>
+          </div>
+          <div class="slide-element fade-up">
+            <div class="hk-lockup hk-lockup-b"><div class="glowing-orb"></div><i class="fa-solid fa-binoculars"></i><strong>Việc còn lại là xem điều nào mất đi.</strong></div>
+          </div>
+        </div>
+        <p class="mien-tru">Video này không phải là khuyến nghị mua bán. Chỉ là tổng hợp thông tin.</p>
+      </div>
+    </div>
+
+    <div class="side-controls"><button class="side-btn" id="muteBtn" onclick="toggleMute()"><i class="fa-solid fa-volume-high"></i></button><div class="side-divider"></div><button class="side-btn" id="prevBtn" onclick="prevSlide()"><i class="fa-solid fa-chevron-up"></i></button><div class="side-counter"><span id="currentSlide">1</span>/<span id="totalSlides">10</span></div><button class="side-btn" id="nextBtn" onclick="nextSlide()"><i class="fa-solid fa-chevron-down"></i></button></div>
+  </div>
+  <script src="app.js?v=vea-01-danh-gia"></script>
+</body>
+</html>
