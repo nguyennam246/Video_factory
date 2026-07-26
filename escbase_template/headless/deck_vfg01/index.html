@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VFG — lãi 6 tháng vẫn tăng, dòng tiền kinh doanh âm 43 tỷ</title>
+  <meta name="description" content="Đọc báo cáo tài chính cho người mới: ca VFG (Khử trùng Việt Nam) nửa đầu 2026, số từ BCTC hợp nhất Q2/2026 công bố 21/07/2026. Doanh thu 6T 2.054,9 tỷ (+10,1%), lãi cổ đông mẹ 171,09 tỷ (+4,5%), biên lãi gộp 25,1% lên 25,7%; nhưng dòng tiền kinh doanh 6T âm 43,1 tỷ, phải thu khách hàng 544,3 lên 878,4 tỷ (+61%), phải trả người bán 823,2 tỷ. Hai khả năng để ngỏ: mùa vụ bán chịu bình thường (nợ quá hạn 28 tỷ không tăng, không khách nào chiếm từ 10% phải thu) hay lãi chỉ đẹp trên sổ. Không phải khuyến nghị đầu tư." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="style.css?v=vfg-01-nghich-ly-so" />
+  <style>
+    /* =========================================================================
+       SCENE RIÊNG BÀI VFG — namespace vfg-  (góc `nghich_ly_so`, 26/07/2026)
+       Ba scene mới đẻ cho kho: `vfg-duel` (hero hai số chọi nhau) ·
+       `vfg-jump` (một số nhảy bậc) · `vfg-drain` (lãi trên sổ vs tiền thật).
+       Cộng MỞ HÀNG `speed-gauge` của kho template — phải recolor về palette tc
+       vì bản kho dùng xanh #00e676 = "tốt", mà bài này CẤM phán tốt/xấu.
+       ========================================================================= */
+
+    /* --- hero hai số: đối xứng trái/phải, khác màu, hiện cùng lúc --- */
+    .vfg-duel { display: flex; align-items: stretch; justify-content: center; width: 100%; margin-bottom: 18px; }
+    .vfg-duel-side { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 6px 4px; }
+    .vfg-duel-num { font-size: 34px; font-weight: 900; line-height: 1; letter-spacing: -.02em; }
+    .vfg-duel-lab { font-size: 11px; font-weight: 800; letter-spacing: .05em; text-transform: uppercase;
+                    color: rgba(255,255,255,.5); text-align: center; line-height: 1.35; }
+    .vfg-duel-a .vfg-duel-num { color: var(--primary, #ffb020); text-shadow: 0 0 30px rgba(255,176,32,.45); }
+    .vfg-duel-b .vfg-duel-num { color: #ef4444; text-shadow: 0 0 30px rgba(239,68,68,.45); }
+    .vfg-duel-split { width: 2px; align-self: stretch; border-radius: 2px;
+                      background: linear-gradient(180deg, transparent, rgba(255,255,255,.3), transparent); }
+
+    /* --- một số nhảy bậc: đầu năm -> cuối kỳ, kèm mức tăng --- */
+    .vfg-jump { display: flex; align-items: center; justify-content: center; gap: 9px; width: 100%;
+                padding: 12px 8px; border-radius: 16px;
+                background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.12); }
+    .vfg-jump-cell { display: flex; flex-direction: column; align-items: center; gap: 3px; }
+    .vfg-jump-num { font-size: 22px; font-weight: 900; line-height: 1; color: rgba(255,255,255,.6); }
+    .vfg-jump-lab { font-size: 9.5px; font-weight: 700; letter-spacing: .04em; color: rgba(255,255,255,.42); }
+    .vfg-jump-hot .vfg-jump-num { color: var(--primary, #ffb020); }
+    .vfg-jump-arrow { font-size: 15px; color: rgba(255,255,255,.35); }
+    .vfg-jump-delta { font-size: 14px; font-weight: 900; color: var(--primary, #ffb020);
+                      background: rgba(255,176,32,.12); border: 1px solid rgba(255,176,32,.45);
+                      border-radius: 999px; padding: 5px 10px; }
+
+    /* --- hai cột: lãi trên sổ vs tiền thật thu về (bản địa hoá perf-compare) --- */
+    .vfg-drain { width: 100%; padding: 14px 14px 12px; border-radius: 16px;
+                 background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.12);
+                 display: flex; flex-direction: column; gap: 11px; }
+    .vfg-drain-row { display: grid; grid-template-columns: 78px 1fr 46px; align-items: center; gap: 9px; }
+    .vfg-drain-lab { font-size: 10px; font-weight: 800; letter-spacing: .03em; text-transform: uppercase;
+                     color: rgba(255,255,255,.46); line-height: 1.25; }
+    .vfg-drain-track { display: block; height: 13px; border-radius: 7px; background: rgba(255,255,255,.07); overflow: hidden; }
+    .vfg-drain-bar { display: block; height: 100%; border-radius: 7px; }
+    .vfg-drain-full { width: 100%; background: linear-gradient(90deg, rgba(255,176,32,.75), rgba(255,176,32,.35)); }
+    .vfg-drain-part { width: 25%; background: linear-gradient(90deg, rgba(239,68,68,.85), rgba(239,68,68,.4)); }
+    .vfg-drain-val { font-size: 13px; font-weight: 900; color: rgba(255,255,255,.8); text-align: right; }
+
+    /* --- đồng hồ chỉ vùng cần theo dõi (mở hàng speed-gauge, bỏ màu xanh "tốt") --- */
+    .vfg-gauge { display: flex; flex-direction: column; align-items: center; gap: 2px; width: 100%; }
+    .vfg-gauge .gauge-arc {
+      background: conic-gradient(from 180deg at 50% 100%,
+        rgba(239,68,68,.30) 0deg, rgba(255,176,32,.32) 84deg,
+        rgba(255,255,255,.16) 132deg, rgba(255,255,255,.16) 180deg);
+    }
+    .vfg-gauge .gauge-needle { background: linear-gradient(to top, var(--primary, #ffb020), transparent); }
+    .vfg-gauge .gauge-center { background: var(--primary, #ffb020); color: #1a1206;
+                               box-shadow: 0 0 12px rgba(255,176,32,.5); }
+
+    /* --- nhãn hai nhánh giả thuyết: NHÃN có màu, chữ bên trong giữ trung tính --- */
+    .hk-kicker.vfg-chip-ok   { color: #34d399; background: rgba(52,211,153,.12); border-color: rgba(52,211,153,.4); }
+    .hk-kicker.vfg-chip-warn { color: #ffab40; background: rgba(255,171,64,.12); border-color: rgba(255,171,64,.4); }
+
+    /* --- ô chốt trung tính: hk-lockup-a của kho là ĐỎ = phủ định; câu chốt bài này
+           không phủ định gì nên hạ về trung tính (bẫy đã dính ở bài PNJ) --- */
+    .hk-lockup.vfg-lockup-flat { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.16);
+                                 color: rgba(255,255,255,.6); }
+    .hk-lockup.vfg-lockup-flat strong { color: rgba(255,255,255,.8); font-weight: 600; }
+  </style>
+</head>
+<body>
+  <div class="main-wrapper">
+    <div class="script-panel" id="scriptPanel"><div class="script-panel-title"><i class="fa-solid fa-scroll"></i> Script</div><div class="script-panel-badge" id="scriptSlideBadge">Ready</div><div class="script-panel-text" id="scriptText">Bấm vào slide để bắt đầu...</div></div>
+    <div class="audio-panel" id="audioPanel"><div class="audio-panel-title"><i class="fa-solid fa-sliders"></i> Âm Thanh</div><div class="audio-group"><label class="audio-label"><i class="fa-solid fa-music"></i> Nhạc nền</label><select id="bgmSelect" onchange="switchBGM(this.value)"><option value="ambient" selected>Ambient</option><option value="cinematic">Cinematic</option><option value="lofi">Lo-fi</option><option value="piano">Piano</option><option value="dark">Dark</option><option value="custom">Custom upload</option><option value="none">Tắt</option></select></div><div class="audio-panel-divider"></div><div class="audio-slide-header"><span class="audio-slide-badge" id="audioPanelSlide">Ready</span><div class="audio-slide-nav"><button class="audio-nav-btn" onclick="audioPanelPrev()"><i class="fa-solid fa-chevron-left"></i></button><button class="audio-nav-btn" onclick="audioPanelNext()"><i class="fa-solid fa-chevron-right"></i></button></div></div><div class="audio-group"><label class="audio-label"><i class="fa-solid fa-forward"></i> Chuyển slide</label><select id="transitionSelect" onchange="setSlideTransition(currentSlide, this.value)"><option value="gong">Gong</option><option value="rise">Rise</option><option value="bass">Bass</option><option value="chime">Chime</option><option value="sweep">Sweep</option><option value="boom">Boom</option><option value="alarm">Alarm</option><option value="chord">Chord</option><option value="ascending">Ascending</option><option value="retro">Retro</option><option value="minimal">Minimal</option><option value="dramatic">Dramatic</option></select></div><div class="audio-group"><label class="audio-label"><i class="fa-solid fa-wand-magic-sparkles"></i> Hiện element</label><select id="revealSelect" onchange="setSlideReveal(currentSlide, this.value)"><option value="ping">Ping</option><option value="pop">Pop</option><option value="chime">Chime</option><option value="click">Click</option><option value="bubble">Bubble</option><option value="sparkle">Sparkle</option><option value="blip">Blip</option><option value="tick">Tick</option><option value="bell">Bell</option></select></div><div class="audio-actions"><button onclick="testTransition()">Test slide</button><button onclick="testReveal()">Test reveal</button></div></div>
+
+    <div id="slideContainer" class="slide-container">
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+      <div class="brand-top-left"><span>dungladu.vn</span></div>
+      <div class="brand-bottom-right"><span>dungladu.vn</span></div>
+
+      <!-- SLIDE 1 — HOOK: hai số chọi nhau, chưa nói tên mã (1 câu, 1 reveal) -->
+      <div class="slide active" data-slide="0">
+        <div class="slide-bg slide-bg-1"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content hero-content pixelle-hero-content">
+          <div class="slide-element fade-up">
+            <div class="vfg-duel">
+              <div class="vfg-duel-side vfg-duel-a">
+                <div class="vfg-duel-num">+171 tỷ</div>
+                <div class="vfg-duel-lab">lãi cổ đông mẹ<br/>6 tháng 2026</div>
+              </div>
+              <div class="vfg-duel-split"></div>
+              <div class="vfg-duel-side vfg-duel-b">
+                <div class="vfg-duel-num">&minus;43 tỷ</div>
+                <div class="vfg-duel-lab">dòng tiền<br/>kinh doanh</div>
+              </div>
+            </div>
+            <h1 class="title-main"><span class="gradient-text">Cùng một doanh nghiệp</span></h1>
+            <p class="hero-caption">cùng sáu tháng đầu năm 2026</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 2 — ĐẶT BÀI: gọi tên mã + ngành, đúng 1 câu (1 reveal) -->
+      <div class="slide" data-slide="1">
+        <div class="slide-bg slide-bg-2"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content hk-content">
+          <div class="slide-element fade-up">
+            <div class="hk-head hk-row"><span class="hk-kicker">VFG</span><h2 class="hk-title">Khử trùng <em>Việt Nam</em></h2></div>
+            <div class="hk-names" style="margin-top:16px">
+              <code class="hk-name-key">thuốc BVTV</code><code>sàn HOSE</code><code>tập đoàn PAN</code>
+            </div>
+            <p class="cm-caption">nhà phân phối thuốc bảo vệ thực vật</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 3 — CON SỐ THỨ NHẤT ĐẾN TỪ ĐÂU (3 câu) -->
+      <div class="slide" data-slide="2">
+        <div class="slide-bg slide-bg-3"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content hk-content hk-content-tight">
+          <div class="slide-element fade-up">
+            <div class="hk-head hk-row"><span class="hk-kicker">nửa đầu 2026</span><h2 class="hk-title">doanh thu <em>tăng 10,1%</em></h2></div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="hk-note"><i class="fa-solid fa-coins"></i> lãi cổ đông mẹ <b>171,09 tỷ</b>, tăng 4,5%</div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="hk-names"><code class="hk-name-key">biên lãi gộp 25,1% &rarr; 25,7%</code></div>
+            <p class="cm-caption">trên sổ, mọi thứ đều êm</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 4 — CON SỐ THỨ HAI ĐẾN TỪ ĐÂU (3 câu) -->
+      <div class="slide" data-slide="3">
+        <div class="slide-bg slide-bg-4"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content hk-content hk-content-tight">
+          <div class="slide-element fade-up">
+            <div class="hk-head hk-row"><span class="hk-kicker">nhưng</span><h2 class="hk-title">tiền <em>chưa về két</em></h2></div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="vfg-jump">
+              <div class="vfg-jump-cell"><span class="vfg-jump-num">544</span><span class="vfg-jump-lab">đầu năm</span></div>
+              <i class="fa-solid fa-arrow-right-long vfg-jump-arrow"></i>
+              <div class="vfg-jump-cell vfg-jump-hot"><span class="vfg-jump-num">878 tỷ</span><span class="vfg-jump-lab">30/06/2026</span></div>
+              <span class="vfg-jump-delta">+61%</span>
+            </div>
+            <p class="cm-caption">khoản khách còn nợ, sau sáu tháng</p>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="hk-branch">
+              <div class="hk-answer vcl-flat"><i class="fa-solid fa-boxes-stacked"></i> tồn kho <b>1.179 tỷ</b></div>
+              <div class="hk-answer vcl-flat"><i class="fa-solid fa-file-invoice"></i> mua chịu <b>823 tỷ</b></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 5 — ĐẶT ĐÚNG CÂU HỎI, hai nhánh tách ra (2 câu) -->
+      <div class="slide" data-slide="4">
+        <div class="slide-bg slide-bg-5"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content hk-content">
+          <div class="slide-element fade-up">
+            <div class="hk-head hk-row"><span class="hk-kicker">hai số cùng đúng</span><h2 class="hk-title">bán trước, <em>thu tiền sau</em></h2></div>
+            <p class="cm-caption">phải thu 878 tỷ &middot; tồn kho 1.179 tỷ</p>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="hk-branch">
+              <div class="hk-answer vcl-flat"><i class="fa-solid fa-seedling"></i> mùa vụ <b>bình thường?</b></div>
+              <div class="hk-answer vcl-flat"><i class="fa-solid fa-file-lines"></i> lãi đẹp <b>trên giấy?</b></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 6 — KHẢ NĂNG LÀNH, kèm bằng chứng trong báo cáo (3 câu) -->
+      <div class="slide" data-slide="5">
+        <div class="slide-bg slide-bg-6"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content hk-content hk-content-tight">
+          <div class="slide-element fade-up">
+            <div class="hk-head hk-row"><span class="hk-kicker vfg-chip-ok">khả năng lành</span><h2 class="hk-title">nhịp <em>mùa vụ</em> của ngành</h2></div>
+            <p class="cm-caption">bán chịu đầu vụ, cuối vụ thu tiền</p>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="hk-note"><i class="fa-solid fa-clock-rotate-left"></i> nợ <b>quá hạn</b> chỉ 28 tỷ, không tăng</div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="hk-names"><code class="hk-name-key">không khách nào chiếm 10% phải thu</code></div>
+            <p class="cm-caption">nợ rải đều trăm cửa, không kẹt một con nợ lớn</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 7 — KHẢ NĂNG ĐÁNG LO, kèm bằng chứng (3 câu) -->
+      <div class="slide" data-slide="6">
+        <div class="slide-bg slide-bg-7"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content hk-content hk-content-tight">
+          <div class="slide-element fade-up">
+            <div class="hk-head hk-row"><span class="hk-kicker vfg-chip-warn">khả năng đáng lo</span><h2 class="hk-title">ba năm <em>đã qua</em></h2></div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="vfg-drain">
+              <div class="vfg-drain-row">
+                <span class="vfg-drain-lab">lãi trên sổ</span>
+                <span class="vfg-drain-track"><span class="vfg-drain-bar vfg-drain-full"></span></span>
+                <span class="vfg-drain-val">100 đ</span>
+              </div>
+              <div class="vfg-drain-row">
+                <span class="vfg-drain-lab">tiền thật về</span>
+                <span class="vfg-drain-track"><span class="vfg-drain-bar vfg-drain-part"></span></span>
+                <span class="vfg-drain-val">~25 đ</span>
+              </div>
+            </div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="hk-names"><code>Lộc Trời công bố 265 tỷ</code><code class="hk-name-key">kiểm toán còn 16 tỷ</code></div>
+            <p class="cm-caption">một doanh nghiệp cùng ngành</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 8 — CÁI GÌ PHÂN BIỆT HAI KHẢ NĂNG: chỉ số cần theo dõi (3 câu) -->
+      <div class="slide" data-slide="7">
+        <div class="slide-bg slide-bg-8"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content hk-content hk-content-tight">
+          <div class="slide-element fade-up">
+            <div class="vfg-gauge">
+              <div class="speed-gauge"><div class="gauge-arc"></div><div class="gauge-needle"></div><div class="gauge-center"><i class="fa-solid fa-calendar-check"></i></div></div>
+              <p class="cm-caption">phép thử nằm ở <b>báo cáo cuối năm</b></p>
+            </div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="hk-branch">
+              <div class="hk-answer vcl-flat"><i class="fa-solid fa-water"></i> dòng tiền cả năm <b>dương lại?</b></div>
+              <div class="hk-answer vcl-flat"><i class="fa-solid fa-shield-halved"></i> dự phòng khó đòi <b>vọt lên?</b></div>
+            </div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="hk-note"><i class="fa-solid fa-arrow-right-arrow-left"></i> 2025: cho công ty mẹ vay <b>350 tỷ</b></div>
+            <p class="cm-caption">khoản đó đã thu hồi trong năm</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 9 — BỐI CẢNH, dồn 4 câu (4 reveal) -->
+      <div class="slide" data-slide="8">
+        <div class="slide-bg slide-bg-9"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content hk-content hk-content-tight">
+          <div class="slide-element fade-up">
+            <div class="hk-head hk-row"><span class="hk-kicker">bối cảnh</span><h2 class="hk-title">khác hẳn <em>các ca đổ vỡ</em></h2></div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="hk-names"><code class="hk-name-key">nợ vay/vốn chủ 0,05</code><code class="hk-name-key">tiền &amp; gửi 662 tỷ</code></div>
+            <p class="cm-caption">bằng một phần ba giá thị trường của cả công ty</p>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="hk-note"><i class="fa-solid fa-hand-holding-dollar"></i> cổ tức tiền <b>10 năm liền</b> &middot; 2025 trả 40%</div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="hk-branch">
+              <div class="hk-answer vcl-flat"><i class="fa-solid fa-scissors"></i> kế hoạch 2026 <b>còn 20%</b></div>
+              <div class="hk-answer vcl-flat"><i class="fa-solid fa-chart-line"></i> <b>99,5 tỷ</b> mua chứng khoán</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 10 — CHỐT: quay lại đúng hai con số mở bài (3 câu) -->
+      <div class="slide" data-slide="9">
+        <div class="slide-bg slide-bg-10"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content conclusion-content hk-content hk-content-tight">
+          <div class="slide-element fade-up">
+            <div class="hk-note"><i class="fa-solid fa-rotate-left"></i> <b>+171 tỷ</b> và <b>&minus;43 tỷ</b>, hết mâu thuẫn</div>
+          </div>
+          <div class="slide-element fade-up">
+            <div class="hk-lockup vfg-lockup-flat"><i class="fa-solid fa-warehouse"></i><span class="hk-lockup-line"><strong>Tiền đang nằm ở nhà đại lý.</strong></span></div>
+          </div>
+          <div class="slide-element fade-up">
+            <div class="hk-lockup hk-lockup-b"><div class="glowing-orb"></div><i class="fa-solid fa-book-open-reader"></i><strong>Cách đọc một doanh nghiệp bán chịu.</strong></div>
+          </div>
+        </div>
+        <!-- MIỄN TRỪ: CỐ Ý không phải .slide-element ⇒ hiện suốt slide 10, không tính là
+             reveal, không đổi nhịp, không tốn từ nào trong trần 380. -->
+        <p class="mien-tru">Video này không phải là khuyến nghị mua bán. Chỉ là tổng hợp thông tin.</p>
+      </div>
+    </div>
+
+    <div class="side-controls"><button class="side-btn" id="muteBtn" onclick="toggleMute()"><i class="fa-solid fa-volume-high"></i></button><div class="side-divider"></div><button class="side-btn" id="prevBtn" onclick="prevSlide()"><i class="fa-solid fa-chevron-up"></i></button><div class="side-counter"><span id="currentSlide">1</span>/<span id="totalSlides">10</span></div><button class="side-btn" id="nextBtn" onclick="nextSlide()"><i class="fa-solid fa-chevron-down"></i></button></div>
+  </div>
+  <script src="app.js?v=vfg-01-nghich-ly-so"></script>
+</body>
+</html>

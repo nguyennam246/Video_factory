@@ -5,6 +5,7 @@ sổ này là thứ duy nhất chặn được việc lặp lại, vì thước 
 
 | Ngày | Bài | Kiểu hook | Mở nợ / trả nợ | Câu chia sẻ ở dòng | Ghi chú |
 | :-- | :-- | :-- | :-: | :-: | :-- |
+| **26/07** | **VFG 01** | **`nghich_ly_so`** | **1 / 6-7** | **10** | Hook + lời do **PHÒNG PHÂN TÍCH PTBC** viết và BOSS duyệt TRƯỚC khi tới xưởng phim ⇒ kiểu hook ở đây là **ghi nhận**, không phải lựa chọn của xưởng. Món nợ mở ngay dòng 1 (*"lãi vẫn tăng, dòng tiền âm 43 tỷ"*) và **cố ý không trả tới dòng 6-7** — góc `nghich_ly_so` sống bằng chỗ để ngỏ. Dòng 5-6 có số (28 tỷ · 10% phải thu) đúng mốc rơi. Câu đáng chụp màn hình ở dòng 10: *"Lãi là thật trên sổ, tiền đang nằm ở nhà đại lý."* Trùng tên với mã góc là **ngẫu nhiên** — hai trục vẫn độc lập |
 | 24/07 | superpowers 01 | `mat_mat` *(suy ra, chưa có thư viện)* | — / — | — | khuôn cứng cũ |
 | 25/07 | superpowers 02 | `mat_mat` *(suy ra)* | — / — | — | ✅ BOSS duyệt *"video tốt"* |
 | 25/07 | superpowers 03→08 | `mat_mat` *(suy ra, cả 6 bài)* | — / — | — | ⚠️ **6 bài liền cùng kiểu hook** — đây là nửa còn lại của việc "xem liền thấy cùng một khuôn" |

@@ -21,7 +21,30 @@ dự án này**; repo kia chỉ có ví dụ đồ chơi.
 > Khoang này CỐ Ý GỌN (hook nạp đầu phiên, trần 7000 ký tự). Diễn biến cũ đã dời xuống
 > `## 🗄️ LỊCH SỬ TRẠNG THÁI` cuối file — không mất chữ nào. Chi tiết đầy đủ: `../tri_thuc/patch_history.md`.
 
-### 🆕🎬🎬 25/07 KHUYA — `PNJ_04_hoso.mp4` (128,4s): BẢN **THAY ÁO** CỦA PNJ 03 — CHỜ BOSS CHỌN ÁO
+### 🆕🎬⭐ 26/07 CHIỀU MUỘN — `VFG_01_danhgia.mp4` (106,9s): BÀI ĐẦU LỜI DO **PHÒNG PHÂN TÍCH** VIẾT
+`thanh_pham/baocao/VFG_01_danhgia.mp4` · deck `headless/deck_vfg01` · lời
+`kichban/escbase_10dong/vfg_01_danhgia.txt` · truy vết `escbase_10dong/README_vfg.md`.
+**Xưởng phim KHÔNG viết lời bài này** — lời từ `Research copy/PTBC/VFG/31_loi_doc.txt` (4 AI
+viết mù → phản biện chéo → rà soát 23 mệnh đề với nguồn gốc → đọc thẳng BCTC Q2/2026 PDF →
+**BOSS duyệt**). Xưởng chỉ dựng hình + tiếng.
+- **Góc `nghich_ly_so` lần đầu dùng**, nhịp `[1,1,3,3,2,3,3,3,4,3]` = 26 reveal / 380 từ /
+  lời 106,85s. Cặp số chọi: lãi 6T **+171 tỷ** ↔ dòng tiền kinh doanh **−43 tỷ**.
+- **3 scene mới** cho kho: `vfg-duel` (hero hai số) · `vfg-jump` (544→878 tỷ) · `vfg-drain`
+  (100đ lãi → ~25đ tiền thật). ⭐ **MỞ HÀNG `speed-gauge`** — bản kho tô xanh `#00e676` = "tốt",
+  phải recolor về `tc` mới dùng được cho bài bị cấm phán. Kho còn **4 hero** chưa đụng.
+- 🔴 **XƯỞNG PHIM SỬA 1 SỐ SO VỚI BẢN BOSS DUYỆT** — dòng 9: *"tiền và tiền gửi hơn sáu trăm
+  tỷ, **bằng nửa** giá thị trường"* → **"một phần ba"**. 661,7 tỷ / vốn hóa 1.915 tỷ = **34,6%**;
+  con số "54% thị giá" là của **tiền ròng 24.763 đ/cp** (≈1.033 tỷ) — ghép nhầm hai đại lượng.
+  Quay lại nguyên văn = sửa 1 dòng txt + chạy lại TTS/render, KHÔNG đụng deck.
+- 🐞 **Bẫy mới:** `<br>` không đóng làm `validate_slide` lệch cả cây ⇒ báo sai reveal ở slide
+  ĐÚNG, slide cuối báo bằng TỔNG deck. Trong deck luôn viết `<br/>`.
+- **Máy: 7/7 ĐẠT** + thước reveal-cuối ≥1,2s sạch + soi 10 ảnh deck (vá 3 chỗ chữ xuống dòng
+  xấu) + 3 frame video thật. Render 238,3s = **74,3 ms/khung**.
+⏳ **BOSS xem/nghe rồi phán:** ① mã `VFG` đọc *"Vi Ép Gi"* có được không (sửa = 1 dòng
+`tts/phat_am.json`, không phải dựng lại) · ② nhịp 107s · ③ **đồng ý "một phần ba" thay cho
+"bằng nửa" không**.
+
+### 🎬🎬 25/07 KHUYA — `PNJ_04_hoso.mp4` (128,4s): BẢN **THAY ÁO** CỦA PNJ 03 — CHỜ BOSS CHỌN ÁO
 `thanh_pham/baocao/PNJ_04_hoso.mp4` · deck `headless/deck_pnj04` · truy vết
 `kichban/escbase_10dong/README_pnj04.md`. **Cùng lời, cùng nhịp, cùng số với PNJ 03** — chỉ khác áo.
 - **Lời sửa đúng 1 chỗ (BOSS):** *"tòa chưa tuyên"* → **"cơ quan điều tra chưa kết luận"** (vụ mới
