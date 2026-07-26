@@ -40,9 +40,18 @@ viết mù → phản biện chéo → rà soát 23 mệnh đề với nguồn g
   ĐÚNG, slide cuối báo bằng TỔNG deck. Trong deck luôn viết `<br/>`.
 - **Máy: 7/7 ĐẠT** + thước reveal-cuối ≥1,2s sạch + soi 10 ảnh deck (vá 3 chỗ chữ xuống dòng
   xấu) + 3 frame video thật. Render 238,3s = **74,3 ms/khung**.
-⏳ **BOSS xem/nghe rồi phán:** ① mã `VFG` đọc *"Vi Ép Gi"* có được không (sửa = 1 dòng
-`tts/phat_am.json`, không phải dựng lại) · ② nhịp 107s · ③ **đồng ý "một phần ba" thay cho
-"bằng nửa" không**.
+🔊 **BOSS NGHE BẢN 1 RỒI PHÁN 2 ĐIỀU — ĐÃ SỬA CẢ 2, RENDER LẠI (bản 2, 107,1s):**
+1. **`VFG` đọc "Vê Ép Gờ"**, không phải "Vi Ép Gi" (*"nghe quen hơn"*). ⚠️ **Mã cổ phiếu KHÔNG
+   mặc định theo phương án C (tên chữ cái tiếng Anh)** như bảng `phat_am.json` ghi — mã nào
+   BOSS thấy quen kiểu Việt thì để kiểu Việt. Đây là mã đầu tiên lệch khỏi phương án C.
+2. 🔴 **BOSS BẮT LỖI SỐ THỨ HAI:** màn hình *"mua chịu 823 tỷ"* mà tai nghe *"gần bảy trăm
+   tỷ"*. Chân tướng: **695,6 tỷ là RIÊNG Syngenta**, còn TỔNG phải trả người bán là
+   **823,2 tỷ** (đầu năm 252,2). Lời nay đọc **"hơn tám trăm tỷ"**; đã sửa cả bản gốc
+   `PTBC/VFG/31_loi_doc.txt`. Nghiệm thu lại **7/7**, 61,5 ms/khung, soi lại frame 30,5s.
+⏳ **BOSS chưa nghe BẢN 2** — còn phán: nhịp 107s · **"một phần ba" thay "bằng nửa"** ở dòng 9.
+🔑 **Bài học chung của cả hai lỗi số: SỐ ĐÚNG NHƯNG PHẠM VI SAI** (một nhà cung cấp ≠ tổng ·
+tỷ lệ trên mỗi cp ≠ tỷ lệ trên vốn hóa). Đối chiếu từng mệnh đề với nguồn KHÔNG bắt được vì
+từng vế đều truy được nguồn — phải tự bấm lại phép chia và ghi kèm **phạm vi** cho mọi số.
 
 ### 🎬🎬 25/07 KHUYA — `PNJ_04_hoso.mp4` (128,4s): BẢN **THAY ÁO** CỦA PNJ 03 — CHỜ BOSS CHỌN ÁO
 `thanh_pham/baocao/PNJ_04_hoso.mp4` · deck `headless/deck_pnj04` · truy vết

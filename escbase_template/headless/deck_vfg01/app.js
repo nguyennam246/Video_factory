@@ -46,7 +46,7 @@ const slideScripts = [
   "Lãi sáu tháng vẫn tăng, dòng tiền kinh doanh âm bốn mươi ba tỷ.",
   "Đó là VFG, Khử trùng Việt Nam, nhà phân phối thuốc bảo vệ thực vật thuộc tập đoàn PAN.",
   "Nửa đầu 2026, doanh thu tăng hơn mười phần trăm. Lãi cổ đông mẹ một trăm bảy mươi mốt tỷ, cao hơn cùng kỳ. Biên lãi gộp còn nhích lên, trên sổ mọi thứ êm.",
-  "Nhưng tiền chưa về két. Khoản khách nợ tăng từ năm trăm bốn mươi tư lên tám trăm bảy mươi tám tỷ trong sáu tháng. Công ty còn ôm thêm tồn kho, mua chịu nhà cung cấp gần bảy trăm tỷ.",
+  "Nhưng tiền chưa về két. Khoản khách nợ tăng từ năm trăm bốn mươi tư lên tám trăm bảy mươi tám tỷ trong sáu tháng. Công ty còn ôm thêm tồn kho, mua chịu nhà cung cấp hơn tám trăm tỷ.",
   "Hai số cùng đúng nghĩa là công ty bán trước, thu tiền sau, quy mô kỷ lục. Đây là mùa vụ bình thường hay lãi chỉ đẹp trên giấy?",
   "Khả năng lành nằm ngay trong báo cáo. Ngành này bán chịu đầu vụ, cuối vụ thu tiền, nợ quá hạn chỉ hai mươi tám tỷ, không tăng. Không khách nào chiếm nổi mười phần trăm khoản phải thu, nợ rải đều trăm cửa.",
   "Khả năng đáng lo nằm ở lịch sử. Ba năm qua, một trăm đồng lãi chỉ thu về khoảng hai mươi lăm đồng tiền thật. Cùng ngành có Lộc Trời, lãi công bố hai trăm sáu mươi lăm tỷ, kiểm toán xong còn mười sáu tỷ.",

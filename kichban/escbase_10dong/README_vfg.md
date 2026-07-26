@@ -18,11 +18,19 @@ do bước b1 của `lam_bai.py` sinh ra. Chuỗi đã đi trước khi tới x�
 ```
 File lời của xưởng phim = **bản sao** `31_loi_doc.txt`, chỉ khác đúng 1 chỗ (mục dưới).
 
-## 🔴 MỘT LỖI SỐ BẮT ĐƯỢC Ở XƯỞNG PHIM (26/07, sau khi BOSS đã duyệt lời)
+## 🔴 HAI LỖI SỐ SỬA SAU KHI BOSS ĐÃ DUYỆT LỜI (26/07) — CÙNG MỘT HỌ: SỐ ĐÚNG, PHẠM VI SAI
 
-| | Bản BOSS duyệt | Bản dựng video |
-| :-- | :-- | :-- |
-| Dòng 9 | "tiền và tiền gửi hơn sáu trăm tỷ, **bằng nửa giá thị trường**" | "…, **một phần ba giá thị trường**" |
+| | Bản BOSS duyệt ban đầu | Bản dựng video | Ai bắt |
+| :-- | :-- | :-- | :-- |
+| Dòng 9 | "tiền và tiền gửi hơn sáu trăm tỷ, **bằng nửa giá thị trường**" | "…, **một phần ba giá thị trường**" | xưởng phim, khi kiểm số trước lúc viết deck |
+| Dòng 4 | "mua chịu nhà cung cấp **gần bảy trăm tỷ**" | "…, **hơn tám trăm tỷ**" | **BOSS**, khi xem bản render (màn hình 823 mà tai nghe 700) |
+
+**Lỗi dòng 4:** *695,6 tỷ* là **riêng Syngenta** (từ 176,8 tỷ, ×3,9); **823,2 tỷ** mới là TỔNG
+phải trả người bán (đầu năm 252,2 tỷ). Câu nói chung chung "nhà cung cấp" nhưng lấy số của
+MỘT nhà cung cấp. Sửa về tổng (4 từ đổi 4 từ, trần 380 không đổi). Cả `31_loi_doc.txt` gốc
+bên PTBC cũng đã sửa để lỗi không lan sang lần dùng sau.
+
+**Lỗi dòng 9:**
 
 **Vì sao:** tiền + đầu tư TC ngắn hạn 30/06/2026 = **661,7 tỷ** (gói 03). Vốn hóa 24/07 =
 41.712.614 cp × 45.900 đ = **1.915 tỷ** ⇒ tỷ lệ **34,6%**, không phải một nửa.
@@ -35,7 +43,11 @@ tới nguồn. Bỏ thêm 1 từ ("vừa") ở câu cuối dòng 9 để giữ �
 
 ## Nhịp + bản đồ slide
 
-`nhip: [1, 1, 3, 3, 2, 3, 3, 3, 4, 3]` = **26 reveal / 380 từ / lời 106,85s**
+`nhip: [1, 1, 3, 3, 2, 3, 3, 3, 4, 3]` = **26 reveal / 380 từ / lời 107,07s** (bản 2)
+
+**Cách đọc mã:** `VFG` → **"Vê Ép Gờ"** (BOSS chọn 26/07 sau khi nghe bản 1 đọc *"Vi Ép Gi"*
+kiểu tên chữ cái tiếng Anh). ⚠️ Mã cổ phiếu **không** mặc định theo phương án C của bảng
+`phat_am.json` — tên chữ cái tiếng Việt nghe quen hơn với mã này.
 
 | Slide | Vai (theo `goc/taichinh/nghich_ly_so.md`) | Scene |
 | :-: | :-- | :-- |
