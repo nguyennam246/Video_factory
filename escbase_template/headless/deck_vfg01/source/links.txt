@@ -1,1 +1,11 @@
-TODO: source URL(s) and media URL(s)
+Nguồn số của deck này (không có media ngoài, không ảnh tải về):
+
+1. BCTC hợp nhất Q2/2026 VFG — PDF chữ ký số, công bố 21/07/2026, tải từ website công ty:
+   https://vfc.com.vn/storage/2026/quan-he-co-dong/bao-cao-tai-chinh/220260721-vfg-bctc-q22026bc-hop-nhatcbttsig.pdf
+   → trích yếu đã đọc: Research copy/PTBC/VFG/03_bctc_q2_2026_trichyeu.md
+2. Gói nguyên liệu PTBC: Research copy/PTBC/VFG/00_goi_nguyenlieu.md
+   (hồ sơ nội bộ + ketqua.db; giá 45.900 đ ngày 24/07/2026; 41.712.614 cp lưu hành)
+3. Bản thảo cuối đã rà soát 23 mệnh đề: Research copy/PTBC/VFG/30_banthao_cuoi.md
+4. Lời đọc BOSS duyệt: Research copy/PTBC/VFG/31_loi_doc.txt
+
+Truy vết đầy đủ + chỗ xưởng phim sửa số: kichban/escbase_10dong/README_vfg.md
