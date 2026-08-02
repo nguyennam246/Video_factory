@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HPD — một nhà máy được phép mang tài sản đi bảo lãnh</title>
+  <meta name="description" content="Đọc báo cáo tài chính cho người mới: ca HPD (Thủy điện Đăk Đoa, sàn HNX). Tài sản nhà máy trị giá 80,66 tỷ đồng, chiếm gần một nửa tổng tài sản công ty; nghị quyết cổ đông năm nay cho phép mang tài sản ấy bảo lãnh cho công ty mẹ, áp dụng năm nay và các năm sau. Hồ sơ chưa nêu hợp đồng bảo lãnh hay khoản dư nợ cụ thể nào. Không phải khuyến nghị đầu tư." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="style.css?v=hpd02-thu-giet-dn" />
+</head>
+<body>
+  <div class="main-wrapper">
+    <div class="script-panel" id="scriptPanel"><div class="script-panel-title"><i class="fa-solid fa-scroll"></i> Script</div><div class="script-panel-badge" id="scriptSlideBadge">Ready</div><div class="script-panel-text" id="scriptText">Bấm vào slide để bắt đầu...</div></div>
+    <div class="audio-panel" id="audioPanel"><div class="audio-panel-title"><i class="fa-solid fa-sliders"></i> Âm Thanh</div><div class="audio-group"><label class="audio-label"><i class="fa-solid fa-music"></i> Nhạc nền</label><select id="bgmSelect" onchange="switchBGM(this.value)"><option value="ambient" selected>Ambient</option><option value="cinematic">Cinematic</option><option value="lofi">Lo-fi</option><option value="piano">Piano</option><option value="dark">Dark</option><option value="custom">Custom upload</option><option value="none">Tắt</option></select></div><div class="audio-panel-divider"></div><div class="audio-slide-header"><span class="audio-slide-badge" id="audioPanelSlide">Ready</span><div class="audio-slide-nav"><button class="audio-nav-btn" onclick="audioPanelPrev()"><i class="fa-solid fa-chevron-left"></i></button><button class="audio-nav-btn" onclick="audioPanelNext()"><i class="fa-solid fa-chevron-right"></i></button></div></div><div class="audio-group"><label class="audio-label"><i class="fa-solid fa-forward"></i> Chuyển slide</label><select id="transitionSelect" onchange="setSlideTransition(currentSlide, this.value)"><option value="gong">Gong</option><option value="rise">Rise</option><option value="bass">Bass</option><option value="chime">Chime</option><option value="sweep">Sweep</option><option value="boom">Boom</option><option value="alarm">Alarm</option><option value="chord">Chord</option><option value="ascending">Ascending</option><option value="retro">Retro</option><option value="minimal">Minimal</option><option value="dramatic">Dramatic</option></select></div><div class="audio-group"><label class="audio-label"><i class="fa-solid fa-wand-magic-sparkles"></i> Hiện element</label><select id="revealSelect" onchange="setSlideReveal(currentSlide, this.value)"><option value="ping">Ping</option><option value="pop">Pop</option><option value="chime">Chime</option><option value="click">Click</option><option value="bubble">Bubble</option><option value="sparkle">Sparkle</option><option value="blip">Blip</option><option value="tick">Tick</option><option value="bell">Bell</option></select></div><div class="audio-actions"><button onclick="testTransition()">Test slide</button><button onclick="testReveal()">Test reveal</button></div></div>
+
+    <div id="slideContainer" class="slide-container">
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+      <div class="brand-top-left"><span>dungladu.vn</span></div>
+      <div class="brand-bottom-right"><span>dungladu.vn</span></div>
+
+      <!-- ============ SLIDE 1 — HOOK: một nhà máy, hero một vật (1 câu, 1 reveal) ============ -->
+      <div class="slide active" data-slide="0">
+        <div class="slide-bg slide-bg-1"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content pixelle-hero-content">
+          <div class="slide-element fade-up tgd-hero-el">
+            <div class="tgd-hero-stage">
+              <div class="tgd-hero-beam"></div>
+              <div class="orbit-ring ring-a"></div><div class="orbit-ring ring-b"></div>
+              <div class="tgd-hero-medal"><i class="fa-solid fa-industry"></i></div>
+              <span class="orbit-chip tgd-chip-a">tài sản</span><span class="orbit-chip tgd-chip-b">bảo lãnh</span>
+            </div>
+            <h1 class="title-main title-shimmer tgd-hero-title"><span class="gradient-text">Một nhà máy</span></h1>
+            <p class="tgd-hero-caption">vừa được phép mang tài sản đi bảo lãnh cho công ty khác</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ SLIDE 2 — mã nào, ngành nào (1 câu, 1 reveal) ============ -->
+      <div class="slide" data-slide="1">
+        <div class="slide-bg slide-bg-2"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content tgd-ticker-content">
+          <div class="slide-element scale-in">
+            <span class="tgd-ticker-kicker">Mã cổ phiếu</span>
+            <div class="tgd-ticker-code">HPD</div>
+            <div class="tgd-ticker-tags"><span><i class="fa-solid fa-building-columns"></i> HNX</span><span><i class="fa-solid fa-bolt"></i> Thủy điện Đăk Đoa</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ SLIDE 3 — cách kiếm tiền: một mắt xích (2 câu) ============ -->
+      <div class="slide" data-slide="2">
+        <div class="slide-bg slide-bg-3"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content hk-content">
+          <div class="slide-element fade-up">
+            <div class="hk-head hk-row"><span class="hk-kicker">cách kiếm tiền</span><h2 class="hk-title">một nhà máy, <em>một khách hàng</em></h2></div>
+            <div class="flow-diagram tgd-flow">
+              <div class="tgd-flow-node"><i class="fa-solid fa-industry"></i><span>nhà máy</span></div>
+              <div class="tgd-flow-arrow"><i class="fa-solid fa-arrow-down-long"></i></div>
+              <div class="tgd-flow-node"><i class="fa-solid fa-bolt"></i><span>điện</span></div>
+              <div class="tgd-flow-arrow"><i class="fa-solid fa-arrow-down-long"></i></div>
+              <div class="tgd-flow-node tgd-flow-end"><i class="fa-solid fa-user"></i><span>1 khách hàng duy nhất</span></div>
+            </div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="hk-note"><i class="fa-solid fa-water"></i> dòng tiền năm ngoái <b>vượt hẳn</b> lãi ghi sổ</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ SLIDE 4 — mắt xích đơn: tài sản chụm qua một nút (3 câu) ============ -->
+      <div class="slide" data-slide="3">
+        <div class="slide-bg slide-bg-4"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content hk-content-tight">
+          <div class="slide-element fade-up">
+            <div class="hk-head hk-row"><span class="hk-kicker">tỉ trọng tài sản</span><h2 class="hk-title">gần <em>một nửa</em></h2></div>
+            <div class="tgd-choke">
+              <div class="tgd-choke-fan"></div>
+              <div class="tgd-choke-node"><i class="fa-solid fa-industry"></i><b>nhà máy</b></div>
+            </div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="tgd-choke-arrow"><i class="fa-solid fa-arrow-down-long"></i></div>
+            <div class="tgd-choke-target"><i class="fa-solid fa-building-shield"></i><b>công ty mẹ</b><span>nghị quyết cổ đông cho phép bảo lãnh</span></div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="hk-note"><i class="fa-solid fa-infinity"></i> áp dụng năm nay <b>và các năm sau</b></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ SLIDE 5 — bằng chứng trong hồ sơ (3 câu) ============ -->
+      <div class="slide" data-slide="4">
+        <div class="slide-bg slide-bg-5"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content hk-content-tight">
+          <div class="slide-element fade-up">
+            <div class="sc-file">
+              <div class="sc-file-top"><i class="fa-solid fa-file-invoice-dollar"></i><code>giá trị tài sản</code></div>
+              <p class="sc-file-line"><b>80,66 tỷ đồng</b></p>
+            </div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="hk-branch"><div class="hk-answer hk-answer-no"><i class="fa-solid fa-file-signature"></i> hợp đồng đã ký: <b>không nêu</b></div></div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="hk-branch"><div class="hk-answer hk-answer-no"><i class="fa-solid fa-file-circle-question"></i> khoản dư nợ: <b>không công bố</b></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ SLIDE 6 — MỔ XẺ: đổ dây chuyền nếu trượt (4 câu, SCENE MỚI) ============ -->
+      <div class="slide" data-slide="5">
+        <div class="slide-bg slide-bg-6"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content hk-content-tight tgd-chain-content">
+          <span class="tgd-chain-label"><i class="fa-solid fa-link"></i> nếu công ty mẹ trượt</span>
+          <div class="slide-element fade-up tgd-tile">
+            <div class="tgd-tile-inner"><div class="tgd-tile-icon"><i class="fa-solid fa-handshake-slash"></i></div><p class="tgd-tile-label">chủ nợ có quyền<br/>với tài sản thế chấp</p></div>
+          </div>
+          <div class="slide-element scale-in tgd-tile">
+            <div class="tgd-tile-inner"><div class="tgd-tile-icon"><i class="fa-solid fa-industry"></i></div><p class="tgd-tile-label">tài sản đó chính là<br/>nhà máy duy nhất</p></div>
+          </div>
+          <div class="slide-element scale-in tgd-tile">
+            <div class="tgd-tile-inner"><div class="tgd-tile-icon"><i class="fa-solid fa-chart-line"></i></div><p class="tgd-tile-label">nhà máy tạo ra<br/>gần như toàn bộ doanh thu</p></div>
+          </div>
+          <div class="slide-element scale-in tgd-tile">
+            <div class="tgd-tile-inner"><div class="tgd-tile-icon"><i class="fa-solid fa-hourglass-half"></i></div><p class="tgd-tile-label">không thể thay thế<br/>trong một sớm một chiều</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ SLIDE 7 — tự giảm rủi ro, có bằng chứng (3 câu) ============ -->
+      <div class="slide" data-slide="6">
+        <div class="slide-bg slide-bg-7"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content hk-content">
+          <div class="slide-element fade-up">
+            <div class="hk-head hk-row"><span class="hk-kicker">mặt khác</span><h2 class="hk-title">tự <em>giảm rủi ro</em></h2></div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="workflow-grid tgd-workflow-solo">
+              <div class="workflow-step tgd-step-done"><b>5 năm qua</b><i class="fa-solid fa-arrow-trend-down"></i><span>nợ vay / vốn chủ: hơn 1/2 giảm còn 1/9</span></div>
+            </div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="workflow-grid tgd-workflow-solo">
+              <div class="workflow-step tgd-step-done"><b>mỗi năm</b><i class="fa-solid fa-coins"></i><span>cổ tức vẫn chia đều đặn theo đúng nghị quyết</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ SLIDE 8 — MẶT KIA: điều khiến rủi ro chưa chắc xảy ra (3 câu, XANH) ============ -->
+      <div class="slide" data-slide="7">
+        <div class="slide-bg slide-bg-8"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content hk-content">
+          <div class="slide-element fade-up">
+            <div class="risk-cards-container"><div class="risk-card lit-green"><div class="risk-icon"><i class="fa-solid fa-circle-check"></i></div><div class="risk-text"><strong>mới chỉ là cho phép</strong><span>chưa phải khoản nợ đã phát sinh</span></div></div></div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="risk-cards-container"><div class="risk-card lit-green"><div class="risk-icon"><i class="fa-solid fa-circle-check"></i></div><div class="risk-text"><strong>chưa có tin xấu</strong><span>không tin nào cho thấy công ty mẹ khó khăn tài chính</span></div></div></div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="risk-cards-container"><div class="risk-card lit-green"><div class="risk-icon"><i class="fa-solid fa-circle-check"></i></div><div class="risk-text"><strong>có thể không cần dùng</strong><span>một sự cho phép chưa dùng tới vẫn có thể mãi mãi không cần</span></div></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ SLIDE 9 — mốc theo dõi: kim đồng hồ (3 câu, SCENE MỚI) ============ -->
+      <div class="slide" data-slide="8">
+        <div class="slide-bg slide-bg-9"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content hk-content-tight">
+          <div class="slide-element fade-up">
+            <div class="hk-head hk-row"><span class="hk-kicker">mốc tới</span><h2 class="hk-title">giữa <em>tháng tám</em></h2></div>
+            <div class="tgd-clock">
+              <div class="tgd-clock-face">
+                <span class="tgd-clock-tick t12"></span><span class="tgd-clock-tick t3"></span><span class="tgd-clock-tick t6"></span><span class="tgd-clock-tick t9"></span>
+                <span class="tgd-clock-mark"></span>
+                <span class="tgd-clock-hand hand-hour"></span>
+                <span class="tgd-clock-hand hand-min"></span>
+                <span class="tgd-clock-hub"></span>
+              </div>
+              <p class="tgd-clock-caption">báo cáo tài chính giữa năm</p>
+            </div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="hk-note"><i class="fa-solid fa-file-signature"></i> theo dõi: <b>một hợp đồng bảo lãnh cụ thể</b></div>
+          </div>
+          <div class="slide-element scale-in">
+            <div class="hk-note"><i class="fa-solid fa-hashtag"></i> kèm theo: <b>một con số dư nợ cụ thể</b></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ SLIDE 10 — CHỐT đối xứng: một nhà máy quay lại (3 câu) ============ -->
+      <div class="slide" data-slide="9">
+        <div class="slide-bg slide-bg-10"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content conclusion-content hk-content hk-content-tight">
+          <div class="slide-element fade-up">
+            <div class="hk-note"><i class="fa-solid fa-water"></i> nhà máy chạy tốt, tiền vẫn <b>đều đặn chảy về</b></div>
+          </div>
+          <div class="slide-element fade-up">
+            <div class="hk-lockup hk-lockup-a"><i class="fa-solid fa-arrow-turn-up"></i><span class="hk-lockup-line"><strong>Từ năm nay, tài sản của nó không còn chỉ phục vụ riêng nó.</strong></span></div>
+          </div>
+          <div class="slide-element fade-up">
+            <div class="hk-lockup hk-lockup-b"><div class="glowing-orb"></div><i class="fa-solid fa-industry"></i><strong>Một nhà máy, giờ đây gánh thêm trách nhiệm của người khác.</strong></div>
+          </div>
+        </div>
+        <p class="mien-tru">Video này không phải là khuyến nghị mua bán. Chỉ là tổng hợp thông tin.</p>
+      </div>
+
+      <!-- ============ SLIDE 11 — CHỐT THƯƠNG HIỆU: logo + dungladu.vn (1 câu) ============ -->
+      <div class="slide" data-slide="10">
+        <div class="slide-bg slide-bg-11"></div><canvas class="fx-canvas" data-fx="particles"></canvas>
+        <div class="slide-content pixelle-slide-content dlab-outro-content">
+          <div class="slide-element scale-in">
+            <div class="dlab-outro">
+              <svg class="dlab-outro-logo" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="dlab-g" gradientUnits="userSpaceOnUse" x1="60" y1="14" x2="60" y2="106">
+                    <stop offset="0" stop-color="#BE9340"/><stop offset="1" stop-color="#8A6622"/>
+                  </linearGradient>
+                </defs>
+                <circle cx="48" cy="79" r="20.5" stroke="url(#dlab-g)" stroke-width="9"/>
+                <circle cx="48" cy="79" r="5.5" fill="#C98598"/>
+                <line x1="72" y1="16" x2="72" y2="99" stroke="url(#dlab-g)" stroke-width="9" stroke-linecap="round"/>
+                <line x1="44" y1="27" x2="72" y2="27" stroke="url(#dlab-g)" stroke-width="8.5" stroke-linecap="round"/>
+                <line x1="57" y1="43" x2="72" y2="43" stroke="url(#dlab-g)" stroke-width="8.5" stroke-linecap="round"/>
+              </svg>
+              <p class="dlab-outro-url">dungladu<span class="dlab-outro-tld">.vn</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-controls"><button class="side-btn" id="muteBtn" onclick="toggleMute()"><i class="fa-solid fa-volume-high"></i></button><div class="side-divider"></div><button class="side-btn" id="prevBtn" onclick="prevSlide()"><i class="fa-solid fa-chevron-up"></i></button><div class="side-counter"><span id="currentSlide">1</span>/<span id="totalSlides">10</span></div><button class="side-btn" id="nextBtn" onclick="nextSlide()"><i class="fa-solid fa-chevron-down"></i></button></div>
+  </div>
+  <script src="app.js?v=hpd02-thu-giet-dn"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+Đã sửa index.html + style.css cho deck_hpd02 (góc thu_giet_dn — bảo lãnh tài sản).
+
+Scene mới tự dựng (HTML/CSS, không có sẵn trong kho escbase):
+1. `.tgd-chain-content` / `.tgd-tile` (dòng 6 "đổ dây chuyền") — 4 khối domino tắt đèn
+   lần lượt qua CSS :has(), khối cuối giữ viền đỏ = trạng thái sụp đổ cuối chuỗi.
+2. `.tgd-choke` (dòng 4 "mắt xích đơn") — phễu clip-path chụm tài sản qua một nút
+   duy nhất "nhà máy" rồi bảo lãnh xuống "công ty mẹ". Hình chủ đạo của góc thu_giet_dn.
+3. `.tgd-clock` (dòng 9 "kim đồng hồ") — mặt đồng hồ trung tính, vạch hổ phách đánh
+   dấu mốc BCTC giữa năm, kim tick nhẹ, không phán tốt/xấu.
+
+Ngoài ra: `.tgd-hero-*` (slide 1, hero một vật + ánh sáng hắt từ dưới, khác pixelle-core
+cũ), `.tgd-ticker-*` (slide 2), `.tgd-flow-*` (slide 3, dòng chảy dọc trung tính).
+Slide 7 dùng workflow-grid có sẵn (khuôn 1 cột `.tgd-workflow-solo` + huy hiệu check).
+Slide 8 dùng risk-cards-container có sẵn, cả 3 thẻ XANH (mặt tích cực, không đỏ).
+Slide 10 recolor hk-lockup-a/glowing-orb về trung tính/amber (đã dùng ở deck_pnj02).
+Đã thêm `.mien-tru` (dòng miễn trừ trách nhiệm bắt buộc, slide 10, ngoài .slide-content).
+
+Đổi title/meta/cả 2 chuỗi ?v= → hpd02-thu-giet-dn.

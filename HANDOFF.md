@@ -21,6 +21,16 @@ dự án này**; repo kia chỉ có ví dụ đồ chơi.
 > Khoang này CỐ Ý GỌN (hook nạp đầu phiên, trần 7000 ký tự). Diễn biến cũ đã dời xuống
 > `## 🗄️ LỊCH SỬ TRẠNG THÁI` cuối file — không mất chữ nào. Chi tiết đầy đủ: `../tri_thuc/patch_history.md`.
 
+### 🆕🎬⭐ 27/07 — `HPD_02_danhgia.mp4` (92,0s): làm lại HPD qua dây chuyền PTBC đầy đủ + góc mới
+`thanh_pham/baocao/HPD_02_danhgia.mp4` · deck `headless/deck_hpd02` · lời
+`Research copy/PTBC/HPD/31_loi_doc.txt` (4 AI viết mù → phản biện chéo → trọng tài → K5b rà
+soát số → **sư phụ Codex duyệt K6 thay BOSS** — lệnh BOSS hôm nay). Góc `thu_giet_dn` lần đầu
+dùng ("thứ đủ sức chấm dứt cuộc chơi" — ủy quyền thế chấp TSCĐ 48% tài sản bảo lãnh công ty
+mẹ). Đẻ scene `.tgd-chain-content`/`.tgd-tile` (đổ dây chuyền, đặt hàng từ 25/07 chưa ai dựng).
+Máy nghiệm thu 7/7. 2 bẫy vá: `<br>` không đóng làm lệch cây validate (tái phát, xem SKILL.md
+mục 4) · slide kết tràn safezone 29px. ⛔ **BOSS CHƯA NGHE** — bản `HPD_01` (24/07) đã được
+duyệt trước đó, giữ song song để so sánh. Chi tiết đầy đủ: SKILL video-baocao mục 9 (nhật ký).
+
 ### 🆕🎬⭐ 26/07 CHIỀU MUỘN — `VFG_01_danhgia.mp4` (106,9s): BÀI ĐẦU LỜI DO **PHÒNG PHÂN TÍCH** VIẾT
 `thanh_pham/baocao/VFG_01_danhgia.mp4` · deck `headless/deck_vfg01` · lời
 `kichban/escbase_10dong/vfg_01_danhgia.txt` · truy vết `escbase_10dong/README_vfg.md`.
