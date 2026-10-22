@@ -50,6 +50,7 @@ phải sửa tay. Xem `../README.md` mục TỪ ĐIỂN PHÁT ÂM và `TAIL_SECO
 | `bai_04_subagent_sai_nguoi_di/` | 04 — Subagent (sai người đi) | ✅ duyệt 24/07 |
 | 🆕 `bai_05_skill_nghe_tu_bat/` | 05 — Skill (nghề tự bật đúng lúc) | ✅ **BOSS DUYỆT 25/07** — bản headless, 93,5s |
 | `bai_06..10` | 06→10 | chưa dựng bản headless |
+| 🆕 `huongdan_denxanh_nhap1/` | Hướng dẫn dùng web đèn xanh (quay màn hình thật 786×1704 + giọng NamMinh +14 %, 155,5 s; nguồn tab Hướng dẫn nháp 7; máy `Research copy/web_gooddeal/denxanh_huongdan/video_hd/`) | ⏳ 22/10 chờ BOSS xem + nghe. Bản XEM TRƯỚC: tab Danh sách/Hướng dẫn + ẩn mã không ★ là giả lập, web thật chưa gắn |
 
 ### kynang/superpowers/ — khoá Superpowers cho Codex (8 bài, SERIES RIÊNG)
 
