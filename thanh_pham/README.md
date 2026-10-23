@@ -79,3 +79,4 @@ nghe rồi phán. Cấm AI tự ghi "duyệt".
 `.gitignore` ở đây bỏ qua `*.mp4` (12–24 MB/file, dựng lại được). Muốn commit cả video thì xoá
 dòng đó.
 - `kynang/huongdan_denxanh_nhap2/huong_dan_mua_re_tranh_bay.mp4` (23/10/2026): hướng dẫn mua rẻ + tránh bẫy giá trị, 382 s, theo ban8; nguồn `Research copy/web_gooddeal/denxanh_huongdan/video_hd8/`. Chờ BOSS nghe.
+- `kynang/huongdan_denxanh_nhap3/huong_dan_mua_re_tranh_bay_v3.mp4` (23/10/2026 khuya): bản 3 kiểu MẪU 2 (2D nền kem + nhân vật, BOSS chọn), 388 s, lời theo ban9; nguồn `Research copy/web_gooddeal/denxanh_huongdan/video_hd9/phim2d.html`. Chờ BOSS xem.
