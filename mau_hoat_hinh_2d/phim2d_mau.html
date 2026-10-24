@@ -1,0 +1,766 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8">
+<!-- phim2d.html — VIDEO HƯỚNG DẪN đủ 20 cảnh theo MẪU 2 (BOSS duyệt 23/10 khuya: 2D biên tập nền kem + nhân vật dẫn chuyện).
+     Lời: loi_v7.txt · lời loi_v9.txt + hình bản 13 (BOSS 24/10: C15 thiên nga đen gom 3 bẫy không ai thấy trước; C12 SCS bỏ số ước "−48 % lãi", chỉ nêu sự thật 80 % sản lượng là hàng quốc tế) · bản 12 (BOSS 24/10: thêm C15a2 DGC lãnh đạo bị khởi tố; PNJ thành ví dụ thứ ba) · hình bản 11 (BOSS 24/10: Bước 2 vẽ lại = cọc 100 triệu chia 20 cục 5 triệu bay vào 20 ô mã) · bản 10 (BOSS 24/10: giữ nhân vật gốc, chỉ lúc gặp bẫy thay bằng ảnh GPT Sol vẽ đúng nét cũ, mặt "Tiếng thét" — nv_sol/nv_thet.png) · bản 8 (BOSS 24/10: gặp bẫy = 2 tay ôm 2 má, miệng tròn chữ O như tranh "Tiếng thét" Munch, thay khoanh tay) · bản 7: BOSS 24/10: bỏ ví dụ HWS — chỉ bị cảnh báo, không có nguy cơ rời sàn; logo góc phải = dungladu.vn, bỏ good deal; nhân vật 2 tay đổi tư thế theo biểu cảm; "1 tỷ 742 triệu") · bản 6: BOSS 24/10: chân trang dungladu.vn + cảnh cuối C21; C06a SWC, C06b CDN; C15c "chia trứng vào nhiều rổ"; C16 bỏ "18 dấu hiệu" → C16a 1 trang đủ các loại bẫy) · bản 5: BOSS 24/10: vẽ lại xe máy C07 + máy bay C12; thêm C15a Covid, C15b PNJ, C15c chia nhỏ rủi ro) · bản 4: BOSS 24/10: ẩn dụ "của rẻ là của ôi" thay "phô mai trong bẫy chuột"; hình cá ôi trên sạp chợ) · NHIP (nhip.json, mốc từng chữ) + HOP (anh/hop.json) bơm qua quay3d.py (TRANG=phim2d.html).
+     Hẹn giờ: Web Animations dừng sẵn, máy quay đặt currentTime = t; vòng lặp nhỏ (thở, chớp mắt) tính trong ve(t).
+     window.SU_KIEN = mốc tiếng động (am_thanh.py đọc su_kien.json do quay3d.py ghi). -->
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--kem:#FBF5EA;--kem2:#F3EADB;--than:#1F2A37;--mo:#6B7280;--xanh:#0E6B53;--ngoc:#DDF1EA;--san:#F0654A;--mu:#F3B43F;--xam:#C9D6E3;--da:#F2C9A0}
+*{box-sizing:border-box}
+html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:var(--kem);font-family:"Be Vietnam Pro",sans-serif;color:var(--than)}
+.cham{position:absolute;inset:0;background-image:radial-gradient(rgba(14,107,83,.10) 3px,transparent 3px);background-size:48px 48px}
+.logo{position:absolute;right:60px;top:56px;font-weight:900;font-size:30px;z-index:8}.logo b{color:var(--xanh)}
+.canh{position:absolute;inset:0;display:none}
+svg *{transform-box:fill-box}
+.tieu{position:absolute;left:80px;right:80px;top:170px;z-index:3}
+.tieu h1{margin:0;font-size:76px;line-height:1.05;font-weight:900;letter-spacing:-1.5px}
+.dong{display:block;overflow:hidden;padding-bottom:4px}.dong > span{display:inline-block}
+.chip{display:inline-block;font-size:30px;font-weight:800;letter-spacing:2px;padding:12px 26px;border-radius:999px;background:var(--san);color:#fff}
+.chip.xanh{background:var(--xanh)}.chip.xam{background:#6B7A8C}
+.v{color:var(--san)}.x{color:var(--xanh)}.m{color:var(--mo)}
+.phude{position:absolute;left:70px;right:70px;bottom:150px;text-align:center;font-size:50px;font-weight:800;line-height:1.3;z-index:8}
+.tien-do{position:absolute;left:80px;right:80px;bottom:80px;height:8px;border-radius:8px;background:rgba(31,42,55,.08);z-index:8}
+.tien-do i{display:block;height:100%;width:0;border-radius:8px;background:var(--xanh)}
+.the{position:absolute;background:#fff;border-radius:34px;box-shadow:0 2px 0 rgba(0,0,0,.04),0 34px 60px -30px rgba(31,42,55,.35);padding:30px 36px}
+.to{font-size:64px;font-weight:900;letter-spacing:-1px;line-height:1.08}
+.vua{font-size:44px;font-weight:800;line-height:1.2}
+.nho{font-size:30px;font-weight:800;letter-spacing:2px;color:var(--mo)}
+.giay{position:absolute;left:70px;width:940px;top:520px;height:760px;background:#fff;border-radius:34px;overflow:hidden;z-index:2;
+  box-shadow:0 2px 0 rgba(0,0,0,.04),0 40px 80px -30px rgba(31,42,55,.35)}
+.giay .dau-giay{position:relative;z-index:2;height:96px;background:var(--kem2);display:flex;align-items:center;gap:16px;padding:0 34px;font-size:30px;font-weight:800;color:var(--mo)}
+.giay .dau-giay b{color:var(--than)}
+.giay .ruot{position:absolute;left:0;right:0;top:96px;bottom:0;overflow:hidden}
+.giay .camera{position:absolute;left:0;top:0;transform-origin:0 0}
+.giay img{position:absolute;left:0;top:0}
+.dq{position:absolute;background:#FFE066;mix-blend-mode:multiply;border-radius:14px 26px 18px 30px;transform-origin:left center}
+.nhan{position:absolute;padding:26px 34px 30px;background:var(--mu);border-radius:10px;box-shadow:0 24px 40px -18px rgba(120,80,0,.55);text-align:center;z-index:5;max-width:470px}
+.nhan.xam{background:var(--xam);box-shadow:0 24px 40px -18px rgba(40,60,90,.45)}
+.nhan small{display:block;font-size:26px;font-weight:800;letter-spacing:4px;color:rgba(31,42,55,.7)}
+.nhan b{display:block;font-size:54px;font-weight:900;line-height:1.05}
+.nhan:before{content:"";position:absolute;left:50%;top:-16px;width:34px;height:34px;margin-left:-17px;border-radius:50%;background:var(--san);box-shadow:0 6px 0 rgba(0,0,0,.15)}
+.huy{position:absolute;width:270px;height:270px;border-radius:50%;background:var(--san);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+  box-shadow:0 30px 50px -20px rgba(240,101,74,.7);z-index:5}
+.huy b{font-size:80px;font-weight:900;letter-spacing:-3px;line-height:1}.huy small{font-size:22px;font-weight:800;margin-top:8px;padding:0 26px;line-height:1.15}
+.bong{position:absolute;background:#fff;border-radius:40px;padding:22px 32px;font-size:44px;font-weight:900;box-shadow:0 20px 40px -20px rgba(31,42,55,.35);z-index:6;white-space:nowrap}
+.bong:after{content:"";position:absolute;left:60px;bottom:-22px;border:16px solid transparent;border-top:24px solid #fff}
+.dau{position:absolute;font-size:46px;font-weight:900;color:var(--san);border:7px solid var(--san);border-radius:16px;padding:8px 22px;background:rgba(251,245,234,.92);z-index:6}
+.web{position:absolute;left:0;right:0;bottom:24px;text-align:center;font-size:32px;font-weight:800;letter-spacing:1px;color:var(--xanh);z-index:8}
+.man{position:absolute;inset:0;background:var(--xanh);z-index:20;transform:translateX(-100%)}
+.vong{position:absolute;border-radius:50%;background:var(--ngoc)}
+.hang{display:flex;align-items:center;gap:24px}
+</style></head><body>
+<div class="logo">dungladu<b>.vn</b></div>
+<div id="san"></div>
+<div class="phude" id="phude"></div>
+<div class="tien-do"><i id="td"></i></div>
+<div class="man" id="man"></div>
+<img src="nv_sol/nv_thet.png" style="display:none" alt=""><img src="nv_sol/thien_nga.png" style="display:none" alt="">
+
+<script>
+const NHIP = window.NHIP, HOP = window.HOP;
+const DS = Object.keys(NHIP).sort(); const BD = {}; let T0 = 0;
+for (const c of DS) { BD[c] = T0; T0 += NHIP[c].dai; }
+window.TONG = T0;
+const $ = id => document.getElementById(id);
+const NAY = 'cubic-bezier(.2,.9,.3,1.25)', MUOT = 'cubic-bezier(.45,0,.2,1)', RA = 'cubic-bezier(.15,.8,.3,1)', DAP = 'cubic-bezier(.3,1.5,.5,1)';
+const SU_KIEN = []; window.SU_KIEN = SU_KIEN;
+const daCo = new Set();
+function a(el, kf, t, d, ease = NAY) { el = typeof el === 'string' ? $(el) : el; if (!el) { console.error('thiếu', kf); return; }
+  const fill = daCo.has(el) ? 'forwards' : 'both'; daCo.add(el);
+  el.animate(kf, {delay: Math.max(0, t) * 1000, duration: d * 1000, fill, easing: ease}); }
+const vao = (el, t, tu = 'translateY(60px)', d = .6) => a(el, [{opacity: 0, transform: tu}, {opacity: 1, transform: 'none'}], t, d);
+const pop = (el, t, d = .5) => a(el, [{opacity: 0, transform: 'scale(.3)'}, {opacity: 1, transform: 'scale(1)'}], t, d);
+const hien = (el, t, d = .2) => a(el, [{opacity: 0}, {opacity: 1}], t, d, 'linear');
+const an = (el, t, d = .2) => a(el, [{opacity: 1}, {opacity: 0}], t, d, 'linear');
+const dongVao = (el, t) => vao(el, t, 'translateY(110%)', .65);
+
+// ---------- nhân vật ----------
+// tư thế tay (khung 300×560, vai ~84/216,388): chi = 1 tay giơ trình bày · cheo = 2 tay bắt chéo chữ X (không, tránh)
+// nghi = tay chống cằm, tay kia đỡ khuỷu · ngac = 2 tay giơ hai bên mặt · theo bảng tư thế chuẩn của nhân vật hoạt hình giải thích
+const TU_THE = {
+  chi: ['M84 388 Q60 452 68 516', 'M216 388 Q270 372 288 316'],
+  cheo: ['M84 388 L114 468 L222 402', 'M216 388 L186 468 L78 402'],
+  om: ['M84 388 L36 326 L76 262', 'M216 388 L264 326 L224 262'],  // gặp bẫy: ôm 2 má (tranh Tiếng thét)
+  nghi: ['M84 388 L100 462 L224 468', 'M216 388 L240 458 L176 306'],
+  ngac: ['M84 388 L42 322 L56 250', 'M216 388 L258 322 L244 250'],
+};
+const TAY_THEO = {cuoi: 'chi', ngac: 'ngac', lo: 'om', nghi: 'nghi'}, TAYNV = {};
+function doiTay(id, kieu, t) { const cu = TAYNV[id] || 'chi'; if (cu === kieu) return; TAYNV[id] = kieu; an(`${id}_tay_${cu}`, t, .12); hien(`${id}_tay_${kieu}`, t, .12); }
+function NV(id, x, y, w, them = '') {
+  return `<svg id="${id}" class="nv" style="position:absolute;left:${x}px;top:${y}px;z-index:4;${them}" width="${w}" height="${w * 560 / 300}" viewBox="0 0 300 560">
+   <g class="nv-than" id="${id}_than" style="transform-origin:150px 560px">
+    <path d="M60 560 L70 380 Q75 330 150 330 Q225 330 230 380 L240 560 Z" fill="#0E6B53"/>
+    <path d="M128 330 L150 372 L172 330 Z" fill="#FBF5EA"/>
+    <rect x="128" y="290" width="44" height="50" rx="16" fill="#E8B88A"/>
+    <g class="nv-dau" style="transform-origin:150px 300px">
+     <circle cx="150" cy="220" r="92" fill="#F2C9A0"/>
+     <path d="M58 210 Q60 120 150 118 Q245 120 244 205 Q230 160 190 150 Q150 175 90 168 Q70 185 58 210Z" fill="#26313D"/>
+     <g class="nv-mat" style="transform-origin:150px 224px"><circle cx="118" cy="226" r="11" fill="#1F2A37"/><circle cx="184" cy="226" r="11" fill="#1F2A37"/>
+      <circle cx="121" cy="222" r="3.5" fill="#fff"/><circle cx="187" cy="222" r="3.5" fill="#fff"/></g>
+     <g id="${id}_may_cuoi"><path d="M100 198 Q118 190 134 196 M168 196 Q184 190 202 198" stroke="#1F2A37" stroke-width="7" stroke-linecap="round" fill="none"/></g>
+     <g id="${id}_may_ngac" opacity="0"><path d="M100 186 Q118 172 134 182 M168 182 Q184 172 202 186" stroke="#1F2A37" stroke-width="7" stroke-linecap="round" fill="none"/></g>
+     <g id="${id}_may_lo" opacity="0"><path d="M102 192 Q118 196 134 186 M168 186 Q184 196 200 192" stroke="#1F2A37" stroke-width="7" stroke-linecap="round" fill="none"/></g>
+     <g id="${id}_may_nghi" opacity="0"><path d="M100 196 Q118 190 134 196 M168 186 Q184 178 202 186" stroke="#1F2A37" stroke-width="7" stroke-linecap="round" fill="none"/></g>
+     <path id="${id}_mieng_cuoi" d="M134 262 Q151 278 168 262" stroke="#B5544A" stroke-width="7" stroke-linecap="round" fill="none"/>
+     <ellipse id="${id}_mieng_ngac" cx="151" cy="268" rx="16" ry="14" fill="#B5544A" opacity="0"/>
+     <ellipse id="${id}_mieng_lo" cx="151" cy="274" rx="13" ry="21" fill="#7A2E28" stroke="#B5544A" stroke-width="4" opacity="0"/>
+     <path id="${id}_mieng_nghi" d="M138 268 L166 264" stroke="#B5544A" stroke-width="7" stroke-linecap="round" fill="none" opacity="0"/>
+     <circle cx="96" cy="258" r="14" fill="#F0654A" opacity=".25"/><circle cx="206" cy="258" r="14" fill="#F0654A" opacity=".25"/>
+     <path id="${id}_moHoi" d="M240 150 Q252 172 240 182 Q228 172 240 150Z" fill="#7CC4E8" opacity="0"/>
+     </g>
+    ${Object.entries(TU_THE).map(([k, ds]) => `<g id="${id}_tay_${k}" opacity="${k === 'chi' ? 1 : 0}">${ds.map(d => { const m = d.match(/(-?[\d.]+) (-?[\d.]+)$/);
+      return `<path d="${d}" stroke="#F2C9A0" stroke-width="30" stroke-linecap="round" stroke-linejoin="round" fill="none"/><ellipse cx="${m[1]}" cy="${m[2]}" rx="20" ry="26" fill="#F2C9A0" stroke="#D9A57A" stroke-width="3"/>`; }).join('')}</g>`).join('')}
+    </g>
+    <g id="${id}_thetG" opacity="0"><image href="nv_sol/nv_thet.png" x="11.54" y="30.12" width="277.23" height="517.32"/></g></svg>`;
+}
+const NET = {};
+function bieuCam(id, kieu, t) { const cu = NET[id] || 'cuoi'; if (cu === kieu) return; NET[id] = kieu;
+  for (const p of ['may', 'mieng']) { an(`${id}_${p}_${cu}`, t, .08); hien(`${id}_${p}_${kieu}`, t, .08); }
+  if (kieu === 'lo') { an(`${id}_than`, t, .08); hien(`${id}_thetG`, t, .08);  // ảnh Sol: mặt Tiếng thét
+    $(`${id}_thetG`).animate([0, -7, 6, -6, 5, -4, 3, 0].map(x => ({transform: `translateX(${x}px)`})), {delay: t * 1000, duration: 700, fill: 'none', easing: 'linear'}); }
+  if (cu === 'lo') { hien(`${id}_than`, t, .08); an(`${id}_thetG`, t, .08); }
+  doiTay(id, TAY_THEO[kieu], t); }
+const tay = (id, tu, den, t) => doiTay(id, 'chi', t);  // 2 tay: thay xoay 1 cánh tay bằng tư thế trình bày
+function bong(san, chu, x, y, t, tat) { const id = 'b' + Math.random().toString(36).slice(2, 8);
+  san.insertAdjacentHTML('beforeend', `<div class="bong" id="${id}" style="left:${x}px;top:${y}px;opacity:0">${chu}</div>`);
+  a(id, [{opacity: 0, transform: 'scale(.4) translateY(30px)'}, {opacity: 1, transform: 'none'}], t, .45); if (tat) an(id, tat, .25); }
+
+// ---------- khung cảnh ----------
+function canh(c, html) { const s = document.createElement('section'); s.className = 'canh'; s.id = 'S' + c;
+  s.innerHTML = `<div class="cham"></div>` + html; $('san').appendChild(s); const T = (k, o = 0) => BD[c] + NHIP[c].cau[k].bd + o; return {s, T, bd: BD[c], het: BD[c] + NHIP[c].dai}; }
+let soMan = 0;
+function quet(t) { const id = 'man' + (++soMan); document.body.insertAdjacentHTML('beforeend', `<div class="man" id="${id}"></div>`);
+  a(id, [{transform: 'translateX(-100%)'}, {transform: 'translateX(0)', offset: .45}, {transform: 'translateX(0)', offset: .55}, {transform: 'translateX(100%)'}], t - .45, .9, MUOT);
+  SU_KIEN.push({t: t - .5, loai: 'vut'}); }
+function tieuDe(c, k, dong1, dong2, chip, chipLop = '', top = 170) {
+  const p = c.s.id; c.s.insertAdjacentHTML('beforeend', `<div class="tieu" style="top:${top}px">${chip ? `<span class="chip ${chipLop}" id="${p}chip">${chip}</span>` : ''}
+   <h1 style="margin-top:${chip ? 26 : 0}px"><span class="dong"><span id="${p}d1">${dong1}</span></span>${dong2 ? `<span class="dong"><span id="${p}d2">${dong2}</span></span>` : ''}</h1></div>`);
+  const t = c.T(k, .2); if (chip) pop(p + 'chip', t, .45); dongVao(p + 'd1', t + .15); if (dong2) dongVao(p + 'd2', t + .35); }
+
+// tờ báo cáo thật: cấu hình cảnh
+function baoCao(c, o) {
+  const p = c.s.id, h = HOP[o.anh], [IW, IH] = h.anh, [hx, hy, hw, hh] = h.hop_px, f = o.tieuDiem || h.hop_px;
+  const GW = 940, GH = 664;
+  c.s.insertAdjacentHTML('beforeend', `<div class="giay" id="${p}giay" style="opacity:0"><div class="dau-giay"><b>Báo cáo bát cơm</b> · ${o.ma}</div>
+    <div class="ruot"><div class="camera" id="${p}cam"><img src="anh/${o.anh}.png" width="${IW}" height="${IH}"><div class="dq" id="${p}dq" style="left:${hx - 16}px;top:${hy - 10}px;width:${hw + 32}px;height:${hh + 20}px"></div></div></div></div>`);
+  const kep = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
+  const kh = (s, lechY) => { const x = kep(GW / 2 - (f[0] + f[2] / 2) * s, GW - IW * s, 0); return `translate(${x}px, ${GH * lechY - (f[1] + f[3] / 2) * s}px) scale(${s})`; };
+  const s1 = o.s1 || Math.min(.95, 780 / f[2]), s0 = o.s0 || Math.max(GW / IW, s1 * .78);
+  const tg = o.tGiay;
+  a(p + 'giay', [{opacity: 0, transform: 'translateY(240px) rotate(4deg)'}, {opacity: 1, transform: 'rotate(-1.6deg)'}], tg, .8);
+  a(p + 'cam', [{transform: kh(s0, .6)}, {transform: kh(s0, .6)}], 0, .1, 'linear');
+  a(p + 'cam', [{transform: kh(s0, .6)}, {transform: kh(s1, .5)}], o.tZoom, 1.4, MUOT);
+  a(p + 'dq', [{transform: 'scaleX(0)'}, {transform: 'scaleX(1)'}], o.tDq, 1.0, 'ease-out');
+  if (o.huy) { c.s.insertAdjacentHTML('beforeend', `<div class="huy" id="${p}huy" style="right:60px;top:${o.huyTop || 1180}px;${o.huy.mau ? 'background:' + o.huy.mau : ''}"><b id="${p}so" style="${o.huy.so.length > 5 ? 'font-size:58px' : ''}">${o.huy.so}</b><small>${o.huy.nhan}</small></div>`);
+    pop(p + 'huy', o.tHuy, .55); if (o.huy.dem) { DEM.push({id: p + 'so', t: o.tHuy + .2, ...o.huy.dem}); SU_KIEN.push({t: o.tHuy + .2, loai: 'dem'}); } }
+  c.s.insertAdjacentHTML('beforeend', `<div class="nhan ${o.co ? 'xam' : ''}" id="${p}nhan" style="left:90px;top:1210px;opacity:0"><small>${o.co ? 'DẤU HIỆU · BẠN TỰ CÂN' : 'NHÃN BẪY'}</small><b>${o.nhan}</b></div>`);
+  a(p + 'nhan', [{opacity: 0, transform: 'scale(1.7) rotate(-10deg)'}, {opacity: 1, transform: 'scale(1) rotate(4deg)'}], o.tNhan, .28, DAP);
+  a(p + 'giay', [{transform: 'rotate(-1.6deg)'}, {transform: 'rotate(-1.6deg) translateY(10px)'}, {transform: 'rotate(-1.6deg)'}], o.tNhan, .25, 'linear');
+  SU_KIEN.push({t: o.tNhan, loai: 'dap'});
+  if (o.nv !== false) { c.s.insertAdjacentHTML('beforeend', NV(p + 'nv', 640, 1340, 170)); vao(p + 'nv', o.tNv || o.tNhan - .8, 'translateY(320px)', .6);
+    bieuCam(p + 'nv', o.co ? 'nghi' : 'lo', (o.tNv || o.tNhan - .8) + .3); }
+  return {an: t => an(p + 'giay', t, .3)};
+}
+const DEM = [];
+
+// ---------- hình vẽ dùng lại ----------
+const BAY = (id, x, y, w) => `<svg id="${id}" style="position:absolute;left:${x}px;top:${y}px" width="${w}" height="${w * .78}" viewBox="60 120 1000 780">
+  <ellipse cx="560" cy="720" rx="420" ry="46" fill="rgba(31,42,55,.12)"/>
+  <path d="M150 560 L870 560 L960 660 L240 660 Z" fill="#F0BE7E"/><path d="M240 660 L960 660 L960 700 Q960 712 948 712 L252 712 Q240 712 240 700 Z" fill="#C98D4E"/>
+  <path d="M150 560 L240 660 L240 712 L150 612 Z" fill="#B57B40"/>
+  <g stroke="#D9A160" stroke-width="5" stroke-linecap="round" opacity=".7"><path d="M220 590 Q480 600 820 586"/><path d="M260 625 Q560 632 900 622"/><path d="M300 645 Q520 650 760 642"/></g>
+  <path d="M560 612 L760 612 L790 640 L590 640 Z" fill="#AEB8C4"/>
+  <g id="${id}thanh"><path d="M200 600 L200 520 Q200 500 220 500 L480 500 Q500 500 500 520 L500 610" fill="none" stroke="#8A96A3" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/></g>
+  <g fill="none" stroke="#8A96A3" stroke-width="12"><circle cx="500" cy="602" r="22"/><circle cx="530" cy="602" r="22"/><circle cx="560" cy="602" r="22"/></g>
+  <path d="M600 600 L840 600 L840 470 Q730 470 600 540 Z" fill="#F7C948"/><path d="M600 540 Q730 470 840 470 L860 452 Q740 450 620 520 Z" fill="#FFDE7A"/>
+  <path d="M840 470 L860 452 L860 584 L840 600 Z" fill="#E3A72F"/>
+  <g fill="#E3A72F"><circle cx="690" cy="560" r="20"/><circle cx="770" cy="530" r="14"/><circle cx="780" cy="575" r="11"/><circle cx="650" cy="585" r="9"/></g>
+  <g id="${id}sap" opacity="0"><path d="M500 600 L560 470 Q566 456 580 458 L860 470 Q876 472 872 488 L830 606" fill="none" stroke="#8A96A3" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/></g>
+  <g id="${id}the" style="transform-origin:800px 300px"><path d="M760 455 Q770 360 800 300" stroke="#1F2A37" stroke-width="4" fill="none"/>
+   <g transform="translate(790 170) rotate(10)"><path d="M0 40 L40 0 L250 0 Q270 0 270 20 L270 140 Q270 160 250 160 L40 160 L0 120 Z" fill="#F0654A"/>
+    <circle cx="34" cy="80" r="12" fill="#FBF5EA"/><text x="160" y="72" text-anchor="middle" font-size="34" font-weight="800" fill="#FFE9E3" font-family="Be Vietnam Pro">giá rẻ</text>
+    <text x="160" y="132" text-anchor="middle" font-size="64" font-weight="900" fill="#fff" font-family="Be Vietnam Pro">PE 3</text></g></g></svg>`;
+const CA = (id, x, y, w) => `<svg id="${id}" style="position:absolute;left:${x}px;top:${y}px;overflow:visible" width="${w}" height="${w * .78}" viewBox="60 120 1000 780">
+  <ellipse cx="560" cy="720" rx="420" ry="46" fill="rgba(31,42,55,.12)"/>
+  <path d="M150 560 L870 560 L960 660 L240 660 Z" fill="#F0BE7E"/><path d="M240 660 L960 660 L960 700 Q960 712 948 712 L252 712 Q240 712 240 700 Z" fill="#C98D4E"/>
+  <path d="M150 560 L240 660 L240 712 L150 612 Z" fill="#B57B40"/>
+  <g stroke="#D9A160" stroke-width="5" stroke-linecap="round" opacity=".7"><path d="M220 590 Q480 600 820 586"/><path d="M260 625 Q560 632 900 622"/></g>
+  <path d="M250 600 Q300 520 560 516 Q820 520 880 600 Q820 650 560 652 Q300 650 250 600Z" fill="#5FA463"/><path d="M270 600 Q560 590 860 600" stroke="#4A8A4F" stroke-width="6" fill="none"/>
+  <g id="${id}tuoi">
+   <path d="M760 545 L870 470 Q860 545 870 620 Z" fill="#6F9CC2"/>
+   <path d="M330 545 Q420 445 600 452 Q720 460 770 545 Q720 630 600 638 Q420 645 330 545Z" fill="#8FB8D8"/>
+   <path d="M350 560 Q450 625 600 628 Q710 622 760 560 Q600 600 350 560Z" fill="#D6E7F2"/>
+   <path d="M520 458 Q565 395 640 456Z" fill="#6F9CC2"/>
+   <g fill="none" stroke="#B9D3E8" stroke-width="5" stroke-linecap="round"><path d="M540 500 q18 18 0 36"/><path d="M590 500 q18 18 0 36"/><path d="M640 505 q18 18 0 36"/><path d="M565 540 q18 18 0 36"/><path d="M615 545 q18 18 0 36"/></g>
+   <path d="M455 490 Q478 545 455 600" stroke="#5E8CB4" stroke-width="7" fill="none" stroke-linecap="round"/>
+  </g>
+  <g id="${id}oi" opacity="0">
+   <path d="M760 545 L870 470 Q860 545 870 620 Z" fill="#8B8A55"/>
+   <path d="M330 545 Q420 445 600 452 Q720 460 770 545 Q720 630 600 638 Q420 645 330 545Z" fill="#A6A66C"/>
+   <path d="M350 560 Q450 625 600 628 Q710 622 760 560 Q600 600 350 560Z" fill="#C7C18E"/>
+   <path d="M520 458 Q565 395 640 456Z" fill="#8B8A55"/>
+   <g fill="#7A7A3E" opacity=".8"><ellipse cx="560" cy="500" rx="34" ry="20"/><ellipse cx="660" cy="580" rx="26" ry="16"/><ellipse cx="480" cy="585" rx="20" ry="12"/><ellipse cx="710" cy="520" rx="14" ry="10"/></g>
+   <path d="M455 490 Q478 545 455 600" stroke="#6E6C36" stroke-width="7" fill="none" stroke-linecap="round"/>
+  </g>
+  <g id="${id}matTuoi"><circle cx="395" cy="522" r="22" fill="#fff"/><circle cx="398" cy="522" r="11" fill="#1F2A37"/><circle cx="402" cy="517" r="4" fill="#fff"/></g>
+  <g id="${id}matOi" opacity="0"><circle cx="395" cy="522" r="22" fill="#E7E3C4"/><path d="M381 508 L409 536 M409 508 L381 536" stroke="#1F2A37" stroke-width="7" stroke-linecap="round"/></g>
+  <g id="${id}mui" opacity="0" fill="none" stroke="#7DA453" stroke-width="13" stroke-linecap="round">
+   <path d="M470 420 q-22 -30 0 -60 q22 -30 0 -60"/><path d="M570 400 q-22 -30 0 -60 q22 -30 0 -60 q-22 -30 0 -60"/><path d="M670 420 q-22 -30 0 -60 q22 -30 0 -60"/></g>
+  ${[[430, 300], [640, 250], [740, 380]].map(([fx, fy], i) => `<g id="${id}ruoi${i}" opacity="0"><g transform="translate(${fx} ${fy})"><ellipse cx="-12" cy="-14" rx="14" ry="9" fill="#fff" opacity=".85" transform="rotate(-30 -12 -14)"/><ellipse cx="12" cy="-14" rx="14" ry="9" fill="#fff" opacity=".85" transform="rotate(30 12 -14)"/><ellipse cx="0" cy="0" rx="13" ry="10" fill="#1F2A37"/></g></g>`).join('')}
+  <g id="${id}the" style="transform-origin:800px 300px"><path d="M745 470 Q770 360 800 300" stroke="#1F2A37" stroke-width="4" fill="none"/>
+   <g transform="translate(790 170) rotate(10)"><path d="M0 40 L40 0 L250 0 Q270 0 270 20 L270 140 Q270 160 250 160 L40 160 L0 120 Z" fill="#F0654A"/>
+    <circle cx="34" cy="80" r="12" fill="#FBF5EA"/><text x="160" y="72" text-anchor="middle" font-size="34" font-weight="800" fill="#FFE9E3" font-family="Be Vietnam Pro">giá rẻ</text>
+    <text x="160" y="132" text-anchor="middle" font-size="64" font-weight="900" fill="#fff" font-family="Be Vietnam Pro">PE 3</text></g></g></svg>`;
+// cá hoá ôi: thân đổi màu, mắt chéo, mùi bốc, ruồi bay vòng (ruồi lặp vô hạn, máy quay đặt currentTime nên vẫn khớp khung)
+function hoaOi(id, t, d = .9) {
+  hien(id + 'oi', t, d); an(id + 'matTuoi', t + d * .6, .15); hien(id + 'matOi', t + d * .6, .15);
+  a(id + 'mui', [{opacity: 0, transform: 'translateY(40px)'}, {opacity: 1, transform: 'none'}], t + .2, .8, RA);
+  for (let i = 0; i < 3; i++) { hien(id + 'ruoi' + i, t + .3 + i * .15, .2);
+    $(id + 'ruoi' + i).animate([{transform: 'translate(0,0)'}, {transform: 'translate(26px,-18px)'}, {transform: 'translate(-10px,-30px)'}, {transform: 'translate(-24px,6px)'}, {transform: 'translate(0,0)'}],
+      {duration: 700 + i * 130, iterations: Infinity, easing: 'linear'}); }
+}
+// mốc bắt đầu 1 chữ trong câu k của cảnh c (lấy từ WordBoundary)
+const moc = (c, k, chu, tuCuoi = false) => { const tu = NHIP[c].cau[k].tu, ds = tuCuoi ? [...tu].reverse() : tu;
+  const x = ds.find(w => w[2].replace(/[.,:?!]/g, '') === chu); if (!x) console.error('thiếu chữ', c, k, chu); return BD[c] + NHIP[c].cau[k].bd + (x ? x[0] : 0); };
+const MAYBAY = (than, nhan) => `<svg width="340" height="170" viewBox="0 0 340 170">
+  <path d="M34 74 L14 18 Q12 12 20 12 L46 12 L92 74 Z" fill="${nhan}"/><path d="M40 96 L6 112 L64 106 Z" fill="${nhan}"/>
+  <path d="M22 93 Q22 74 50 72 L262 72 Q312 74 330 93 Q312 112 262 114 L50 114 Q22 112 22 93Z" fill="${than}" stroke="#1F2A37" stroke-width="3"/>
+  <path d="M26 104 Q140 112 322 100" stroke="${nhan}" stroke-width="7" fill="none"/>
+  <path d="M292 80 Q310 82 318 90 L298 90 Z" fill="#1F2A37"/>
+  ${Array.from({length: 13}, (_, i) => `<circle cx="${84 + i * 15}" cy="86" r="4.5" fill="#1F2A37"/>`).join('')}
+  <path d="M150 100 L104 156 Q100 162 108 162 L132 162 L214 102 Z" fill="${nhan}" stroke="#1F2A37" stroke-width="3"/>
+  <rect x="128" y="112" width="58" height="22" rx="11" fill="#6B7280" stroke="#1F2A37" stroke-width="3"/></svg>`;
+// cọc tiền: n tờ chồng lệch, đai giấy vàng (tờ 500.000 đồng màu lam)
+const TIEN = (w, n = 3) => `<svg width="${w}" height="${w * .62}" viewBox="0 0 200 124">${Array.from({length: n}, (_, i) => { const y = 70 - i * (n > 3 ? 12 : 10), x = 10 + (i % 2) * 6;
+  return `<g transform="translate(${x} ${y})"><rect width="180" height="50" rx="7" fill="#2F8FB8" stroke="#1F6E90" stroke-width="3"/><rect x="10" y="8" width="160" height="34" rx="5" fill="none" stroke="#8CCBE3" stroke-width="2.5"/>
+   <circle cx="45" cy="25" r="12" fill="#8CCBE3"/><text x="134" y="33" text-anchor="middle" font-size="21" font-weight="900" fill="#E6F5FB" font-family="Be Vietnam Pro">500.000</text>
+   <rect x="62" y="0" width="18" height="50" fill="#F3B43F"/></g>`; }).join('')}</svg>`;
+const PHO = (id, x, y, w, them = '') => `<svg id="${id}" style="position:absolute;left:${x}px;top:${y}px" width="${w}" height="${w * .86}" viewBox="0 0 700 600">${them ? '' : ''}
+  <ellipse cx="350" cy="580" rx="300" ry="22" fill="rgba(31,42,55,.12)"/>
+  <rect x="90" y="190" width="520" height="380" rx="16" fill="#FFF2DA"/><rect x="90" y="540" width="520" height="30" rx="8" fill="#E9D3AE"/>
+  <path d="M60 200 L640 200 L600 110 L100 110Z" fill="#F0654A"/>
+  <path d="M100 200 l58 0 0 40 a29 29 0 0 1 -58 0z M216 200 l58 0 0 40 a29 29 0 0 1 -58 0z M332 200 l58 0 0 40 a29 29 0 0 1 -58 0z M448 200 l58 0 0 40 a29 29 0 0 1 -58 0z M564 200 l46 0 0 40 a23 23 0 0 1 -46 0z" fill="#FFF8EC"/>
+  <rect x="200" y="20" width="300" height="100" rx="18" fill="#0E6B53"/><text x="350" y="94" text-anchor="middle" font-size="70" font-weight="900" fill="#FFF8EC" font-family="Be Vietnam Pro">PHỞ</text>
+  <rect x="140" y="300" width="200" height="270" rx="10" fill="#C98D4E"/><circle cx="310" cy="440" r="9" fill="#8A5A2B"/>
+  <rect x="390" y="300" width="180" height="140" rx="10" fill="#BFE6F4"/>
+  <ellipse cx="480" cy="408" rx="58" ry="16" fill="#fff"/><path d="M422 405 Q480 466 538 405Z" fill="#fff"/><path d="M455 384 q10 -18 0 -36 M480 384 q10 -18 0 -36 M505 384 q10 -18 0 -36" stroke="#fff" stroke-width="5" fill="none"/>
+  ${them}</svg>`;
+const ICON = {
+  locK: `<svg width="120" height="120" viewBox="0 0 120 120"><rect x="22" y="52" width="76" height="56" rx="12" fill="#F0654A"/><path d="M38 52 V38 a22 22 0 0 1 44 0 V52" stroke="#1F2A37" stroke-width="10" fill="none"/><circle cx="60" cy="78" r="8" fill="#fff"/></svg>`,
+  bongBay: `<svg width="120" height="120" viewBox="0 0 120 120"><ellipse cx="60" cy="48" rx="34" ry="40" fill="#F3B43F"/><path d="M60 88 l-6 8 h12z" fill="#E3A72F"/><path d="M60 96 q-10 12 4 22" stroke="#1F2A37" stroke-width="3" fill="none"/><ellipse cx="48" cy="34" rx="8" ry="12" fill="#fff" opacity=".6"/></svg>`,
+  rot: `<svg width="120" height="120" viewBox="0 0 120 120"><path d="M14 24 L42 56 L62 40 L104 96" stroke="#0E6B53" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M84 96 H106 V74" stroke="#0E6B53" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  locMay: `<svg width="110" height="110" viewBox="0 0 120 120"><path d="M14 20 H106 L70 64 V100 L50 110 V64 Z" fill="#0E6B53"/></svg>`,
+  baoDong: `<svg width="110" height="110" viewBox="0 0 120 120"><path d="M60 10 L114 106 H6 Z" fill="#F0654A"/><rect x="54" y="40" width="12" height="38" rx="6" fill="#fff"/><circle cx="60" cy="90" r="7" fill="#fff"/></svg>`,
+  bao: `<svg width="120" height="120" viewBox="0 0 120 120"><path d="M20 30 Q60 0 100 30 Q60 18 30 44 Q70 30 92 56 Q56 46 40 70 Q66 66 76 88" stroke="#6B7A8C" stroke-width="10" fill="none" stroke-linecap="round"/></svg>`,
+  matNa: `<svg width="120" height="120" viewBox="0 0 120 120"><path d="M10 50 Q60 20 110 50 Q104 86 72 80 L60 68 L48 80 Q16 86 10 50Z" fill="#1F2A37"/><ellipse cx="38" cy="56" rx="12" ry="8" fill="#FBF5EA"/><ellipse cx="82" cy="56" rx="12" ry="8" fill="#FBF5EA"/></svg>`,
+  lua: `<svg width="120" height="120" viewBox="0 0 120 120"><path d="M60 8 Q90 44 84 70 Q100 62 98 44 Q118 76 96 102 Q78 118 60 116 Q30 116 22 92 Q14 66 40 46 Q40 64 52 68 Q40 40 60 8Z" fill="#F0654A"/><path d="M60 60 Q78 80 70 100 Q60 108 50 100 Q44 86 60 60Z" fill="#F3B43F"/></svg>`,
+  kinhLup: `<svg width="130" height="130" viewBox="0 0 120 120"><circle cx="50" cy="50" r="32" stroke="#0E6B53" stroke-width="12" fill="#DDF1EA"/><path d="M74 74 L108 108" stroke="#0E6B53" stroke-width="14" stroke-linecap="round"/></svg>`,
+  gio: `<svg width="190" height="150" viewBox="0 0 190 150"><ellipse cx="66" cy="44" rx="20" ry="26" fill="#FFF8EC" stroke="#E9D3AE" stroke-width="3"/><ellipse cx="110" cy="40" rx="20" ry="26" fill="#FFF8EC" stroke="#E9D3AE" stroke-width="3"/><path d="M20 62 H170 L152 140 H38Z" fill="#C98D4E"/><path d="M30 86 H160 M36 110 H154" stroke="#A8743E" stroke-width="6"/></svg>`,
+};
+
+// ================= CẢNH =================
+// C01 — của rẻ là của ôi
+{ const c = canh('C01', `<div class="vong" id="v1" style="width:980px;height:980px;left:50px;top:560px"></div>
+  <svg style="position:absolute;left:120px;top:640px" width="840" height="360" viewBox="0 0 840 360"><path id="dt1" d="M0 250 L90 210 L160 240 L240 150 L320 190 L400 120 L470 170 L560 90 L640 140 L720 60 L840 110" fill="none" stroke="#0E6B53" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" opacity=".35" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/></svg>
+  ${CA('b1', -40, 560, 1160)}${NV('n1', 10, 930, 330)}
+  <div id="tach1" style="position:absolute;left:330px;top:580px;font-size:190px;font-weight:900;color:#7DA453;letter-spacing:-4px;-webkit-text-stroke:10px #fff;paint-order:stroke fill;opacity:0;z-index:6">ÔI!</div>`);
+  const {T} = c;
+  tieuDe(c, 0, 'Của rẻ', '<span class="v">là của ôi</span>');
+  a('v1', [{transform: 'scale(.2)', opacity: 0}, {transform: 'scale(1)', opacity: 1}], T(0, .2), .9);
+  a('b1', [{transform: 'translateY(140px) scale(.9)', opacity: 0}, {transform: 'none', opacity: 1}], T(0, .7), .8);
+  vao('n1', T(0, 1.6), 'translateX(-340px)', .8);
+  a('dt1', [{strokeDashoffset: 1}, {strokeDashoffset: 0}], T(1, .2), 2.2, MUOT);
+  an(c.s.querySelector('.tieu'), T(1, .1), .3);
+  a('b1the', [{transform: 'rotate(-70deg) scale(0)', opacity: 0}, {transform: 'rotate(12deg) scale(1.05)', opacity: 1, offset: .6}, {transform: 'rotate(-6deg)', offset: .8}, {transform: 'rotate(0)', opacity: 1}], T(2, .1), 1.2, 'ease-out');
+  bieuCam('n1', 'ngac', T(2, .5)); bong(c.s, 'Rẻ quá trời!', 190, 830, T(2, .6), T(3, .2));
+  tay('n1', 0, 28, T(3, .2), .9); a('n1', [{transform: 'none'}, {transform: 'translateX(70px)'}], T(3, .2), .9, MUOT);
+  hoaOi('b1', moc('C01', 3, 'bên'), 1.1);
+  const oi = moc('C01', 3, 'ôi', true); SU_KIEN.push({t: oi, loai: 'dap'});
+  a('tach1', [{opacity: 0, transform: 'scale(.3) rotate(-12deg)'}, {opacity: 1, transform: 'scale(1.1) rotate(-6deg)'}, {opacity: 1, transform: 'scale(1) rotate(-6deg)'}], oi, .35);
+  tay('n1', 28, -35, oi - .3, .25); a('n1', [{transform: 'translateX(70px)'}, {transform: 'translateX(-30px) translateY(-40px)', offset: .4}, {transform: 'translateX(-20px)'}], oi - .3, .6, RA);
+  bieuCam('n1', 'lo', oi - .3);
+}
+// C02 — phương pháp 2 vế
+{ const c = canh('C02', `
+  <div class="the" id="c2a" style="left:80px;right:80px;top:480px;border:5px solid #0E6B53"><div class="hang">${ICON.locMay}<div><div class="nho">VẾ 1</div><div class="to x">Mua rẻ</div></div></div>
+    <div class="vua m" id="c2a2" style="margin-top:14px;opacity:0">Máy lọc sẵn cho bạn</div></div>
+  <div class="the" id="c2b" style="left:80px;right:80px;top:860px;border:5px solid #F0654A"><div class="hang">${ICON.baoDong}<div><div class="nho">VẾ 2</div><div class="to v">Tránh rẻ mà ôi</div></div></div>
+    <div class="vua m" id="c2b2" style="margin-top:14px;opacity:0">Chỗ nhiều người mất tiền</div></div>
+  ${NV('n2', 700, 1250, 200)}`);
+  const {T} = c; tieuDe(c, 0, 'Phương pháp', '<span class="x">chỉ có 2 vế</span>');
+  vao('c2a', T(1, .1), 'translateX(-200px)'); vao('c2b', T(2, .1), 'translateX(200px)');
+  hien('c2a2', T(3, .2), .3); hien('c2b2', T(4, .2), .3);
+  a('c2b', [{transform: 'rotate(0)'}, {transform: 'rotate(-1.5deg)'}, {transform: 'rotate(1.5deg)'}, {transform: 'rotate(0)'}], T(4, .3), .5, 'linear');
+  vao('n2', T(0, 1), 'translateY(300px)'); bieuCam('n2', 'lo', T(4, .2));
+}
+// C03 — tiệm phở và PE
+{ const c = canh('C03', `<div class="vong" id="v3" style="width:760px;height:760px;left:160px;top:420px"></div>
+  ${PHO('pho3', 190, 470, 700)}
+  <div class="the" id="c3a" style="left:70px;top:1110px;width:450px;text-align:center"><div class="nho">LÃI MỖI NĂM</div><div class="to x">100 triệu</div></div>
+  <div class="the" id="c3b" style="right:70px;top:1110px;width:450px;text-align:center"><div class="nho">GIÁ BÁN TIỆM</div><div class="to v">500 triệu</div></div>
+  <div class="the" id="c3c" style="left:180px;right:180px;top:640px;text-align:center;z-index:5;opacity:0"><div class="vua">500 ÷ 100 =</div><div style="font-size:180px;font-weight:900;line-height:1;color:var(--san)">5</div></div>
+  <div class="the" id="c3d" style="left:250px;right:250px;top:1340px;text-align:center;background:#0E6B53;color:#fff;z-index:5"><div class="to">PE = 5</div></div>
+  <div class="vua" id="c3e" style="position:absolute;left:0;right:0;top:1490px;text-align:center"><span>PE thấp</span> <span class="m">→</span> <span class="x">tiệm rẻ</span></div>
+  ${NV('n3', 20, 1150, 0, 'display:none')}`);
+  const {T} = c; tieuDe(c, 0, 'Mua lại', '<span class="v">một tiệm phở</span>');
+  a('v3', [{transform: 'scale(.2)', opacity: 0}, {transform: 'scale(1)', opacity: 1}], T(0, .3), .8);
+  vao('pho3', T(0, .6), 'translateY(120px) scale(.9)', .8);
+  vao('c3a', T(1, .1), 'translateY(80px)'); vao('c3b', T(2, .1), 'translateY(80px)');
+  pop('c3c', T(3, .1), .55); SU_KIEN.push({t: T(3, .1), loai: 'pop'});
+  an('c3c', T(4, -.1), .25); pop('c3d', T(4, .2), .55); SU_KIEN.push({t: T(4, .2), loai: 'pop'});
+  vao('c3e', T(5, .2), 'translateY(40px)');
+}
+// C04 — điểm mù
+{ const nam = ['2022', '2023', '2024', '2025', '2026?'];
+  const c = canh('C04', `<div style="position:absolute;left:60px;right:60px;top:480px;display:flex;gap:16px;justify-content:center">${nam.map((n, i) =>
+    `<div class="the" id="c4n${i}" style="position:relative;padding:22px 18px;font-size:40px;font-weight:900;${i === 3 ? 'border:5px solid #F0654A;color:#F0654A' : i === 4 ? 'border:4px dashed #9AA3AF;color:#9AA3AF;box-shadow:none;background:transparent' : 'color:#B8BEC7'}">${n}</div>`).join('')}</div>
+  <svg id="c4mat" style="position:absolute;left:640px;top:600px;opacity:0" width="140" height="90" viewBox="0 0 140 90"><path d="M8 45 Q70 -10 132 45 Q70 100 8 45Z" fill="#fff" stroke="#1F2A37" stroke-width="7"/><circle cx="70" cy="45" r="20" fill="#1F2A37"/></svg>
+  <div class="the" id="c4a" style="left:70px;top:740px;width:450px;text-align:center"><svg width="220" height="150" viewBox="0 0 220 150"><path d="M10 20 H210 V60 a18 18 0 0 0 0 36 V130 H10 V96 a18 18 0 0 0 0 -36Z" fill="#F3B43F"/><text x="110" y="90" text-anchor="middle" font-size="40" font-weight="900" fill="#1F2A37" font-family="Be Vietnam Pro">VÉ SỐ</text></svg>
+    <div class="vua">Năm ngoái<br><span class="v">trúng số</span></div></div>
+  <div class="the" id="c4b" style="right:70px;top:740px;width:450px;text-align:center"><svg width="180" height="150" viewBox="0 0 180 150"><rect x="30" y="6" width="120" height="140" rx="10" fill="#fff" stroke="#1F2A37" stroke-width="6"/><path d="M52 40 H128 M52 64 H128 M52 88 H110" stroke="#9AA3AF" stroke-width="7" stroke-linecap="round"/><g transform="rotate(-14 90 100)"><rect x="34" y="92" width="112" height="34" rx="6" fill="none" stroke="#F0654A" stroke-width="5"/><text x="90" y="118" text-anchor="middle" font-size="22" font-weight="900" fill="#F0654A" font-family="Be Vietnam Pro">HẾT HẠN</text></g></svg>
+    <div class="vua">Năm sau<br><span class="v">hết mặt bằng</span></div></div>
+  <div class="dau" id="c4c" style="left:170px;top:1250px;font-size:64px;opacity:0">PE thấp = ảo giác</div>
+  ${NV('n4', 760, 1300, 170)}`);
+  const {T} = c; tieuDe(c, 0, 'PE có', '<span class="v">một điểm mù</span>');
+  nam.forEach((n, i) => vao('c4n' + i, T(1, i * .12), 'translateY(40px)', .45));
+  pop('c4mat', T(1, .9), .5); vao('c4a', T(2, .1)); vao('c4b', T(3, .1));
+  a('c4c', [{opacity: 0, transform: 'scale(2) rotate(-14deg)'}, {opacity: 1, transform: 'scale(1) rotate(-6deg)'}], T(4, .9), .3, DAP); SU_KIEN.push({t: T(4, .9), loai: 'dap'});
+  vao('n4', T(0, .8), 'translateY(300px)'); bieuCam('n4', 'nghi', T(1, .2)); bieuCam('n4', 'ngac', T(4, .9));
+}
+// C05 — bẫy giá trị, 3 nhóm
+{ const c = canh('C05', `
+  <div class="vua" id="c5def" style="position:absolute;left:80px;right:80px;top:420px;color:var(--mo)"><span class="v">Rẻ mà ôi:</span> PE thấp, <span style="color:var(--than)">nhưng không rẻ thật</span></div>
+  ${[['locK', 'NHÓM 1', 'Rời sàn'], ['bongBay', 'NHÓM 2', 'Lãi năm nay phồng'], ['rot', 'NHÓM 3', 'Lãi sẽ sụt mạnh']].map(([ic, n, t], i) =>
+    `<div class="the" id="c5g${i}" style="left:80px;right:80px;top:${600 + i * 250}px;display:flex;align-items:center;gap:30px">${ICON[ic]}<div><div class="nho">${n}</div><div class="to" style="font-size:58px">${t}</div></div></div>`).join('')}
+  <div class="the" id="c5mo" style="left:230px;right:230px;top:1390px;text-align:center;background:#0E6B53;color:#fff;padding:22px"><div class="vua">Mở báo cáo thật →</div></div>`);
+  const {T} = c; tieuDe(c, 0, 'Bẫy giá trị', '', null); c.s.querySelector('#SC05d1').style.color = 'var(--san)';
+  vao('c5def', T(0, 1.2), 'translateY(30px)');
+  [2, 3, 4].forEach((k, i) => vao('c5g' + i, T(k, .05), 'translateX(-200px)', .55));
+  pop('c5mo', T(5, .3), .5);
+}
+// C06 — nhóm 1 · rời sàn (bản 7 bỏ HWS: chỉ bị cảnh báo do kiểm toán ngoại trừ, không có nguy cơ rời sàn)
+{ const c = canh('C06', `<div id="c6gioi" style="position:absolute;inset:0">${PHO('pho6', 190, 520, 700, `<path d="M70 250 L630 520" stroke="#F3B43F" stroke-width="44"/><path d="M630 250 L70 520" stroke="#F3B43F" stroke-width="44"/><text x="350" y="400" text-anchor="middle" font-size="44" font-weight="900" fill="#1F2A37" font-family="Be Vietnam Pro" transform="rotate(-25 350 390)">NIÊM PHONG</text>`)}</div>
+  <div class="the" id="c6huy" style="left:100px;right:100px;top:1100px;text-align:center;z-index:7;border:5px solid #F0654A;opacity:0">${ICON.locK}<div class="to" style="margin-top:10px">Huỷ niêm yết</div><div class="vua v">tiền kẹt, không rút ra được</div></div>`);
+  quet(c.bd); const {T} = c;
+  tieuDe(c, 0, 'Rời sàn:', '<span class="x">muốn bán, không ai mua</span>', 'NHÓM 1 · RỜI SÀN');
+  vao('pho6', T(1, 0), 'translateY(100px)');
+  pop('c6huy', T(2, .3), .55); SU_KIEN.push({t: T(2, .3), loai: 'pop'});
+}
+// C06a — nhóm 1 · SWC mất tư cách đại chúng
+{ const c = canh('C06a', ``); const {T} = c;
+  quet(c.bd); tieuDe(c, 0, 'Mất tư cách', '<span class="x">công ty đại chúng</span>', 'NHÓM 1 · RỜI SÀN');
+  baoCao(c, {anh: 'swc_s', ma: 'SWC · vận tải thuỷ, cảng', tGiay: T(0, .8), tZoom: T(1, -.1), tDq: T(1, 1.4), tNhan: T(3, .7), nhan: 'Mất tư cách<br>đại chúng'});
+}
+// C06b — nhóm 1 · CDN nguy cơ huỷ niêm yết
+{ const c = canh('C06b', ``); const {T} = c;
+  tieuDe(c, 0, 'Nguy cơ', '<span class="x">huỷ niêm yết</span>', 'NHÓM 1 · RỜI SÀN');
+  baoCao(c, {anh: 'cdn_s', ma: 'CDN · Cảng Đà Nẵng', tGiay: T(0, .5), tZoom: T(1, -.1), tDq: T(1, 1.4), tNhan: T(3, .7), nhan: 'Nguy cơ huỷ<br>niêm yết'});
+}
+// C07 — nhóm 2 · NHT
+{ const c = canh('C07', `<div id="c7gioi" style="position:absolute;inset:0">
+   <svg id="xe7" style="position:absolute;left:140px;top:560px" width="800" height="520" viewBox="0 0 800 520"><ellipse cx="410" cy="482" rx="340" ry="24" fill="rgba(31,42,55,.12)"/>
+    ${[205, 625].map(x => `<g><circle cx="${x}" cy="400" r="80" fill="#1F2A37"/><circle cx="${x}" cy="400" r="50" fill="#C9D1DA"/><circle cx="${x}" cy="400" r="40" fill="#E6EBF0"/>
+     ${[0, 72, 144, 216, 288].map(g => `<path d="M${x} 400 L${x + 38 * Math.cos(g * Math.PI / 180)} ${400 + 38 * Math.sin(g * Math.PI / 180)}" stroke="#9AA3AF" stroke-width="9" stroke-linecap="round"/>`).join('')}<circle cx="${x}" cy="400" r="13" fill="#6B7280"/></g>`).join('')}
+    <path d="M598 160 L632 398" stroke="#6B7280" stroke-width="18" stroke-linecap="round"/>
+    <path d="M540 368 Q625 292 712 368 L700 376 Q625 312 552 376 Z" fill="#0E6B53"/>
+    <path d="M150 262 Q150 222 205 218 L425 216 Q460 218 456 262 Z" fill="#26313D"/><path d="M172 238 Q300 228 440 236" stroke="#3A4654" stroke-width="5" fill="none"/>
+    <path d="M92 350 Q84 285 150 262 L470 260 Q492 262 488 300 L478 352 L304 352 Q296 300 206 300 Q138 302 126 352 Z" fill="#0E6B53"/>
+    <path d="M140 300 Q300 284 470 292" stroke="#2FA383" stroke-width="10" fill="none" stroke-linecap="round"/>
+    <path d="M92 300 Q86 284 100 280 L118 282 L114 306 Z" fill="#F0654A"/>
+    <path d="M470 352 L560 352 L556 378 L466 378 Z" fill="#26313D"/>
+    <path d="M540 378 L556 172 Q560 140 590 138 L612 140 Q632 146 626 176 L586 378 Z" fill="#0E6B53"/><path d="M566 190 Q580 160 606 158" stroke="#2FA383" stroke-width="9" fill="none" stroke-linecap="round"/>
+    <path d="M520 128 L662 118" stroke="#1F2A37" stroke-width="16" stroke-linecap="round"/><rect x="640" y="108" width="34" height="22" rx="8" fill="#1F2A37"/>
+    <path d="M548 124 L534 76" stroke="#1F2A37" stroke-width="6"/><ellipse cx="532" cy="70" rx="16" ry="11" fill="#9AA3AF"/>
+    <path d="M612 146 Q650 140 660 162 Q646 184 616 178 Z" fill="#FFE066" stroke="#E3A72F" stroke-width="4"/>
+    <rect x="160" y="384" width="180" height="26" rx="13" fill="#9AA3AF"/><rect x="320" y="388" width="34" height="18" rx="9" fill="#6B7280"/></svg>
+   <div class="the" id="tien7" style="left:600px;top:470px;background:#F3B43F;font-size:56px;font-weight:900;padding:18px 30px;transform:rotate(6deg)">+ tiền bán xe</div>
+   <div class="vua" id="so7a" style="position:absolute;left:0;right:0;top:1150px;text-align:center">Sổ ghi: <span class="x">lãi đẹp</span></div>
+   <div class="vua" id="so7b" style="position:absolute;left:0;right:0;top:1230px;text-align:center">Năm sau: <span class="v">hết xe để bán</span></div></div>`);
+  quet(c.bd); const {T} = c;
+  tieuDe(c, 0, 'Lãi năm nay phồng', '<span class="x">nhờ khoản một lần</span>', 'NHÓM 2 · LÃI NĂM NAY PHỒNG', 'xanh');
+  vao('xe7', T(1, 0), 'translateX(-300px)', .7); pop('tien7', T(1, 2), .5); vao('so7a', T(2, .1)); vao('so7b', T(3, .1));
+  a('xe7', [{transform: 'none', opacity: 1}, {transform: 'translateX(700px)', opacity: 0}], T(3, .3), .9, MUOT);
+  an('c7gioi', T(4, -.1), .3);
+  baoCao(c, {anh: 'nht_s', ma: 'NHT · sản xuất đồ gỗ', tGiay: T(4, .1), tZoom: T(4, 1.2), tDq: T(4, 2.6), tHuy: T(5, .2), huy: {so: '1,1 tỷ', nhan: 'LÃI LÕI CÒN LẠI', mau: '#0E6B53'}, tNhan: T(6, .6), nhan: 'Lãi<br>một lần'});
+}
+// C08 — THG + số 30 %
+{ const c = canh('C08', `
+  <div class="the" id="c8so" style="left:70px;right:70px;top:560px;text-align:center;z-index:6;opacity:0">
+   <div class="nho">DỮ LIỆU 2016–2024</div><div class="vua" style="margin:16px 0">Lãi một năm &gt; 1,5 lần<br>mức giữa 5 năm trước</div>
+   <svg id="c8nguoi" width="800" height="170" viewBox="0 0 800 170"></svg>
+   <div class="to"><span class="v">30 %</span> sụt hơn 30 %</div><div class="vua m">ngay năm sau</div></div>`);
+  const {T} = c;
+  tieuDe(c, 0, 'Thu một lần', '<span class="x">từ cho thuê đất</span>', 'NHÓM 2 · LÃI NĂM NAY PHỒNG', 'xanh');
+  const b = baoCao(c, {anh: 'thg_s', ma: 'THG · bê tông, bất động sản', tGiay: T(0, .2), tZoom: T(0, .9), tDq: T(0, 2.2), tHuy: T(0, 3), huy: {so: '57%', nhan: 'LÃI TRƯỚC THUẾ'}, tNhan: T(1, .9), nhan: 'Doanh thu<br>dồn một kỳ', nv: false});
+  let g = ''; for (let i = 0; i < 10; i++) { const x = 40 + i * 76, do_ = i < 3;
+    g += `<g id="c8p${i}" opacity="0"><circle cx="${x}" cy="40" r="24" fill="${do_ ? '#F0654A' : '#C9CED6'}"/><path d="M${x - 30} 150 Q${x - 30} 74 ${x} 74 Q${x + 30} 74 ${x + 30} 150Z" fill="${do_ ? '#F0654A' : '#C9CED6'}"/></g>`; }
+  $('c8nguoi').innerHTML = g;
+  a(c.s.querySelector('.huy'), [{opacity: 1}, {opacity: 0}], T(2, 0), .3, 'linear');
+  a(c.s.querySelector('.nhan'), [{opacity: 1}, {opacity: 0}], T(2, 0), .3, 'linear');
+  b.an(T(2, 0)); pop('c8so', T(2, .3), .55);
+  for (let i = 0; i < 10; i++) hien('c8p' + i, T(2, 3.2 + i * .15), .2);
+}
+// C09 — nhóm 3 · BTH
+{ const c = canh('C09', `<div id="c9gioi" style="position:absolute;inset:0">${PHO('pho9', 190, 520, 700)}
+   <div class="the" id="hd9" style="left:560px;top:960px;width:420px;text-align:center;transform:rotate(4deg)"><div class="nho">HỢP ĐỒNG MẶT BẰNG</div><div class="to v" style="font-size:56px">Sắp hết hạn</div><div class="vua m">không gia hạn</div></div></div>
+  ${NV('n9', 60, 960, 230)}`);
+  quet(c.bd); const {T} = c;
+  tieuDe(c, 0, 'Lãi sẽ sụt mạnh', '<span class="v">dù năm nay vẫn tốt</span>', 'NHÓM 3 · LÃI SẼ SỤT MẠNH');
+  vao('pho9', T(1, 0), 'translateY(100px)'); vao('n9', T(1, .3), 'translateX(-300px)'); bong(c.s, 'Đông khách!', 220, 860, T(1, .8), T(2, .2));
+  pop('hd9', T(2, .4), .55); bieuCam('n9', 'lo', T(2, .8)); an('c9gioi', T(3, -.1), .3); an('n9', T(3, -.1), .3);
+  baoCao(c, {anh: 'bth_s', ma: 'BTH · bất động sản', tGiay: T(3, .1), tZoom: T(3, 1.1), tDq: T(3, 2.4), tHuy: T(3, 4.2), huy: {so: '82%', nhan: 'LÃI TRƯỚC THUẾ TỪ 1 DỰ ÁN'}, tNhan: T(4, .6), nhan: 'Hết dự án'});
+}
+// C10 — SJD BOT
+{ const c = canh('C10', ``); const {T} = c;
+  tieuDe(c, 0, 'Hết hạn khai thác:', '<span class="x">trả nhà máy năm 2028</span>', 'NHÓM 3 · LÃI SẼ SỤT MẠNH');
+  baoCao(c, {anh: 'sjd_bot_s', ma: 'SJD · thuỷ điện', tGiay: T(0, .5), tZoom: T(1, -.1), tDq: T(1, 1.3), tHuy: T(2, .4), huy: {so: '−84%', nhan: 'LÃI THƯỜNG', dem: {so: 84, tien: '−', sau: '%'}}, tNhan: T(3, 1.0), nhan: 'Hết hạn<br>khai thác'});
+}
+// C11 — KCB
+{ const c = canh('C11', ``); const {T} = c;
+  tieuDe(c, 0, 'Hết giấy phép mỏ', '<span class="x">hết hạn 12/2026</span>', 'NHÓM 3 · LÃI SẼ SỤT MẠNH');
+  baoCao(c, {anh: 'kcb_s', ma: 'KCB · khai khoáng', tGiay: T(0, .3), tZoom: T(0, 1.4), tDq: T(0, 2.6), tHuy: T(1, 1.4), huy: {so: '68%', nhan: 'LÃI TỪ BÃI KHU TÂY'}, tNhan: T(2, .7), nhan: 'Hết giấy<br>phép mỏ'});
+}
+// C12 — SCS (bản 13: bỏ "−48 % lãi thường" vì chưa có cơ sở; số tấn: báo cáo thường niên SCS 2025)
+{ const c = canh('C12', `<div id="c12gioi" style="position:absolute;inset:0">
+   <div class="the" id="c12a" style="left:60px;top:620px;width:440px;text-align:center">${MAYBAY('#E6EBF0', '#9AA3AF')}<div class="vua">Tân Sơn Nhất</div></div>
+   <div class="the" id="c12b" style="right:60px;top:620px;width:440px;text-align:center;border:5px solid #0E6B53">${MAYBAY('#FFFFFF', '#0E6B53')}<div class="vua x">Long Thành</div></div>
+   <svg id="c12mui" style="position:absolute;left:380px;top:980px" width="320" height="120" viewBox="0 0 320 120"><path d="M20 60 H280" stroke="#F0654A" stroke-width="16" stroke-linecap="round" stroke-dasharray="1" pathLength="1" id="c12mp"/><path d="M250 30 L292 60 L250 90" stroke="#F0654A" stroke-width="16" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+   <div class="to" id="c12chu" style="position:absolute;left:0;right:0;top:1130px;text-align:center"><span class="v">~80 %</span> hàng quốc tế</div></div>
+  <div id="c12so" style="position:absolute;inset:0;opacity:0">
+   <div class="the" id="c12bd" style="left:70px;right:70px;top:480px;padding:30px 36px"><div class="nho">SẢN LƯỢNG SCS NĂM 2025 · 278.843 TẤN</div>
+    <div style="display:flex;height:150px;margin-top:22px;border-radius:20px;overflow:hidden">
+     <div id="c12qt" style="flex:0 0 80.4%;background:#0E6B53;color:#fff;display:flex;flex-direction:column;justify-content:center;padding-left:26px;transform-origin:left"><b style="font-size:60px;line-height:1">80 %</b><span style="font-size:30px;font-weight:800">Quốc tế</span></div>
+     <div style="flex:1;background:#C9D6E3;display:flex;flex-direction:column;justify-content:center;align-items:center"><b style="font-size:40px;line-height:1">20 %</b><span style="font-size:24px;font-weight:800">Nội địa</span></div></div>
+    <div class="vua m" style="font-size:30px;margin-top:16px">224.328 tấn quốc tế · 54.515 tấn nội địa</div>
+    <div style="font-size:24px;font-weight:700;color:var(--mo);margin-top:6px">Nguồn: báo cáo thường niên SCS 2025</div></div>
+   <div class="dau" id="c12dau" style="left:110px;top:900px;font-size:52px;opacity:0">BÁT CƠM CHÍNH</div>
+   <div class="nhan" id="c12nhan" style="left:90px;top:1180px;opacity:0"><small>NHÃN BẪY</small><b>Đổi<br>quy hoạch</b></div>
+   ${NV('n12', 640, 1180, 190)}</div>`);
+  const {T} = c;
+  tieuDe(c, 0, 'Đổi quy hoạch:', '<span class="x">sân bay mới hút hàng</span>', 'NHÓM 3 · LÃI SẼ SỤT MẠNH');
+  vao('c12a', T(0, 1)); vao('c12b', T(1, 0)); a('c12mp', [{strokeDashoffset: 1}, {strokeDashoffset: 0}], T(1, .5), .8, MUOT); hien('c12mui', T(1, .5), .1); vao('c12chu', T(1, 1.2));
+  an('c12gioi', T(2, -.15), .3); hien('c12so', T(2, -.15), .3);
+  vao('c12bd', T(2, .1), 'translateY(80px)'); a('c12qt', [{transform: 'scaleX(0)'}, {transform: 'scaleX(1)'}], T(2, .6), 1.0, MUOT);
+  a('c12dau', [{opacity: 0, transform: 'scale(2) rotate(-14deg)'}, {opacity: 1, transform: 'scale(1) rotate(-6deg)'}], moc('C12', 3, 'bát'), .3, DAP); SU_KIEN.push({t: moc('C12', 3, 'bát'), loai: 'dap'});
+  vao('n12', T(3, .3), 'translateY(300px)'); bieuCam('n12', 'lo', moc('C12', 3, 'rủi'));
+  a('c12nhan', [{opacity: 0, transform: 'scale(1.7) rotate(-10deg)'}, {opacity: 1, transform: 'scale(1) rotate(4deg)'}], T(4, .5), .28, DAP); SU_KIEN.push({t: T(4, .5), loai: 'dap'});
+}
+// C13 — dấu hiệu cần cân nhắc · năm thuận
+{ const c = canh('C13', `<div id="c13gioi" style="position:absolute;inset:0">
+   <div class="the" id="c13a" style="left:90px;right:90px;top:640px;text-align:center;background:#EEF3F8">
+    <svg width="260" height="200" viewBox="0 0 260 200"><path d="M130 20 V180 M60 180 H200" stroke="#6B7A8C" stroke-width="12" stroke-linecap="round"/><path d="M30 60 H230" stroke="#6B7A8C" stroke-width="10" stroke-linecap="round" transform="rotate(-8 130 60)"/>
+     <path d="M30 70 L4 130 H58Z M230 52 L204 112 H256Z" fill="#C9D6E3" stroke="#6B7A8C" stroke-width="6"/></svg>
+    <div class="to" style="font-size:58px">Nguy hiểm thấp hơn</div><div class="vua m">chưa phải bẫy chắc</div></div></div>
+  <svg id="may13" style="position:absolute;left:620px;top:400px;opacity:0;z-index:6" width="340" height="300" viewBox="0 0 340 300"><path d="M70 150 a60 60 0 0 1 40 -100 a80 80 0 0 1 150 20 a55 55 0 0 1 10 110 H80 a45 45 0 0 1 -10 -30Z" fill="#9FB3C8"/>
+   <g stroke="#4DA3FF" stroke-width="10" stroke-linecap="round"><path d="M110 210 l-14 34"/><path d="M170 210 l-14 34"/><path d="M230 210 l-14 34"/></g></svg>`);
+  quet(c.bd); const {T} = c;
+  tieuDe(c, 0, 'Dấu hiệu', '<span style="color:#6B7A8C">cần cân nhắc</span>', 'NGOÀI 3 NHÓM BẪY', 'xam');
+  pop('c13a', T(1, .1), .55); an('c13gioi', T(2, -.1), .3);
+  baoCao(c, {anh: 'sjd_mua_s', ma: 'SJD · thuỷ điện', tGiay: T(2, .1), tZoom: T(2, 1.2), tDq: T(2, 3.4), tNhan: T(4, 1.2), nhan: 'Năm thuận', co: true, tNv: T(4, .2)});
+  a('may13', [{opacity: 0, transform: 'translateY(-60px)'}, {opacity: 1, transform: 'none'}], T(3, .1), .6);
+}
+// C14 — pha loãng · VRG
+{ const c = canh('C14', `<div id="c14gioi" style="position:absolute;inset:0">
+   <svg id="pz14" style="position:absolute;left:190px;top:560px" width="700" height="700" viewBox="-380 -380 760 760"><circle r="340" fill="#E39A3B"/><circle r="300" fill="#F7C948"/>
+    <g fill="#F0654A"><circle cx="-120" cy="-90" r="40"/><circle cx="110" cy="-140" r="38"/><circle cx="40" cy="60" r="42"/><circle cx="-150" cy="120" r="36"/><circle cx="170" cy="110" r="40"/><circle cx="-20" cy="-220" r="34"/><circle cx="-40" cy="210" r="36"/></g>
+    <g id="lat14" stroke="#FBF5EA" stroke-width="10"></g></svg></div>
+  <div class="the" id="c14t" style="left:90px;right:90px;top:560px;text-align:center;z-index:6;opacity:0;background:#EEF3F8">
+   <svg width="200" height="190" viewBox="0 0 200 190"><path d="M60 40 Q100 10 140 40 L128 58 H72Z" fill="#C98D4E"/><path d="M40 70 Q100 50 160 70 Q190 120 160 170 Q100 190 40 170 Q10 120 40 70Z" fill="#E9B676"/><text x="100" y="140" text-anchor="middle" font-size="60" font-weight="900" fill="#0E6B53" font-family="Be Vietnam Pro">₫</text></svg>
+   <div class="to" style="font-size:56px">Thu tiền thật</div><div class="vua m">chỉ hại khi tiền mới<br>sinh lãi kém</div></div>`);
+  const {T} = c;
+  tieuDe(c, 0, 'Pha loãng:', '<span style="color:#6B7A8C">chia bánh nhiều phần</span>', 'DẤU HIỆU CẦN CÂN NHẮC', 'xam');
+  pop('pz14', T(0, .3), .6);
+  let l = ''; for (let i = 0; i < 11; i++) { const g = 2 * Math.PI * i / 11; l += `<line id="l14_${i}" x1="0" y1="0" x2="${340 * Math.cos(g)}" y2="${340 * Math.sin(g)}" opacity="0"/>`; } $('lat14').innerHTML = l;
+  for (let i = 0; i < 11; i++) hien('l14_' + i, T(0, 1 + i * .08), .1);
+  an('c14gioi', T(1, -.1), .3);
+  const b = baoCao(c, {anh: 'vrg_s', ma: 'VRG · khu công nghiệp', tieuDiem: [103, 985, 900, 431], s1: .95, s0: .6, tGiay: T(1, .0), tZoom: T(1, .6), tDq: T(1, 1.8), tHuy: T(1, 2.6), huy: {so: '+1.058%', nhan: 'SỐ CỔ PHIẾU PHÁT HÀNH THÊM', mau: '#6B7A8C'}, tNhan: T(4, .4), nhan: 'Pha loãng', co: true, tNv: T(3, .2)});
+  pop('c14t', T(2, .2), .55); an('c14t', T(3, 3.4), .3);
+}
+// C15 — máy tìm, bạn quyết
+{ const c = canh('C15', `
+  <div class="the" id="c15a" style="left:70px;top:450px;width:450px;text-align:center">${ICON.kinhLup}<div class="to x" style="font-size:56px">Máy tìm</div><div class="vua m">trình bằng chứng</div></div>
+  <div class="the" id="c15b" style="right:70px;top:450px;width:450px;text-align:center;border:5px solid #F0654A">${NV('n15', 0, 0, 120, 'position:relative;left:auto;top:auto')}<div class="to v" style="font-size:56px">Bạn quyết</div><div class="vua m">loại hay giữ</div></div>
+  <div id="c15c" style="position:absolute;left:0;right:0;top:850px;text-align:center"><div class="vong" style="position:absolute;left:375px;top:10px;width:330px;height:330px"></div>
+   <img src="nv_sol/thien_nga.png" style="position:relative;width:340px;height:340px">
+   <div class="to" style="font-size:66px;margin-top:-10px">Thiên nga đen</div><div class="nho" style="margin-top:6px">BẪY KHÔNG AI THẤY TRƯỚC</div></div>
+  ${[['bao', 'Sốc kinh tế'], ['matNa', 'Sai phạm kín'], ['lua', 'Sự cố']].map(([ic, t], i) => `<div class="the" id="c15m${i}" style="left:${70 + i * 320}px;top:1335px;width:300px;text-align:center;padding:16px 10px;border:5px solid #1F2A37">${ICON[ic]}<div class="vua" style="font-size:38px">${t}</div></div>`).join('')}`);
+  quet(c.bd); const {T} = c;
+  vao('c15a', T(0, .2), 'translateX(-200px)'); pop('c15c', moc('C15', 3, 'thiên'), .6); SU_KIEN.push({t: moc('C15', 3, 'thiên'), loai: 'pop'});
+  vao('c15b', T(2, .1), 'translateX(200px)');
+  [['sốc', 0], ['sai', 1], ['sự', 2]].forEach(([w, i]) => pop('c15m' + i, moc('C15', 3, w), .5));
+}
+// C15a — bẫy không ai thấy trước · Covid 2020
+{ const c = canh('C15a', `
+  <svg id="c15aVr" style="position:absolute;left:640px;top:440px" width="300" height="300" viewBox="-150 -150 300 300">
+   ${Array.from({length: 10}, (_, i) => { const g = i * 36 * Math.PI / 180; return `<path d="M${88 * Math.cos(g)} ${88 * Math.sin(g)} L${124 * Math.cos(g)} ${124 * Math.sin(g)}" stroke="#F0654A" stroke-width="12"/><circle cx="${128 * Math.cos(g)}" cy="${128 * Math.sin(g)}" r="15" fill="#F0654A"/>`; }).join('')}
+   <circle r="92" fill="#F0654A"/><circle cx="-30" cy="-20" r="16" fill="#C9473A"/><circle cx="28" cy="18" r="22" fill="#C9473A"/><circle cx="-12" cy="40" r="11" fill="#C9473A"/></svg>
+  <div class="the" id="c15aDt" style="left:70px;right:70px;top:760px;height:520px;padding:30px 36px"><div class="nho">VNINDEX</div>
+   <svg width="868" height="400" viewBox="0 0 868 400" style="position:absolute;left:36px;top:84px;overflow:visible">
+    <path d="M0 360 H868" stroke="#EEE6D8" stroke-width="4"/>
+    <path id="c15aL" d="M20 60 L120 50 L220 90 L320 80 L420 140 L520 170 L600 250 L680 230 L760 330 L820 310" fill="none" stroke="#F0654A" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+    <circle cx="20" cy="60" r="14" fill="#1F2A37"/><text x="20" y="30" font-size="40" font-weight="900" fill="#1F2A37" font-family="Be Vietnam Pro">960</text>
+    <g id="c15aD" opacity="0"><circle cx="760" cy="330" r="14" fill="#F0654A"/><text x="640" y="310" font-size="40" font-weight="900" fill="#F0654A" font-family="Be Vietnam Pro">659</text></g>
+    <text x="20" y="400" font-size="30" font-weight="800" fill="#6B7280" font-family="Be Vietnam Pro">12/2019</text><text x="868" y="400" text-anchor="end" font-size="30" font-weight="800" fill="#6B7280" font-family="Be Vietnam Pro">24/03/2020</text></svg></div>
+  <div class="huy" id="c15aHuy" style="right:60px;top:1300px"><b id="c15aSo">−31%</b><small>VNINDEX</small></div>
+  <div class="vua" id="c15aMoi" style="position:absolute;left:80px;right:420px;top:1360px">Cổ phiếu tốt <span class="v">cũng giảm mạnh</span></div>`);
+  quet(c.bd); const {T} = c;
+  tieuDe(c, 0, 'Sốc kinh tế:', '<span class="v">dịch Covid 2020</span>', 'KHÔNG AI THẤY TRƯỚC · 1');
+  pop('c15aVr', T(0, 1.4), .6); a('c15aVr', [{transform: 'rotate(0)'}, {transform: 'rotate(40deg)'}], T(0, 1.4), 16, 'linear');
+  vao('c15aDt', T(2, 0), 'translateY(120px)', .6);
+  a('c15aL', [{strokeDashoffset: 1}, {strokeDashoffset: 0}], T(2, .8), 4.6, MUOT); hien('c15aD', T(2, 5.3), .2);
+  pop('c15aHuy', T(2, 5.3), .55); DEM.push({id: 'c15aSo', t: T(2, 5.5), tien: '−', so: 31, sau: '%'}); SU_KIEN.push({t: T(2, 5.5), loai: 'dem'});
+  vao('c15aMoi', T(3, .2), 'translateY(40px)');
+}
+// C15a2 — DGC 2026: lãnh đạo bị khởi tố (giá 12/03 80.900 đ; 23/10 33.700 đ theo mâm đèn xanh server)
+{ const c = canh('C15a2', `<div id="c15dT1" style="position:absolute;inset:0">
+   <div class="the" id="c15dCt" style="left:70px;top:450px;width:440px;text-align:center"><svg width="230" height="170" viewBox="0 0 230 170"><path d="M10 160 V80 L60 55 V80 L110 55 V80 L160 55 V160 Z" fill="#0E6B53"/><rect x="170" y="20" width="34" height="140" fill="#6B7A8C"/>
+     <path d="M187 18 Q200 0 222 6" stroke="#C9D6E3" stroke-width="12" fill="none" stroke-linecap="round"/><g fill="#DDF1EA"><rect x="30" y="105" width="22" height="22" rx="4"/><rect x="75" y="105" width="22" height="22" rx="4"/><rect x="120" y="105" width="22" height="22" rx="4"/></g></svg>
+    <div class="to" style="font-size:56px">DGC</div><div class="vua m" style="font-size:32px">Hoá chất Đức Giang</div></div>
+   <div class="the" id="c15dTot" style="right:70px;top:450px;width:440px;padding:26px 30px"><div class="nho">NĂM 2025</div>
+    <div class="vua" style="font-size:38px;margin-top:8px">✓ Lãi <span class="x">10/10 năm</span></div><div class="vua" style="font-size:38px">✓ Nợ vay <span class="x">10 %</span> vốn</div><div class="vua" style="font-size:38px">✓ ROE <span class="x">19,5 %</span></div></div>
+   <div class="the" id="c15d81" style="left:70px;right:70px;top:880px;text-align:center"><div class="nho">12/03/2026</div><div class="to x" style="font-size:96px">80.900 đ</div></div>
+   <div class="dau" id="c15dDau" style="left:120px;top:1110px;font-size:46px;opacity:0;z-index:7">17/03 · CHỦ TỊCH BỊ KHỞI TỐ</div>
+   <div class="the" id="c15dSan" style="left:200px;right:200px;top:1250px;text-align:center;border:5px solid #F0654A;padding:20px"><div class="vua v">Giảm sàn 5 phiên liền</div></div></div>
+  <div id="c15dT2" style="position:absolute;inset:0;opacity:0">
+   <div class="the" id="c15dT7" style="left:70px;right:70px;top:430px;text-align:center;padding:24px"><div class="nho">THÁNG 7/2026</div><div class="vua">Thêm tổng giám đốc + <span class="v">2 lãnh đạo bị khởi tố</span></div></div>
+   <div class="the" id="c15dDt" style="left:70px;right:70px;top:700px;height:480px;padding:30px 36px"><div class="nho">GIÁ CỔ PHIẾU DGC · NGHÌN ĐỒNG</div>
+    <svg width="868" height="380" viewBox="0 0 868 380" style="position:absolute;left:36px;top:84px;overflow:visible">
+     <path d="M0 350 H868" stroke="#EEE6D8" stroke-width="4"/>
+     <path id="c15dL" d="M20 40 L120 140 L200 200 L300 190 L420 230 L520 250 L600 300 L700 290 L800 318" fill="none" stroke="#F0654A" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+     <circle cx="20" cy="40" r="14" fill="#1F2A37"/><text x="48" y="30" font-size="40" font-weight="900" fill="#1F2A37" font-family="Be Vietnam Pro">80,9</text>
+     <g id="c15dD" opacity="0"><circle cx="800" cy="318" r="14" fill="#F0654A"/><text x="760" y="290" text-anchor="end" font-size="40" font-weight="900" fill="#F0654A" font-family="Be Vietnam Pro">33,7</text></g>
+     <text x="20" y="390" font-size="30" font-weight="800" fill="#6B7280" font-family="Be Vietnam Pro">12/03/2026</text><text x="868" y="390" text-anchor="end" font-size="30" font-weight="800" fill="#6B7280" font-family="Be Vietnam Pro">23/10/2026</text></svg></div>
+   <div class="huy" id="c15dHuy" style="right:60px;top:1200px;opacity:0"><b id="c15dSo">−58%</b><small>GIÁ CỔ PHIẾU</small></div></div>`);
+  quet(c.bd); const {T} = c;
+  tieuDe(c, 0, 'Sai phạm kín:', '<span class="v">lãnh đạo bị khởi tố</span>', 'KHÔNG AI THẤY TRƯỚC · 2', '', 150);
+  vao('c15dCt', T(0, .8), 'translateX(-200px)'); vao('c15dTot', T(1, .2), 'translateX(200px)');
+  vao('c15d81', T(2, .2), 'translateY(80px)');
+  const kt = moc('C15a2', 3, 'khởi');
+  a('c15dDau', [{opacity: 0, transform: 'scale(2) rotate(-14deg)'}, {opacity: 1, transform: 'scale(1) rotate(-5deg)'}], kt, .3, DAP); SU_KIEN.push({t: kt, loai: 'dap'});
+  vao('c15dSan', T(4, .1), 'translateY(60px)');
+  an('c15dT1', T(5, -.15), .3); hien('c15dT2', T(5, -.15), .3);
+  pop('c15dT7', T(5, .2), .5); SU_KIEN.push({t: T(5, .2), loai: 'pop'});
+  vao('c15dDt', T(5, 1.6), 'translateY(120px)', .6);
+  a('c15dL', [{strokeDashoffset: 1}, {strokeDashoffset: 0}], T(6, .2), 3.8, MUOT); hien('c15dD', T(6, 4.0), .2);
+  pop('c15dHuy', T(6, 4.0), .55); DEM.push({id: 'c15dSo', t: T(6, 4.2), tien: '−', so: 58, sau: '%'}); SU_KIEN.push({t: T(6, 4.2), loai: 'dem'});
+}
+// C15b — PNJ 2026: khủng hoảng kim cương
+{ const NGUOI = m => `<svg width="70" height="110" viewBox="0 0 70 110"><circle cx="35" cy="24" r="20" fill="${m}"/><path d="M5 110 Q5 52 35 52 Q65 52 65 110Z" fill="${m}"/></svg>`;
+  const c = canh('C15b', `<div id="c15bT1" style="position:absolute;inset:0">
+   <div class="the" id="c15bKc" style="left:70px;top:470px;width:440px;text-align:center"><svg width="220" height="180" viewBox="0 0 220 180"><path d="M50 20 H170 L210 66 L110 172 L10 66 Z" fill="#BFE6F4" stroke="#4A90B8" stroke-width="6" stroke-linejoin="round"/>
+     <path d="M10 66 H210 M50 20 L80 66 L110 20 L140 66 L170 20 M80 66 L110 172 L140 66" stroke="#4A90B8" stroke-width="5" fill="none" stroke-linejoin="round"/></svg><div class="to" style="font-size:56px">PNJ</div><div class="vua m" style="font-size:34px">vàng bạc · kim cương</div></div>
+   <div class="the" id="c15b84" style="right:70px;top:470px;width:440px;text-align:center"><div class="nho">ĐẦU NĂM 2026</div><div class="to x" style="font-size:96px">84.000</div><div class="vua m">đồng · vùng đỉnh</div></div>
+   <div class="the" id="c15bGiay" style="left:70px;top:900px;width:440px;text-align:center"><svg width="180" height="200" viewBox="0 0 180 200"><rect x="20" y="6" width="140" height="186" rx="12" fill="#fff" stroke="#1F2A37" stroke-width="6"/><path d="M44 46 H136 M44 76 H136 M44 106 H110" stroke="#9AA3AF" stroke-width="8" stroke-linecap="round"/><path d="M70 130 H110 L124 146 L90 182 L56 146 Z" fill="#BFE6F4" stroke="#4A90B8" stroke-width="4"/></svg>
+    <div class="vua">Giấy kiểm định</div></div>
+   <div class="dau" id="c15bDau" style="left:110px;top:960px;font-size:48px;opacity:0;z-index:7">THÁNG 7 · KHỞI TỐ</div>
+   <div class="the" id="c15bKhach" style="right:70px;top:900px;width:440px;text-align:center"><div style="display:flex;justify-content:center;gap:6px">${NGUOI('#6B7A8C')}${NGUOI('#1F2A37')}${NGUOI('#6B7A8C')}${NGUOI('#1F2A37')}</div><div class="vua" style="margin-top:12px">Khách kéo tới<br><span class="v">bán lại kim cương</span></div></div></div>
+  <div id="c15bT2" style="position:absolute;inset:0;opacity:0">
+   <div class="the" id="c15bSo1" style="left:70px;top:430px;width:450px;text-align:center"><div class="nho">RIÊNG THÁNG 7</div><div class="to v" style="font-size:66px">~6.000 tỷ</div><div class="vua m" style="font-size:34px">chi mua lại</div></div>
+   <div class="the" id="c15bSo2" style="right:70px;top:430px;width:450px;text-align:center"><div class="nho">CAM KẾT THU ĐỔI</div><div class="to v" style="font-size:66px">~21.000 tỷ</div><div class="vua m" style="font-size:34px">đồng</div></div>
+   <div class="dau" id="c15bBo" style="left:250px;top:700px;font-size:52px;opacity:0">RỦI RO RẤT CAO</div>
+   <div class="the" id="c15bDt" style="left:70px;right:70px;top:800px;height:480px;padding:30px 36px"><div class="nho">GIÁ CỔ PHIẾU PNJ · NGHÌN ĐỒNG</div>
+    <svg width="868" height="380" viewBox="0 0 868 380" style="position:absolute;left:36px;top:84px;overflow:visible">
+     <path d="M0 350 H868" stroke="#EEE6D8" stroke-width="4"/>
+     <path id="c15bL" d="M20 40 L180 50 L340 56 L420 230 L500 200 L600 250 L700 290 L800 318" fill="none" stroke="#F0654A" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+     <circle cx="20" cy="40" r="14" fill="#1F2A37"/><text x="48" y="30" font-size="40" font-weight="900" fill="#1F2A37" font-family="Be Vietnam Pro">84</text>
+     <g id="c15bD" opacity="0"><circle cx="800" cy="318" r="14" fill="#F0654A"/><text x="760" y="290" text-anchor="end" font-size="40" font-weight="900" fill="#F0654A" font-family="Be Vietnam Pro">17</text></g>
+     <text x="20" y="390" font-size="30" font-weight="800" fill="#6B7280" font-family="Be Vietnam Pro">đầu 2026</text><text x="868" y="390" text-anchor="end" font-size="30" font-weight="800" fill="#6B7280" font-family="Be Vietnam Pro">24/10/2026</text></svg></div>
+   <div class="huy" id="c15bHuy" style="right:60px;top:1300px;opacity:0"><b id="c15bSoH">−80%</b><small>GIÁ CỔ PHIẾU</small></div></div>`);
+  quet(c.bd); const {T} = c;
+  tieuDe(c, 0, 'Sự cố:', '<span class="v">khủng hoảng kim cương</span>', 'KHÔNG AI THẤY TRƯỚC · 3', '', 150);
+  vao('c15bKc', T(0, .6), 'translateX(-200px)'); vao('c15b84', T(1, .3), 'translateX(200px)');
+  vao('c15bGiay', T(2, .1), 'translateY(80px)');
+  a('c15bDau', [{opacity: 0, transform: 'scale(2) rotate(-14deg)'}, {opacity: 1, transform: 'scale(1) rotate(-8deg)'}], moc('C15b', 2, 'khởi'), .3, DAP); SU_KIEN.push({t: moc('C15b', 2, 'khởi'), loai: 'dap'});
+  vao('c15bKhach', T(3, .1), 'translateX(200px)');
+  an('c15bT1', T(4, -.15), .3); hien('c15bT2', T(4, -.15), .3);
+  pop('c15bSo1', T(4, .4), .5); SU_KIEN.push({t: T(4, .4), loai: 'pop'}); pop('c15bSo2', T(5, .4), .5); SU_KIEN.push({t: T(5, .4), loai: 'pop'});
+  a('c15bBo', [{opacity: 0, transform: 'scale(2) rotate(-14deg)'}, {opacity: 1, transform: 'scale(1) rotate(-6deg)'}], T(6, .6), .3, DAP); SU_KIEN.push({t: T(6, .6), loai: 'dap'});
+  vao('c15bDt', T(6, 1.2), 'translateY(120px)', .6);
+  a('c15bL', [{strokeDashoffset: 1}, {strokeDashoffset: 0}], T(7, .2), 3.6, MUOT); hien('c15bD', T(7, 3.8), .2);
+  pop('c15bHuy', T(7, 3.8), .55); DEM.push({id: 'c15bSoH', t: T(7, 4.0), tien: '−', so: 80, sau: '%'}); SU_KIEN.push({t: T(7, 4.0), loai: 'dem'});
+}
+// C15c — chỉ có một cách chống: chia nhỏ rủi ro
+{ const c = canh('C15c', `<div class="vong" id="v15c" style="width:760px;height:760px;left:160px;top:560px"></div>
+  <div class="the" id="c15cMay" style="left:70px;top:460px;width:440px;text-align:center">${ICON.kinhLup}<div class="vua">Máy <span class="v">không thấy</span></div></div>
+  <div class="the" id="c15cNg" style="right:70px;top:460px;width:440px;text-align:center">${NV('n15c', 0, 0, 70, 'position:relative;left:auto;top:auto')}<div class="vua">Người <span class="v">không thấy</span></div></div>
+  <div class="the" id="c15cD" style="left:150px;right:150px;top:920px;text-align:center;background:#0E6B53;color:#fff;padding:40px"><div style="display:flex;justify-content:center;gap:10px">${ICON.gio}${ICON.gio}${ICON.gio}</div><div class="to" style="font-size:64px">Chia trứng<br>vào nhiều rổ</div></div>`);
+  quet(c.bd); const {T} = c;
+  vao('c15cMay', T(0, .8), 'translateX(-200px)'); vao('c15cNg', T(0, 1.6), 'translateX(200px)');
+  a('v15c', [{transform: 'scale(.2)', opacity: 0}, {transform: 'scale(1)', opacity: 1}], T(1, 1.4), .8);
+  pop('c15cD', moc('C15c', 1, 'chia'), .55); SU_KIEN.push({t: moc('C15c', 1, 'chia'), loai: 'pop'});
+}
+// C16 — bước 1
+{ const c = canh('C16', `
+  <div class="the" id="c16dt" style="left:110px;right:110px;top:560px;padding:26px 34px">
+   <div style="display:flex;gap:34px;border-bottom:4px solid #EEE6D8;padding-bottom:16px;font-size:38px;font-weight:800"><span class="m">Lọc</span><span style="color:#0E6B53;border-bottom:6px solid #0E6B53;padding-bottom:10px">Danh sách</span><span class="m">Hướng dẫn</span></div>
+   ${['Mã A · Ngành 1', 'Mã B · Ngành 2', 'Mã C · Ngành 3'].map((t, i) => `<div id="c16r${i}" style="display:flex;justify-content:space-between;font-size:42px;font-weight:800;padding:18px 4px;border-bottom:2px solid #F3EADB">${t}<span style="color:#1D9E75">★</span></div>`).join('')}</div>
+  ${['Mở báo cáo bát cơm', 'Dính bẫy giá trị nào?'].map((t, i) => `<div class="the" id="c16k${i}" style="left:110px;right:110px;top:${1080 + i * 130}px;padding:22px 30px;font-size:44px;font-weight:800;display:flex;gap:20px;align-items:center">
+    <svg width="54" height="54" viewBox="0 0 54 54"><circle cx="27" cy="27" r="25" fill="#0E6B53"/><path d="M15 28 L24 37 L40 19" stroke="#fff" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>${t}</div>`).join('')}`);
+  quet(c.bd); const {T} = c;
+  tieuDe(c, 1, 'Bước 1', '<span class="v">Loại mã bẫy</span>', '3 BƯỚC LÀM', 'xanh');
+  vao('c16dt', T(3, .1), 'translateY(100px)'); [0, 1, 2].forEach(i => vao('c16r' + i, T(4, i * .2), 'translateX(-80px)', .45));
+  vao('c16k0', T(5, .2), 'translateX(-200px)', .5); vao('c16k1', T(6, .3), 'translateX(-200px)', .5);
+}
+// C16a — 1 trang đủ các loại bẫy (INSIGHT PHỤ LỤC E); ô xám = dấu hiệu cần cân nhắc (khớp C13–C14)
+{ const NHOM = [['NHÓM 1 · RỜI SÀN', '#F0654A', ['Đang bị sàn xử lý', 'Mất tư cách đại chúng']],
+    ['NHÓM 2 · LÃI NĂM NAY PHỒNG', '#E1A53B', ['Lãi một lần', 'Doanh thu dồn một kỳ', 'Đỉnh chu kỳ giá', '~Năm thuận', 'Lãi tự doanh chưa bán']],
+    ['NHÓM 3 · LÃI SẼ SỤT MẠNH', '#0E6B53', ['Hết dự án, quỹ đất', 'Hết mỏ, phép, BOT, thuê đất', 'Mất khách chính', 'Hết việc nối tiếp', 'Thiếu nguyên liệu',
+      'Đổi luật, thuế, quy hoạch', 'Chi phí sắp tăng', 'Gian lận, quản trị', 'Cạnh tranh bất lợi', '~Pha loãng', 'Nợ vượt sức', 'Khó thu hồi tài sản', 'Sự cố tài sản', 'Sốc vĩ mô']]];
+  const c = canh('C16a', `<div style="position:absolute;left:60px;right:60px;top:410px">${NHOM.map(([ten, mau, ds], k) => `
+    <div id="c16aN${k}" style="margin-bottom:26px"><div class="nho" style="color:${mau};margin-bottom:12px">${ten}</div>
+     <div style="display:flex;flex-wrap:wrap;gap:12px">${ds.map(x => { const xam = x[0] === '~'; return `<span style="font-size:31px;font-weight:800;padding:11px 18px;border-radius:14px;background:${xam ? '#E3E8EE' : '#fff'};color:${xam ? '#6B7A8C' : 'var(--than)'};border:3px solid ${xam ? '#C9D6E3' : mau};box-shadow:0 10px 20px -14px rgba(31,42,55,.35)">${xam ? x.slice(1) : x}</span>`; }).join('')}</div></div>`).join('')}</div>
+  <div class="nhan" id="c16aN" style="right:60px;top:1410px;opacity:0;z-index:7"><small>BƯỚC 1</small><b>Rẻ mà ôi<br>thì tránh</b></div>`);
+  const {T} = c;
+  tieuDe(c, 0, 'Các loại', '<span class="v">bẫy giá trị</span>', 'DANH SÁCH SOÁT', 'xanh', 130);
+  [0, 1, 2].forEach(k => vao('c16aN' + k, T(0, 1.2 + k * .6), 'translateY(60px)', .55));
+  const tr = moc('C16a', 3, 'tránh');
+  a('c16aN', [{opacity: 0, transform: 'scale(1.7) rotate(-10deg)'}, {opacity: 1, transform: 'scale(1) rotate(4deg)'}], tr, .28, DAP); SU_KIEN.push({t: tr, loai: 'dap'});
+}
+// C17 — bước 2
+{ const c = canh('C17', `
+  <div id="c17chia" style="position:absolute;inset:0"><div id="o17"></div>
+   <div id="coc17" style="position:absolute;left:600px;top:250px;width:400px;text-align:center">${TIEN(380, 6)}<div class="to x" style="font-size:60px;margin-top:-6px">100 triệu</div></div>
+   <div class="the" id="c17phep" style="left:70px;right:70px;top:1310px;text-align:center;padding:22px;font-size:44px;font-weight:800">100 triệu ÷ 20 mã = <span class="x">5 triệu mỗi mã</span></div></div>
+  <div class="the" id="c17bd" style="left:70px;right:70px;top:500px;opacity:0;z-index:4"><div class="nho" style="text-align:center">5 % TRƯỜNG HỢP XẤU NHẤT · SAU 3 NĂM</div><svg id="bd17" width="868" height="540" viewBox="0 0 868 540"></svg></div>
+  ${[['2 ngành đông nhất ≤ <span class="x">10 mã</span>', 5], ['Tiền lớn: mua <span class="x">1 đợt</span>', 6], ['Tiền dư: thêm dần tới <span class="x">20 mã</span>', 7]].map(([t, k], i) =>
+    `<div class="the" id="c17r${i}" style="left:70px;right:70px;top:${1160 + i * 120}px;padding:20px 30px;font-size:42px;font-weight:800">${t}</div>`).join('')}`);
+  const {T} = c;
+  tieuDe(c, 0, 'Bước 2', '<span class="x">Giải ngân</span>', '3 BƯỚC LÀM', 'xanh');
+  // 20 ô mã; mỗi ô nhận 1 cục 5 triệu bay ra từ cọc 100 triệu
+  const OW = 165, OH = 150, GX = 16, OX = 95, OY = 640, CX = 800, CY = 380; let o = '';
+  for (let i = 0; i < 20; i++) { const x = OX + (i % 5) * (OW + GX), y = OY + Math.floor(i / 5) * (OH + GX);
+    o += `<div id="o17_${i}" style="position:absolute;left:${x}px;top:${y}px;width:${OW}px;height:${OH}px;border-radius:22px;background:#fff;border:4px solid #0E6B53;box-shadow:0 12px 20px -14px rgba(31,42,55,.4);text-align:center">
+      <div style="font-size:24px;font-weight:800;color:var(--mo);margin-top:8px">Mã ${i + 1}</div>
+      <div id="tien17_${i}" style="margin-top:2px">${TIEN(112, 3)}</div><div style="font-size:30px;font-weight:900;color:#0E6B53;margin-top:-4px">5 triệu</div></div>`; }
+  $('o17').innerHTML = o;
+  vao('coc17', T(0, .6), 'translateY(-60px) scale(.8)', .6);
+  for (let i = 0; i < 20; i++) { const x = OX + (i % 5) * (OW + GX) + OW / 2, y = OY + Math.floor(i / 5) * (OH + GX) + 75, t = T(1, .2 + i * .14);
+    hien('o17_' + i, t - .25, .2);
+    a('tien17_' + i, [{transform: `translate(${CX - x}px, ${CY - y}px) scale(1.6)`, opacity: 0}, {transform: `translate(${CX - x}px, ${CY - y}px) scale(1.6)`, opacity: 1, offset: .15}, {transform: 'none', opacity: 1}], t, .55, MUOT); }
+  SU_KIEN.push({t: T(1, .2), loai: 'vut'});
+  a('coc17', [{transform: 'none'}, {transform: 'scale(.55)', opacity: .5}], T(1, .2), 20 * .14 + .4, 'linear');
+  pop('c17phep', T(1, 3.3), .5); SU_KIEN.push({t: T(1, 3.3), loai: 'pop'});
+  an('c17chia', T(3, -.3), .3); pop('c17bd', T(3, -.1), .5);
+  const B = [['1 mã', -37.7, 3, .3], ['10 mã', 3.7, 4, 0], ['20 mã', 8.1, 4, .6]];
+  const y = v => 160 - v * 8.5; let s = `<line x1="40" x2="828" y1="${y(0)}" y2="${y(0)}" stroke="#C9CED6" stroke-width="4"/>`;
+  B.forEach(([ten, v, k, oo], i) => { const x = 110 + i * 250, top = Math.min(y(0), y(v)), h = Math.abs(y(v) - y(0));
+    s += `<g id="cot17_${i}"><rect x="${x}" y="${top}" width="160" height="${h}" rx="14" fill="${v < 0 ? '#F0654A' : '#0E6B53'}"/>
+      <text x="${x + 80}" y="${v < 0 ? top + h + 56 : top - 18}" text-anchor="middle" font-size="50" font-weight="900" fill="${v < 0 ? '#F0654A' : '#0E6B53'}" font-family="Be Vietnam Pro">${v > 0 ? '+' : '−'}${String(Math.abs(v)).replace('.', ',')} %</text>
+      <text x="${x + 80}" y="${v < 0 ? y(0) - 20 : y(0) + 52}" text-anchor="middle" font-size="40" font-weight="800" fill="#1F2A37" font-family="Be Vietnam Pro">${ten}</text></g>`; });
+  $('bd17').innerHTML = s; B.forEach(([, , k, oo], i) => vao('cot17_' + i, T(k, oo + (i === 1 ? 0 : 0)), 'translateY(40px)', .5));
+  [5, 6, 7].forEach((k, i) => vao('c17r' + i, T(k, .1), 'translateX(-200px)', .5));
+}
+// C18 — bước 3
+{ const c = canh('C18', `
+  <div class="nho" id="c18l" style="position:absolute;left:80px;top:480px">LÔ = 1 ĐỢT MUA</div>
+  <div style="position:absolute;left:80px;right:80px;top:540px;height:120px;border-radius:24px;background:#fff;overflow:hidden;box-shadow:0 20px 40px -26px rgba(31,42,55,.4)">
+   <div id="c18bar" style="position:absolute;inset:0;background:linear-gradient(90deg,#0E6B53,#1D9E75);transform-origin:left center;transform:scaleX(0)"></div>
+   <div style="position:absolute;inset:0;display:flex;justify-content:space-around;align-items:center;font-size:40px;font-weight:900;color:#fff"><span id="c18y1" style="opacity:0">Năm 1</span><span id="c18y2" style="opacity:0">Năm 2</span><span id="c18y3" style="opacity:0">Năm 3 → bán hết</span></div></div>
+  <div class="nho" id="c18c" style="position:absolute;left:80px;top:730px">CHỈ BÁN 1 MÃ KHI</div>
+  <div class="the" id="c18a" style="left:80px;right:80px;top:790px;padding:22px 30px;font-size:46px;font-weight:800">PE <span class="v">≥ 20</span>, bất kỳ phiên nào</div>
+  <div class="the" id="c18b" style="left:80px;right:80px;top:920px;padding:22px 30px;font-size:46px;font-weight:800">Cuối tháng 4: <span class="v">hết đèn xanh</span></div>
+  <div class="the" id="c18d" style="left:80px;right:80px;top:1050px;padding:22px 30px;font-size:46px;font-weight:800;background:#DDF1EA">Bán xong: mua ngay 1 mã <span style="color:#1D9E75">★</span> khác</div>
+  <div class="to x" id="c18e" style="position:absolute;left:0;right:0;top:1210px;text-align:center;font-size:84px">Còn lại: GIỮ</div>
+  <div class="dau" id="c18f" style="left:100px;top:1360px;opacity:0">KHÔNG CẮT LỖ</div>
+  <div class="dau" id="c18g" style="right:90px;top:1350px;opacity:0">KHÔNG CHỜ GIÁ</div>`);
+  const {T} = c;
+  tieuDe(c, 0, 'Bước 3', '<span class="x">Mua · Giữ · Bán</span>', '3 BƯỚC LÀM', 'xanh');
+  vao('c18l', T(1, .1), 'translateY(20px)'); a('c18bar', [{transform: 'scaleX(0)'}, {transform: 'scaleX(1)'}], T(2, .1), 3, 'linear');
+  hien('c18y1', T(2, .6), .2); hien('c18y2', T(2, 1.6), .2); hien('c18y3', T(2, 2.6), .2);
+  vao('c18c', T(3, .1), 'translateY(20px)'); vao('c18a', T(3, 2.2), 'translateX(-200px)'); vao('c18b', T(3, 3.6), 'translateX(-200px)'); vao('c18d', T(4, .1), 'translateX(-200px)');
+  pop('c18e', T(5, .1), .5);
+  a('c18f', [{opacity: 0, transform: 'scale(2) rotate(-14deg)'}, {opacity: 1, transform: 'scale(1) rotate(-6deg)'}], T(6, .2), .3, DAP); SU_KIEN.push({t: T(6, .2), loai: 'dap'});
+  a('c18g', [{opacity: 0, transform: 'scale(2) rotate(10deg)'}, {opacity: 1, transform: 'scale(1) rotate(5deg)'}], T(7, .2), .3, DAP); SU_KIEN.push({t: T(7, .2), loai: 'dap'});
+}
+// C19 — hiệu quả
+{ const c = canh('C19', `
+  <div class="the" id="c19a" style="left:70px;top:420px;width:450px;text-align:center;border:5px solid #0E6B53"><div style="font-size:96px;font-weight:900;color:#0E6B53;line-height:1">21,9%</div><div class="nho">MỖI NĂM · MÃ CÓ ★</div></div>
+  <div class="the" id="c19b" style="right:70px;top:420px;width:450px;text-align:center;border:5px solid #9AA3AF"><div style="font-size:96px;font-weight:900;color:#6B7A8C;line-height:1">9,3%</div><div class="nho">MỖI NĂM · VNINDEX</div></div>
+  <div class="the" style="left:70px;right:70px;top:690px;padding:20px" id="c19bdk"><svg id="bd19" width="900" height="560" viewBox="0 0 900 560"></svg></div>
+  <div class="the" id="c19c" style="left:70px;top:1300px;width:450px;text-align:center;padding:22px"><div class="to x" style="font-size:58px">12/14 năm</div><div class="nho">THẮNG VNINDEX</div></div>
+  <div class="the" id="c19d" style="right:70px;top:1300px;width:450px;text-align:center;padding:22px"><div class="to v" style="font-size:58px">−15 %</div><div class="nho">NĂM TỆ NHẤT</div></div>
+  <div id="c19e" style="position:absolute;left:80px;right:80px;top:1475px;text-align:center;font-size:30px;font-weight:700;color:var(--mo)">04/2012 → 16/10/2026 · kiểm lại trên dữ liệu quá khứ, không phải lời hứa lợi nhuận</div>`);
+  quet(c.bd); const {T} = c;
+  tieuDe(c, 0, 'Kết quả', '<span class="x">của rổ mã rẻ</span>', 'HIỆU QUẢ', 'xanh');
+  // số từng năm: viec_ngoai/buffett_17-10/vn/KQ_nam_dat_co.md (cột Cả ĐẠT, VNINDEX)
+  const D = [12, 54, 27, 23, 23, 20, 14, 0, 91, 41, -15, 30, 20, 13, -5], V = [0, 22, -3, 6, 20, 46, -7, -21, 61, 10, -23, 15, 1, 51, -8];
+  const tl = arr => arr.reduce((m, r) => (m.push(m[m.length - 1] * (1 + r / 100)), m), [100]);
+  const A = tl(D), Bv = tl(V), W = 900, H = 560, L = 30, R = 210, Tt = 40, Bt = 60;
+  const px = i => L + i * (W - L - R) / (A.length - 1), py = v => Tt + (1 - Math.log(v / 80) / Math.log(2200 / 80)) * (H - Tt - Bt);
+  const path = arr => arr.map((v, i) => `${i ? 'L' : 'M'}${px(i).toFixed(1)},${py(v).toFixed(1)}`).join('');
+  let g = ''; [100, 300, 1000].forEach(v => g += `<line x1="${L}" x2="${W - R + 20}" y1="${py(v)}" y2="${py(v)}" stroke="#EEE6D8" stroke-width="3"/>`);
+  ['2012', '2016', '2020', '2024'].forEach((n, k) => g += `<text x="${px(k * 4)}" y="${H - 14}" text-anchor="middle" font-size="28" fill="#6B7280" font-weight="700" font-family="Be Vietnam Pro">${n}</text>`);
+  g += `<path id="dV19" d="${path(Bv)}" fill="none" stroke="#9AA3AF" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>`;
+  g += `<path id="dA19" d="${path(A)}" fill="none" stroke="#0E6B53" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>`;
+  g += `<text id="sA19" x="${px(14) + 12}" y="${py(A[15]) + 14}" font-size="44" font-weight="900" fill="#0E6B53" font-family="Be Vietnam Pro" opacity="0"><tspan x="${px(15) + 18}" font-size="38">1 tỷ</tspan><tspan x="${px(15) + 18}" dy="40" font-size="34">742 triệu</tspan></text>`;
+  g += `<text id="sV19" x="${px(14) + 12}" y="${py(Bv[15]) + 14}" font-size="44" font-weight="900" fill="#6B7A8C" font-family="Be Vietnam Pro" opacity="0"><tspan x="${px(15) + 18}" font-size="38">360</tspan><tspan x="${px(15) + 18}" dy="40" font-size="34">triệu</tspan></text>`;
+  g += `<text id="s019" x="${px(0) + 6}" y="${py(100) - 16}" font-size="30" font-weight="800" fill="#1F2A37" font-family="Be Vietnam Pro" opacity="0">100 triệu</text>`;
+  $('bd19').innerHTML = g;
+  pop('c19a', T(1, 2.2), .55); pop('c19b', T(2, .1), .55); vao('c19bdk', T(1, .3), 'translateY(60px)');
+  a('dA19', [{strokeDashoffset: 1}, {strokeDashoffset: 0}], T(1, .9), 3.2, MUOT); a('dV19', [{strokeDashoffset: 1}, {strokeDashoffset: 0}], T(2, .2), 2.4, MUOT);
+  hien('s019', T(3, .1), .3); pop('sA19', T(3, 1.8), .5); pop('sV19', T(3, 4.0), .5);
+  pop('c19c', T(4, .1), .5); pop('c19d', T(5, .1), .5); hien('c19e', T(6, .1), .4);
+}
+// C20 — kết
+{ const c = canh('C20', `
+  <div style="position:absolute;left:80px;right:80px;top:300px;display:grid;grid-template-columns:1fr 1fr;gap:26px">
+   ${[['Mua rẻ', 'x'], ['Tránh của ôi', 'v'], ['Chia đều', 'x'], ['Giữ đúng luật', 'v']].map(([t, m], i) => `<div class="the" id="c20c${i}" style="position:relative;text-align:center;padding:30px 10px"><div class="to ${m}" style="font-size:56px">${t}</div></div>`).join('')}</div>
+  <div class="vong" id="v20" style="width:700px;height:700px;left:190px;top:700px"></div>
+  ${CA('b20', 140, 760, 800)}${NV('n20', 40, 1000, 260)}
+  <div class="to" id="c20q" style="position:absolute;left:0;right:0;top:1330px;text-align:center;font-size:70px"><span class="x">Món hời</span> <span class="m">hay</span><br><span class="v">của ôi?</span></div>`);
+  quet(c.bd); const {T} = c;
+  [.6, 1.4, 2.2, 3.0].forEach((o, i) => pop('c20c' + i, T(0, o), .45));
+  a('v20', [{transform: 'scale(.2)', opacity: 0}, {transform: 'scale(1)', opacity: 1}], T(1, 0), .8);
+  vao('b20', T(1, .3), 'translateY(100px)'); vao('n20', T(1, .6), 'translateX(-300px)'); bieuCam('n20', 'nghi', T(1, 1.2));
+  vao('c20q', T(1, 2.6), 'translateY(40px)');
+  hoaOi('b20', moc('C20', 1, 'ôi', true) - .2, .8);
+}
+// C21 — cảnh cuối: link trang
+{ const c = canh('C21', `<div class="vong" id="v21" style="width:820px;height:820px;left:130px;top:520px"></div>
+  <div id="c21web" style="position:absolute;left:150px;right:150px;top:800px;text-align:center;background:#0E6B53;color:#fff;font-size:84px;font-weight:900;padding:34px 0;border-radius:999px;box-shadow:0 30px 50px -24px rgba(14,107,83,.7)">dungladu.vn</div>
+  <div class="vua" id="c21chu" style="position:absolute;left:0;right:0;top:1020px;text-align:center;color:var(--mo)">Danh sách mã · báo cáo bát cơm</div>
+  ${NV('n21', 760, 1240, 200)}`);
+  quet(c.bd); const {T} = c;
+  a('v21', [{transform: 'scale(.2)', opacity: 0}, {transform: 'scale(1)', opacity: 1}], T(0, .1), .8);
+  pop('c21web', T(0, 1.0), .55); SU_KIEN.push({t: T(0, 1.0), loai: 'pop'});
+  vao('c21chu', T(0, 1.6), 'translateY(30px)'); vao('n21', T(0, .8), 'translateY(300px)'); tay('n21', 0, -50, T(0, 1.4));
+}
+// tiến độ
+a('td', [{width: '0%'}, {width: '100%'}], 0, T0, 'linear');
+
+// ---------- phụ đề chạy chữ ----------
+const DOC = [['Pi I', 'PE'], ['Đi Gi Xi', 'DGC'], ['Ét Đắp Liu Xi', 'SWC'], ['Xi Đi En', 'CDN'], ['đúng là đủ chấm vi en', 'dungladu.vn'], ['Pi En Giây', 'PNJ'], ['Cô Vít', 'Covid'], ['Ếch Đắp Liu Ét', 'HWS'], ['En Hát Ti', 'NHT'], ['Ti Hát Gi', 'THG'], ['Ét Giây Đi', 'SJD'], ['Bi Ti Hát', 'BTH'],
+  ['Kây Xi Bi', 'KCB'], ['Ét Xi Ét', 'SCS'], ['Vi A Gi', 'VRG'], ['Vi En In Đéc', 'VNINDEX']];
+function phuDe(t) {
+  let c = null; for (const k of DS) if (t >= BD[k] && t < BD[k] + NHIP[k].dai) c = k;
+  const el = $('phude'); if (!c) { el.innerHTML = ''; return; }
+  const l = t - BD[c]; let x0 = null;
+  for (const x of NHIP[c].cau) if (l >= x.bd - .15 && l < x.bd + x.dai + .25) x0 = x;
+  if (!x0) { el.innerHTML = ''; return; }
+  const tu = x0.tu.map(([a, d, s]) => ({a, d, s}));
+  for (const [doc, ma] of DOC) { const n = doc.split(' ').length;
+    for (let i = 0; i + n <= tu.length; i++) if (tu.slice(i, i + n).map(x => x.s.replace(/[.,:?!]/g, '')).join(' ') === doc) {
+      const cuoi = tu[i + n - 1].s.match(/[.,:?!]$/); tu.splice(i, n, {a: tu[i].a, d: tu[i + n - 1].a + tu[i + n - 1].d - tu[i].a, s: ma + (cuoi ? cuoi[0] : '')}); } }
+  const lc = l - x0.bd; el.style.fontSize = tu.length > 20 ? '42px' : tu.length > 14 ? '46px' : '50px';
+  el.innerHTML = tu.map(x => `<span style="color:${lc >= x.a + x.d ? '#1F2A37' : lc >= x.a - .03 ? '#F0654A' : 'rgba(31,42,55,.28)'}">${x.s}</span>`).join(' ');
+}
+
+const CANH_EL = DS.map(c => ({c, el: $('S' + c)}));
+let truoc = null;
+window.ve = function (t) {
+  let dang = CANH_EL[CANH_EL.length - 1];
+  for (const x of CANH_EL) if (t >= BD[x.c] && t < BD[x.c] + NHIP[x.c].dai) { dang = x; break; }
+  if (dang !== truoc) { for (const x of CANH_EL) x.el.style.display = x === dang ? 'block' : 'none'; truoc = dang; }
+  for (const an_ of document.getAnimations()) { an_.pause(); an_.currentTime = t * 1000; }
+  dang.el.querySelectorAll('.nv').forEach((n, i) => {
+    n.querySelector('.nv-than').style.transform = `scaleY(${1 + Math.sin(t * 2.4 + i) * .012})`;
+    const ph = (t + i * 1.7) % 3.7; n.querySelector('.nv-mat').style.transform = ph < .13 ? 'scaleY(.1)' : 'none';
+    n.querySelector('.nv-dau').style.transform = `rotate(${Math.sin(t * 1.3 + i) * 2.5}deg)`; });
+  for (const d of DEM) { const el = $(d.id); if (!el) continue; const k = Math.max(0, Math.min(1, (t - d.t) / 1.1));
+    el.textContent = d.tien + Math.round(d.so * (1 - Math.pow(1 - k, 3))) + d.sau; }
+  phuDe(t);
+};
+(async () => { await document.fonts.ready; await Promise.all([...document.images].map(i => i.decode().catch(() => 0))); window.ve(0); window.SAN_SANG = true; })();
+</script>
+</body></html>
